@@ -46,8 +46,8 @@
                   <input type="text" class="form-control" placeholder="search" name="q" value="${q}">
                 </div>
             </g:form>
-            </sec:ifLoggedIn>
-            <ul class="nav navbar-nav navbar-right">
+          </sec:ifLoggedIn>
+          <ul class="nav navbar-nav navbar-right">
                 <sec:ifNotLoggedIn>
                    <%--Login (solo se non loggati)--%>
                    <li><g:link controller='login' action='auth'><g:message code="menu.login.label" /></g:link></li>
@@ -60,20 +60,20 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:username/><b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="<g:createLink controller="utente" action="changePassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
+                        <li><a href="<g:createLink controller="user" action="changePassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
                         <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>
                       </ul>
                     </li>
                 </sec:ifLoggedIn>
-            </ul>
-            <%--
+          </ul>
+          <%--
             <form class="navbar-form navbar-right" role="login">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="email">
                   <input type="password" class="form-control" placeholder="password">
                 </div>
                 <button type="submit" class="btn btn-default">Login</button>
-            </form> --%>
+          </form> --%>
         </div>
         <!-- /.navbar-collapse -->
     </div>

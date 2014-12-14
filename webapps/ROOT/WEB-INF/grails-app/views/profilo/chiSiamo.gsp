@@ -7,19 +7,21 @@
     <body>
       <div class="container">
         <div class="content scaffold-show" role="main">
+        
             <h2><g:message code="menu.chisiamo.label"/></h2>
-            
-            <blockquote>
-                <p><g:message code="chisiamo.testo1"/></p>
-            </blockquote> 
-            
-            <blockquote>
-                <p><g:message code="chisiamo.testo2"/></p>
-            </blockquote> 
-            
-            <blockquote>
+        
+            <div class="row">
+                <div class="col-md-6">
+                    <g:img file="chisiamo1.jpg"  class="img-rounded"/>
+                </div>
+                <div class="col-md-6">
+                    <p><g:message code="chisiamo.testo1"/></p>  
+                    <p><g:message code="chisiamo.testo2"/></p>
+                    
+                </div>
                 <p><g:message code="chisiamo.testo3"/></p>
-            </blockquote>       
+            </div>    
+            
         </div>
       </div>
     </body>
