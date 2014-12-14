@@ -17,7 +17,7 @@
                 <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
                     <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
                     <div class="item ${i==0 ? 'active' : ''}">
-                           <img class="slide-image img-responsive center-block" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
+                           <img class="slide-image" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
                            <div class="carousel-caption">
                             <h3><g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link></h3>
                             <div class="truncate-carousel">${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</div>

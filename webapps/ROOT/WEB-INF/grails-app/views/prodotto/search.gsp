@@ -16,7 +16,7 @@
         <div class="container" > <%--style="background-color: #76AF8C;" --%>
             <div class="row">
                 <div class="col-md-3">
-                    <g:img file="saLogo.jpg"/>
+                    <g:img file="saLogo.jpg" class="img-rounded"/>
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" > <%-- style="background-color: #023261;" --%>

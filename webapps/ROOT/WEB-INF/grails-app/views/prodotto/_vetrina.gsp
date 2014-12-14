@@ -6,13 +6,10 @@
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
                 <g:render template="/prodotto/image" model="[id: prodottoInstance.id]"/>
-                <div class="caption">
+                <div class="caption-vetrina">
                     <h5>
                         <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione?.nome.toLowerCase()?.capitalize()}</g:link>
                     </h5>
-                    <g:if test="${internazionalizzazione.note}" > 
-                        <p class="small truncate">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
-                    </g:if>
                 </div>
 
                 <div class="ratings">

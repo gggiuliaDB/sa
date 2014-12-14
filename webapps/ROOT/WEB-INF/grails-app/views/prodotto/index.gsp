@@ -20,14 +20,14 @@
             <div class="row">
 
                 <div class="col-md-3">
-                    <g:img file="saLogo.jpg"/>
+                    <g:img file="saLogo.jpg" class="img-rounded"/>
                     <g:render template="tipi"></g:render>
                     <hr>
                     <locale:selector />
                 </div>
                 <div class="col-md-9">
                     <g:render template="carousel"></g:render>
-                    <g:render template="vetrina" model="[prodottoInstanceList: topProducts]"></g:render>
+                    <g:render template="topProducts" model="[prodottoInstanceList: topProducts]"></g:render>
                 </div>
             </div>
         </div>

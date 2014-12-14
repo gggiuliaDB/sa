@@ -27,7 +27,7 @@
             <div >
                 <div class="row">
                     <div class="col-md-5">
-                        <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;"/>
+                        <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;" class="img-rounded"/>
                     </div>
                     <div class="col-md-7">
                         <div class="caption-full">
