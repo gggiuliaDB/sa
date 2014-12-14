@@ -39,8 +39,11 @@
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
+                      <sec:ifLoggedIn>
                         <p>Sarda Affumicati s.r.l.- Loc. Sa Colombera- 09010 Buggerru (CI) P.I. 01853450920</p>
+                        
                         <%--Copyright &copy; GGG 2014--%>
+                      </sec:ifLoggedIn>
                     </div>
                 </div>
             </footer>
