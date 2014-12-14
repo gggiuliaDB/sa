@@ -18,6 +18,8 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <sec:ifLoggedIn>
+            
             <ul class="nav navbar-nav">
                 <li>
                     <g:link controller="profilo" action="chiSiamo">
@@ -44,6 +46,7 @@
                   <input type="text" class="form-control" placeholder="search" name="q" value="${q}">
                 </div>
             </g:form>
+            </sec:ifLoggedIn>
             <ul class="nav navbar-nav navbar-right">
                 <sec:ifNotLoggedIn>
                    <%--Login (solo se non loggati)--%>
