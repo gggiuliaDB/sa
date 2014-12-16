@@ -1,4 +1,3 @@
-
 <%@ page import="it.ggg.sa.prodotto.Prodotto" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,7 @@
         <div class="container" > <%--style="background-color: #76AF8C;" --%>
             <div class="row">
                 <div class="col-md-3">
-                    <g:img file="saLogo.jpg" class="img-rounded"/>
+                    <g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" > <%-- style="background-color: #023261;" --%>

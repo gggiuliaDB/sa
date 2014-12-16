@@ -56,11 +56,21 @@
                 </sec:ifNotLoggedIn>
 
                 <sec:ifLoggedIn>
+                
+                    <li>
+                        <g:menuLink/>
+
+                        <!--<g:link controller="carrello" >
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                        </g:link>-->
+                    </li>
+                    
+                
                     <%--Cambio pwd e logout (solo per loggati)--%>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:username/><b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="<g:createLink controller="user" action="changePassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
+                        <li><a href="<g:createLink controller="user" action="cambioPassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
                         <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>
                       </ul>
                     </li>

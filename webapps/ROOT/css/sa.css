@@ -19,7 +19,7 @@ body {
 */
 
 .caption {
-    height: 130px;
+    height: 160px;
     overflow: hidden;
 }
 
@@ -132,5 +132,11 @@ line-height: 1.4em;
 overflow: hidden;
 position: relative;}
 
+.list-group-item-info{
+    background-color: white;
+    color: #023261;
+}
 
-
+.control-label{
+    font-weight:normal;
+}

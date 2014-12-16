@@ -56,6 +56,8 @@
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
     <resource>it.ggg.sa.security.LogoutController</resource>
+    <resource>it.ggg.sa.security.RegisterController</resource>
+    <resource>it.ggg.sa.security.UserController</resource>
     <resource>it.ggg.sa.acquisto.Acquisto</resource>
     <resource>it.ggg.sa.acquisto.StatoPagamento</resource>
     <resource>it.ggg.sa.carrello.Carrello</resource>
@@ -71,6 +73,7 @@
     <resource>it.ggg.sa.security.Role</resource>
     <resource>it.ggg.sa.security.User</resource>
     <resource>it.ggg.sa.security.UserRole</resource>
+    <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
     <resource>it.ggg.sa.localization.LocaleTagLib</resource>
   </resources>
   <plugins>

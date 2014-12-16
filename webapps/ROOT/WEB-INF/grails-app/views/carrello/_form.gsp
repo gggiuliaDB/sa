@@ -2,21 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: carrelloInstance, field: 'confezione', 'error')} required">
-	<label for="confezione">
-		<g:message code="carrello.confezione.label" default="Confezione" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: carrelloInstance, field: 'confezioniCarrello', 'error')} ">
+	<label for="confezioniCarrello">
+		<g:message code="carrello.confezioniCarrello.label" default="Confezioni Carrello" />
+		
 	</label>
-	<g:select id="confezione" name="confezione.id" from="${it.ggg.sa.prodotto.Confezione.list()}" optionKey="id" required="" value="${carrelloInstance?.confezione?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: carrelloInstance, field: 'quantita', 'error')} required">
-	<label for="quantita">
-		<g:message code="carrello.quantita.label" default="Quantita" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="quantita" type="number" value="${carrelloInstance.quantita}" required=""/>
+	<g:select name="confezioniCarrello" from="${it.ggg.sa.carrello.ConfezioneCarrello.list()}" multiple="multiple" optionKey="id" size="5" value="${carrelloInstance?.confezioniCarrello*.id}" class="many-to-many"/>
 
 </div>
 

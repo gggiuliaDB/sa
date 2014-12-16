@@ -17,38 +17,28 @@
 
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
-            <h2>${internazionalizzazione.nome.toLowerCase().capitalize()}</h2>
-            <h5>${internazionalizzazione.note}</h5>
+            <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}</h1>
+            <p>${internazionalizzazione.note}</p>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <%--<g:render template="addToChart" model="[id: prodottoInstance.id]"></g:render>--%>
-
+            
             <div >
                 <div class="row">
                     <div class="col-md-5">
                         <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;" class="img-rounded"/>
                     </div>
                     <div class="col-md-7">
-                        <div class="caption-full">
-
-                            <div class="well confezionamento-table" >
-                                <table class="table ">
-                                    <g:each in="${ prodottoInstance.confezioni }" var="confezione" >
-                                        <tr>
-                                            <td>${confezione.descrizione}</td>
-                                            <td>&euro;${confezione.prezzo}</td>
-                                            <td class="pull-right">
-                                                <g:link class="btn btn-success btn-sm">
-                                                <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />
-                                                </g:link>
-                                            </td>
-                                        </tr>
-                                    </g:each>
-                                </table>
-                            </div>
-
-                        </div>
+                        <ul class="list-group">
+                            <g:each in="${ prodottoInstance.confezioni }" var="confezione" >
+                                <li class="list-group-item list-group-item-info">
+                                    <span ><g:link controller="carrello" action="add" id="${confezione.id}" class="btn btn-success btn-sm pull-right">
+                                        <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />
+                                    </g:link></span>
+                                    <div style="height:40px;">${confezione.descrizione}</div>
+                                </li>
+                            </g:each>
+                        </ul>
                     </div>
                 </div>
                 <br>

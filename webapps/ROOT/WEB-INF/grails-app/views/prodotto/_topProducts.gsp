@@ -11,7 +11,7 @@
                         <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione?.nome.toLowerCase()?.capitalize()}</g:link>
                     </h5>
                     <g:if test="${internazionalizzazione.note}" > 
-                        <p class="small truncate">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
+                        <p class="small">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
                     </g:if>
                 </div>
 

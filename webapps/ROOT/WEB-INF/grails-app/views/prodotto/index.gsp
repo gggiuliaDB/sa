@@ -16,16 +16,22 @@
         </g:if>    
 
         <div class="container">
-
+            
+            
+            
             <div class="row">
 
-                <div class="col-md-3">
-                    <g:img file="saLogo.jpg" class="img-rounded"/>
+                <div class="col-md-2">
+                    <g:img file="saLogo.jpg" class="img-rounded" style="width: 100%; max-width:400px;"/>
                     <g:render template="tipi"></g:render>
                     <hr>
                     <locale:selector />
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
+                    <g:if test="${flash.message}">
+                        <div class="alert alert-success" role="status">${flash.message}</div>
+                    </g:if>
+                    
                     <g:render template="carousel"></g:render>
                     <g:render template="topProducts" model="[prodottoInstanceList: topProducts]"></g:render>
                 </div>

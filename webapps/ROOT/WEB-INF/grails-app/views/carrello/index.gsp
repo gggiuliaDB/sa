@@ -24,11 +24,7 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="carrello.confezione.label" default="Confezione" /></th>
-					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'carrello.dateCreated.label', default: 'Date Created')}" />
-					
-						<g:sortableColumn property="quantita" title="${message(code: 'carrello.quantita.label', default: 'Quantita')}" />
 					
 						<th><g:message code="carrello.utente.label" default="Utente" /></th>
 					
@@ -38,11 +34,7 @@
 				<g:each in="${carrelloInstanceList}" status="i" var="carrelloInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${carrelloInstance.id}">${fieldValue(bean: carrelloInstance, field: "confezione")}</g:link></td>
-					
-						<td><g:formatDate date="${carrelloInstance.dateCreated}" /></td>
-					
-						<td>${fieldValue(bean: carrelloInstance, field: "quantita")}</td>
+						<td><g:link action="show" id="${carrelloInstance.id}">${fieldValue(bean: carrelloInstance, field: "dateCreated")}</g:link></td>
 					
 						<td>${fieldValue(bean: carrelloInstance, field: "utente")}</td>
 					
