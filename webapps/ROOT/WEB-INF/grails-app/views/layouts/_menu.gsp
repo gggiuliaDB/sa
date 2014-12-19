@@ -1,3 +1,5 @@
+<%@ page import="it.ggg.sa.prodotto.Linea"%>
+
 <!-- Navigation -->
 <%-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >--%>
 <nav class="navbar navbar-inverse navbar-default" role="navigation" >
@@ -33,16 +35,25 @@
                 </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="language.changeLanguage.label" default="Change language"/> <span class="caret"></span></a>
-                  <locale:selector/>
-                  <%--<ul class="dropdown-menu" >
-                    <li><a href="#"><g:message code="language.italiano.label"/></a></li>
-                    <li><a href="#"><g:message code="language.inglese.label"/></a></li>
-                    <li><a href="#"><g:message code="language.francese.label"/></a></li>
-                  </ul>--%>
+                  <locale:selector/>                  
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.prodotti.label" default="Prodotti"/> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" >
+                    <g:each in="${Linea.list()}" var="l">
+                        <li>
+                            <g:link controller="prodotto" action="search" params="[linea: l.id, visualizzazione: visualizzazione]">
+                                ${l.getNome(lang.toString())}
+                            </g:link>
+                        </li>
+                    </g:each>
+                    <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>                  
+                  </ul>
                 </li>
             </ul>
-            <g:form class="navbar-form navbar-left" role="search" controller="prodotto" action="search">
+            <g:form class="navbar-form navbar-left" role="search" controller="prodotto" action="search" >
                 <div class="form-group">
+                  <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
                   <input type="text" class="form-control" placeholder="search" name="q" value="${q}">
                 </div>
             </g:form>

@@ -11,7 +11,7 @@
             <li>
         </g:else>
         <g:link controller="prodotto" action="search"
-            params="[linea: l.id, tipoProdotto: tipoProdotto, max: params.max, offset: params.offset]">
+            params="[linea: l.id, tipoProdotto: tipoProdotto, visualizzazione: visualizzazione]"> <%--, max: params.max, offset: params.offset --%>
             ${l.getNome(lang.toString())}
         </g:link>
         </li>
@@ -28,7 +28,7 @@
             <li>
         </g:else>
         <g:link controller="prodotto" action="search"
-            params="[linea: linea, tipoProdotto: tp.id, max: params.max, offset: params.offset]">
+            params="[linea: linea, tipoProdotto: tp.id, visualizzazione: visualizzazione]">       <%--, max: params.max, offset: params.offset --%>
             ${tp.getNome(lang.toString())}
         </g:link>
         </li>
@@ -36,7 +36,7 @@
 </ul>
 <hr>
 <ul class="nav nav-pills nav-stacked">
-    <li><g:link controller="prodotto" action="search"><g:message code="visualizzaTutti.label"/></g:link></li>
+    <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>
 </ul>
 </div>
 

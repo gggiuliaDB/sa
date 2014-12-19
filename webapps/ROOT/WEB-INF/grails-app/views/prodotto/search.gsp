@@ -12,14 +12,27 @@
             <g:set var="lang" value="it"/>
         </g:if>
 
+        
         <div class="container" > <%--style="background-color: #76AF8C;" --%>
+            
             <div class="row">
                 <div class="col-md-3">
                     <g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>
                     <g:render template="tipi" ></g:render>
                 </div>
-                <div class="col-md-9" > <%-- style="background-color: #023261;" --%>
-                    <g:render template="vetrina"></g:render>
+                <div class="col-md-9" >
+                    <div class="pull-right">
+                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'l']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link>
+                        <g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link> 
+                    </div>
+                    <br>
+                    <g:if test="${visualizzazione=='l'}">
+                        <g:render template="vetrina"></g:render>
+                    </g:if>
+                    <g:else>
+                        <g:render template="vetrinaS"></g:render>
+                    </g:else>
+                        
                 </div>
             </div>
         </div>
