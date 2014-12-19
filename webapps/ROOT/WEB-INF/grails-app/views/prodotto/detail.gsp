@@ -35,7 +35,7 @@
                                     <span ><g:link controller="carrello" action="add" id="${confezione.id}" class="btn btn-success btn-sm pull-right">
                                         <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />
                                     </g:link></span>
-                                    <div style="height:40px;">${confezione.descrizione}</div>
+                                    <div style="min-height:40px;">${confezione.descrizione}</div>
                                 </li>
                             </g:each>
                         </ul>

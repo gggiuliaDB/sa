@@ -56,13 +56,11 @@
                 </sec:ifNotLoggedIn>
 
                 <sec:ifLoggedIn>
-                
                     <li>
                         <g:menuLink/>
-
-                        <!--<g:link controller="carrello" >
+                        <%--<g:link controller="carrello" >
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                        </g:link>-->
+                        </g:link>--%>
                     </li>
                     
                 

@@ -12,7 +12,7 @@
         
             <div class="row">
                 <div class="col-md-6">
-                    <g:img file="chisiamo1.jpg"  class="img-rounded"/>
+                    <g:img file="chisiamo1.jpg"  class="img-rounded" style="width:90%;"/>
                 </div>
                 <div class="col-md-6">
                     <p><g:message code="chisiamo.testo1"/></p>  
