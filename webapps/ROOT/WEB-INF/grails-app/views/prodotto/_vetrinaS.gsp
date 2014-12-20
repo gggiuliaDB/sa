@@ -2,18 +2,18 @@
     <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
         <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
         <tr>
-            <td>
+            <td style="vertical-align: middle;">
                 <g:link action="detail" id="${prodottoInstance.id}" >
                     <img  src="${createLink(controller:'prodotto', action:'viewImage', id: prodottoInstance.id)}"  style="width:50px;" class="img-rounded"/>
                 </g:link>                 
             </td>
-            <td>
+            <td style="vertical-align: middle;">
                 <h4><g:link action="detail" id="${prodottoInstance.id}" style="text-decoration: none;">
                         ${internazionalizzazione?.nome.toLowerCase()?.capitalize()}
                     </g:link>
                 </h4>
             </td>
-            <td>
+            <td style="vertical-align: middle;">
                 <div class="ratings">
                     <p class="pull-right">15 reviews</p>
                     <p>

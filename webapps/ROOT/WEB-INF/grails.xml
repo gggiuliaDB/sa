@@ -52,6 +52,7 @@
     <resource>resources</resource>
     <resource>UrlMappings</resource>
     <resource>it.ggg.sa.carrello.CarrelloController</resource>
+    <resource>it.ggg.sa.carrello.ConfezioneCarrelloController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
@@ -62,6 +63,7 @@
     <resource>it.ggg.sa.acquisto.StatoPagamento</resource>
     <resource>it.ggg.sa.carrello.Carrello</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrello</resource>
+    <resource>it.ggg.sa.carrello.StatoCarrello</resource>
     <resource>it.ggg.sa.prodotto.Confezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneLinea</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneProdotto</resource>
@@ -69,6 +71,7 @@
     <resource>it.ggg.sa.prodotto.Linea</resource>
     <resource>it.ggg.sa.prodotto.Prodotto</resource>
     <resource>it.ggg.sa.prodotto.TipoProdotto</resource>
+    <resource>it.ggg.sa.prodotto.TipoUnitaMisura</resource>
     <resource>it.ggg.sa.security.Requestmap</resource>
     <resource>it.ggg.sa.security.Role</resource>
     <resource>it.ggg.sa.security.User</resource>
