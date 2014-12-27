@@ -3,7 +3,7 @@
 
 <r:require module="carrello"/>
 <div id="carrelloApp" >
-    <div  ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello)})"> 
+    <div  ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})"> 
         <table class="table table-responsive table-condensed " style="font-size: small;" name="tabella">
           <thead>       
             <tr  >

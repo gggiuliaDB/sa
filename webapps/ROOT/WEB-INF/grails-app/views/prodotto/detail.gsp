@@ -42,7 +42,7 @@
 	                                       <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />
 	                                   </g:link>
                                    </span>
-                                   <div style="min-height:40px;">${confezione.descrizione}</div>
+                                   <div style="min-height:40px;">${confezione.getDescrizione(lang.toString())}</div>
                                    <div>${confezione.prezzo} &euro; ${confezione.unitaMisura}</div>
                                </li>
                            </g:each>

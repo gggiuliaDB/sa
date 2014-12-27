@@ -66,6 +66,7 @@
     <resource>it.ggg.sa.carrello.StatoCarrello</resource>
     <resource>it.ggg.sa.carrello.TipoDurata</resource>
     <resource>it.ggg.sa.prodotto.Confezione</resource>
+    <resource>it.ggg.sa.prodotto.InternazionalizzazioneConfezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneLinea</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneProdotto</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneTipoProdotto</resource>
