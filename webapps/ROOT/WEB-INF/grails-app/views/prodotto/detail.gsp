@@ -43,6 +43,7 @@
 	                                   </g:link>
                                    </span>
                                    <div style="min-height:40px;">${confezione.descrizione}</div>
+                                   <div>${confezione.prezzo} &euro; ${confezione.unitaMisura}</div>
                                </li>
                            </g:each>
                         </ul>

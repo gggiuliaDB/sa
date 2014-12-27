@@ -17,13 +17,14 @@
             
             <div class="row">
                 <div class="col-md-3">
-                    <g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>
+                    <%--<g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>--%>
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
                     <div class="pull-right">
                         <g:link controller="prodotto" action="search" params="[visualizzazione: 'l']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link>
                         <g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link> 
+                        <g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></g:link>
                     </div>
                     <br>
                     <g:if test="${visualizzazione=='l'}">

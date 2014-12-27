@@ -146,3 +146,14 @@ position: relative;}
 .control-label{
     font-weight:normal;
 }
+/* .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
+	margin-top: -10px;
+}  */
+
+/* .navbar-brand {
+ height: 77px; 
+} */
+
+.form-control {
+  padding-right: 30px;
+}

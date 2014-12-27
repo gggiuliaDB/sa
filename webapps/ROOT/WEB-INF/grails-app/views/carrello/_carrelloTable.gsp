@@ -2,20 +2,15 @@
 <%@page import="grails.converters.JSON"%>
 
 <r:require module="carrello"/>
-
-<%--carrelloInstance.id: ${carrelloInstance.id}<br>--%>
-<%--confezioniCarrello: ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello)}<br>--%>
-
 <div id="carrelloApp" >
     <div  ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello)})"> 
-       
-        <table class="table table-responsive table-condensed table-hover" style="font-size: small;" name="tabella">
+        <table class="table table-responsive table-condensed " style="font-size: small;" name="tabella">
           <thead>       
-            <tr>
+            <tr  >
                <th colspan="2"></th>
-               <th><g:message code="carrello.quantita.label" /></th>
-               <th><g:message code="carrello.prezzoUnitario.label" /></th>
-               <th><g:message code="carrello.prezzoTotale.label" /></th>
+               <th style="text-align: right;"><g:message code="carrello.prezzoUnitario.label" /></th>
+               <th style="text-align: center;"><g:message code="carrello.quantita.label" /></th>
+               <th style="text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>
                <th></th>
             </tr>
           </thead>
@@ -28,23 +23,49 @@
                     <h4>{{confezioneCarrello.nome}}</h4>
                     <p>{{confezioneCarrello.descrizione}}</p>
                 </td>
+
+                <td style="vertical-align: middle; text-align: right;">
+                    {{confezioneCarrello.prezzo | number:2}}&euro;
+                </td>
+                
                 <td style="vertical-align: middle; width: 100px; min-width: 100px;" >
-	                    <input class="form-control input-sm"  type="number" min="1" max="100"
+                    <div class="input-group input-group-sm">                      
+                        <span class="input-group-btn">
+				            <button class="btn btn-default" type="button" ng-click="togliUno(confezioneCarrello)">
+				                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+				            </button>
+				        </span>
+                        <input class="form-control input-sm" style="text-align: right;" type="text" 
 	                        value="{{confezioneCarrello.quantita}}"  
 	                        ng-model="confezioneCarrello.quantita" 
-	                        ng-change="changeQuantita(confezioneCarrello)">
+	                        ng-change="changeQuantita(confezioneCarrello)"
+	                        only-digits>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="aggiungiUno(confezioneCarrello)">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>    
+                </td>
+                
+                <td style="vertical-align: middle; text-align: right;"> 
+                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita | number:2}}&euro;
                 </td>
                 <td style="vertical-align: middle;">
-                    {{confezioneCarrello.prezzo}} &euro;
-                </td>
-                <td style="vertical-align: middle;">
-                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita}} &euro;
-                </td>
-                <td style="vertical-align: middle;">
-                    <g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" params="[carrelloId: carrelloInstance.id]" class="btn btn-warning btn-sm pull-right">
-                        <g:message code="default.button.delete.label" />
+                    <g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" class="pull-right"> 
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </g:link>
                 </td>
+            </tr>
+            
+            <tr  style="border-top: 1px solid gray;">
+                <td colspan="2"><h4>Totale</h4></td>
+                <td></td>
+                <td></td>
+                <td style="vertical-align: middle; text-align: right;">
+                    {{totale | number:2}}&euro;
+                </td>
+                <td></td>
             </tr>
            </tbody>
         </table>
@@ -54,5 +75,6 @@
             $( ".spinner" ).spinner();         
           });
         </jq:jquery>--%> 
-    </div>       
+    </div>
+           
 </div>

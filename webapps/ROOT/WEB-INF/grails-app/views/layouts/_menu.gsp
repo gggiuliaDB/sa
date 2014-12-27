@@ -15,7 +15,10 @@
             </button>
             <%--<a class="navbar-brand" href="#"><g:message code="site.title"/></a>--%>
             <sec:ifLoggedIn>
-                <g:link class="navbar-brand" controller="prodotto" ><g:message code="site.title"/></g:link>
+                <g:link class="navbar-brand" controller="prodotto" >
+                    <g:img file="saLogo.jpg" class="img-rounded" />
+                    <%--<g:message code="site.title"/>--%>
+                </g:link>
             </sec:ifLoggedIn>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,20 +26,7 @@
           <sec:ifLoggedIn>
             
             <ul class="nav navbar-nav">
-                <li>
-                    <g:link controller="profilo" action="chiSiamo">
-                        <g:message code="menu.chisiamo.label"/>
-                    </g:link>
-                </li>
-                <li>
-                    <g:link controller="profilo" action="contatti">
-                        <g:message code="menu.contatti.label"/>
-                    </g:link>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="language.changeLanguage.label" default="Change language"/> <span class="caret"></span></a>
-                  <locale:selector/>                  
-                </li>
+                <%--Prodotti--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.prodotti.label" default="Prodotti"/> <span class="caret"></span></a>
                   <ul class="dropdown-menu" >
@@ -50,13 +40,47 @@
                     <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>                  
                   </ul>
                 </li>
+                <%--Chi siamo--%>
+                <li>
+                    <g:link controller="profilo" action="chiSiamo">
+                        <g:message code="menu.chisiamo.label"/>
+                    </g:link>
+                </li>
+                <%--Contatti--%>
+                <li>
+                    <g:link controller="profilo" action="contatti">
+                        <g:message code="menu.contatti.label"/>
+                    </g:link>
+                </li>
             </ul>
+            <%--Cerca--%>
             <g:form class="navbar-form navbar-left" role="search" controller="prodotto" action="search" >
                 <div class="form-group">
                   <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
-                  <input type="text" class="form-control" placeholder="search" name="q" value="${q}">
+                  <div class="input-group input-group-md">
+	                  <input type="text" class="form-control" placeholder="search " name="q" value="${q}">	                  
+	                  
+	                  <span class="input-group-btn">
+				        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+				      </span>	                  
+                  </div>
+                   
                 </div>
             </g:form>
+            
+            <%--Cambia lingua--%>
+            <ul class="nav navbar-nav">                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%--<g:message code="language.changeLanguage.label" default="Change language"/>--%>
+                    <locale:flag/> 
+                    <span class="caret"></span>
+                  </a>
+                  
+                  <locale:selector/>                  
+                </li>                
+            </ul>
+            
           </sec:ifLoggedIn>
           <ul class="nav navbar-nav navbar-right">
                 <sec:ifNotLoggedIn>

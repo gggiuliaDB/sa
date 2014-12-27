@@ -12,20 +12,29 @@
             
             <div class="row">
 	            <div class="col-md-12">
-	               <g:img file="bug.jpg"  class="img-rounded" style="width:90%;"/>
+	               <g:img file="bug.jpg"  class="img-rounded" style="width:100%;"/>
 	            </div>
             </div>
             <br>
             <div class="row">
-            
-                <div class="col-md-6">
-                    <g:img file="chisiamo1.jpg"  class="img-rounded" style="width:90%;"/>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <p><g:message code="chisiamo.testo1"/></p>  
+                </div>
+            </div>
+            <br>
+            <div class="row  " >
+                <div class="col-md-6">
+                    <g:img file="chisiamo1.jpg"  class="img-rounded" style="width:100%; " />
+                </div>
+                <div class="col-md-6" >
                     <p><g:message code="chisiamo.testo2"/></p>
                 </div>
-                <p><g:message code="chisiamo.testo3"/></p>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <p><g:message code="chisiamo.testo3"/></p>
+                </div>
             </div>    
             
         </div>

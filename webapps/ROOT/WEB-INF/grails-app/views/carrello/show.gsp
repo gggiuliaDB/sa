@@ -5,8 +5,8 @@
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'carrello.label', default: 'Carrello')}" />
         <title><g:message code="carrello.label" /></title>
-<%--        <r:require module="jqueryUI"/>--%>
-<%--        <r:require module="carrello"/>--%>
+        <%--<r:require module="jqueryUI"/>--%>
+        <%--<r:require module="carrello"/>--%>
 
     </head>
     <body>
