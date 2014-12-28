@@ -66,19 +66,11 @@ footer {
 
 .carousel {
   height: 350px;
-  margin-bottom: 60px;
-  
+  margin-bottom: 60px;  
 }
-.carousel-caption {
+.carousel-testo {
   color:black;
   text-shadow: blue; 
-  
-  /*
-  z-index: 10;
-  background: rgba(0,0,0,0.7);
-  color:white;
-  border:1px solid red;
-  padding-top: 0px;*/
 }
 
 .carousel .item {
@@ -86,15 +78,18 @@ footer {
   background-color: white;
 }
 .carousel-inner > .item > img {
-  /*border: 1px solid red;*/
-  
+  border: 1px solid red;
+}
+.carousel-img{
+	width: 100%;
+	max-width: 300px;
+	 
 }
 
-
-.truncate-carousel{
-    color: white;
-    text-shadow: 0;
-}
+/* .truncate-carousel{ */
+/*     color: white; */
+/*     text-shadow: 0; */
+/* } */
 
 
 #paginazione a {

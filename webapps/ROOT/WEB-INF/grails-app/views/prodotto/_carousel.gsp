@@ -18,24 +18,28 @@ $('.carousel').carousel({
                 </g:each>
             </ol>
             <div class="carousel-inner">
+            
                 <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
                     <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
                     <div class="item ${i==0 ? 'active' : ''}">
-                        <img class="center-block" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
-                        <div class="carousel-caption">
-                            <h3>
-                                <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
-                            </h3>
-                            <div>${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</div>
-                        </div>              
-                        <%--<img class="slide-image img-responsive center-block" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
-                        <div class="carousel-caption">
-                            <h3>
-                                <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
-                            </h3>
-                            <div>${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</div>
-                        </div>
-                        --%>
+            
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="carousel-img" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
+		                    </div>
+		                    
+		                    <div class="col-sm-4">
+                                <div >
+                                    <h3>
+                                        <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
+                                    </h3>
+                                    <div class="carousel-testo">
+                                        ${internazionalizzazione?.note?.toLowerCase()?.capitalize()}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                             
+                        
                     </div>
                 </g:each>
             </div>

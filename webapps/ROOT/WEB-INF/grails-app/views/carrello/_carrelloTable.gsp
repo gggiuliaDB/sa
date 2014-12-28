@@ -3,7 +3,7 @@
 
 <r:require module="carrello"/>
 <div id="carrelloApp" >
-    <div  ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})"> 
+    <div ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})"> 
         <table class="table table-responsive table-condensed " style="font-size: small;" name="tabella">
           <thead>       
             <tr  >
@@ -59,7 +59,7 @@
             </tr>
             
             <tr  style="border-top: 1px solid gray;">
-                <td colspan="2"><h4>Totale</h4></td>
+                <td colspan="2"><h4><g:message code="carrello.totale.label"/></h4></td>
                 <td></td>
                 <td></td>
                 <td style="vertical-align: middle; text-align: right;">

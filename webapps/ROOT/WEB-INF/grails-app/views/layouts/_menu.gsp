@@ -58,7 +58,7 @@
                 <div class="form-group">
                   <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
                   <div class="input-group input-group-md">
-	                  <input type="text" class="form-control" placeholder="search " name="q" value="${q}">	                  
+	                  <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}">	                  
 	                  
 	                  <span class="input-group-btn">
 				        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
