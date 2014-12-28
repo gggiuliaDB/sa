@@ -42,6 +42,8 @@ carrelloApp.directive('onlyDigits', function () {
 });    
 carrelloApp.controller('carrelloController', function($scope, $rootScope, $http, $location) {
 	
+	$scope.predicate = 'descrizione';
+	
     $scope.init = function(url, id, confezioniCarrello){
     	$scope.url=url;
     	$scope.id=id;

@@ -28,6 +28,10 @@
             <g:link controller="carrello" action="procedi" id="${carrelloInstance.id}" class="btn btn-success">
                 <g:message code="button.procediAcquisto.label" />
             </g:link>
+            
+            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
+                <g:message code="button.svuotaCarrello.label" />
+            </g:link>
         </div>
     </body>
 </html>

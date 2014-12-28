@@ -4,9 +4,8 @@
 <r:require module="carrello"/>
 <div id="carrelloApp" >
     <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})">
-    sizeeee: {{confezioniCarrello.length}} 
     
-        <table class="table table-responsive table-condensed " style="font-size: small;" name="tabella">
+        <table class="table table-responsive table-condensed " name="tabella">
           <thead>       
             <tr  >
                <th colspan="2"></th>
@@ -17,28 +16,28 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="confezioneCarrello in confezioniCarrello">
+            <tr ng-repeat="confezioneCarrello in confezioniCarrello | orderBy:predicate" style="font-size: small;">
                 <td style="vertical-align: middle;">                    
-                    <img src='<g:createLink controller="prodotto" action="viewImage" id="{{confezioneCarrello.prodottoId}}" />' style="width:100px;" class="img-rounded" />                
+                    <img src='<g:createLink controller="prodotto" action="viewImage" id="{{confezioneCarrello.prodottoId}}" />' style="width:50px;" class="img-rounded" />                
                 </td>
                 
                 <td style="vertical-align: middle;">
-                    <h4>{{confezioneCarrello.nome}}</h4>
-                    <p>{{confezioneCarrello.descrizione}}</p>
+                    <h5>{{confezioneCarrello.nome}}</h5>
+                    {{confezioneCarrello.descrizione}}
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;">
                     {{confezioneCarrello.prezzo | number:2}}&euro;
                 </td>                
                 
-                <td style="vertical-align: middle; width: 100px; min-width: 100px;" >
+                <td style="vertical-align: middle; width: 120px; min-width: 100px;" >
                     <div class="input-group input-group-sm">                      
                         <span class="input-group-btn">
 				            <button class="btn btn-default" type="button" ng-click="togliUno(confezioneCarrello)">
 				                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 				            </button>
 				        </span>
-                        <input class="form-control input-sm" style="text-align: right;" type="text" 
+                        <input class="form-control" style="text-align: right; font-size: small;" type="text"  
 	                        value="{{confezioneCarrello.quantita}}"  
 	                        ng-model="confezioneCarrello.quantita" 
 	                        ng-change="changeQuantita(confezioneCarrello)"

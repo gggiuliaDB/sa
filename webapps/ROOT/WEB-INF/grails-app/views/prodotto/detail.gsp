@@ -22,7 +22,6 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
 
-            <%--<g:render template="/carrello/carrelloTable" ></g:render>--%>
             <div >
                 <div class="row">
                     <div class="col-sm-5">
@@ -44,7 +43,7 @@
 	                                   </g:link>--%>
                                    </span>
                                    <div style="min-height:40px;">${confezione.getDescrizione(lang.toString())}</div>
-                                   <div>${confezione.prezzo} &euro; ${confezione.unitaMisura}</div>
+                                   <h4>${confezione.prezzo} &euro; ${confezione.unitaMisura}</h4>
                                </li>
                            </g:each>
                         </ul>
@@ -56,40 +55,16 @@
                 <g:render template="rating"></g:render>
             </div>
         </div>
-        
-
 
 		<script> 
 		  var getValidPostcodeValuesURL = "${createLink(controller:'carrello',action:'add')}";
 		  var carrelloId=${carrelloInstance.id};
 	    </script>
 	    
-	    
-	    
-	    
-		<!-- Button trigger modal -->
-		<%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		  Launch demo modal
-		</button>--%>
-		
+        
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog modal-lg">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel"><g:message code="menu.carrello.label"/> </h4>
-		      </div>
-		      <div class="modal-body">
-		        <g:render template="/carrello/carrelloTable" ></g:render>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal"><g:message code="button.continuaShopping.label" /></button>
-		        <button type="button" class="btn btn-success"><g:message code="button.vaiACarrello.label" /></button>
-		      </div>
-		    </div>
-		  </div>
-		</div>        
+		<g:render template="/carrello/modal"></g:render>
+                
         
       </div>
     </body>
