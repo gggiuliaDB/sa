@@ -29,6 +29,13 @@
         
     </head>
     <body ><%--style="background-color: #76AF8C;" --%>
+		
+		<%--LANG--%>
+		<g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
+		<g:if test="${!lang}">
+		    <g:set var="lang" value="it"/>
+		</g:if>    
+    
         <!-- Navigation -->    
         <g:render template="/layouts/menu" />   
         
@@ -43,8 +50,6 @@
                     <div class="col-lg-12">
                       <sec:ifLoggedIn>
                         <p>Sarda Affumicati s.r.l.- Loc. Sa Colombera- 09010 Buggerru (CI) P.I. 01853450920</p>
-                        
-                        <%--Copyright &copy; GGG 2014--%>
                       </sec:ifLoggedIn>
                     </div>
                 </div>
@@ -52,7 +57,6 @@
         </div>
         <!-- /.container -->
         <r:layoutResources />
-        
-            
+                    
     </body>
 </html>

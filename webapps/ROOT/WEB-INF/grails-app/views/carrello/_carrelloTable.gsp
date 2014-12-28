@@ -3,7 +3,9 @@
 
 <r:require module="carrello"/>
 <div id="carrelloApp" >
-    <div ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})"> 
+    <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})">
+    sizeeee: {{confezioniCarrello.length}} 
+    
         <table class="table table-responsive table-condensed " style="font-size: small;" name="tabella">
           <thead>       
             <tr  >
@@ -19,14 +21,15 @@
                 <td style="vertical-align: middle;">                    
                     <img src='<g:createLink controller="prodotto" action="viewImage" id="{{confezioneCarrello.prodottoId}}" />' style="width:100px;" class="img-rounded" />                
                 </td>
+                
                 <td style="vertical-align: middle;">
                     <h4>{{confezioneCarrello.nome}}</h4>
                     <p>{{confezioneCarrello.descrizione}}</p>
                 </td>
-
+                
                 <td style="vertical-align: middle; text-align: right;">
                     {{confezioneCarrello.prezzo | number:2}}&euro;
-                </td>
+                </td>                
                 
                 <td style="vertical-align: middle; width: 100px; min-width: 100px;" >
                     <div class="input-group input-group-sm">                      
@@ -51,13 +54,19 @@
                 <td style="vertical-align: middle; text-align: right;"> 
                     {{confezioneCarrello.prezzo * confezioneCarrello.quantita | number:2}}&euro;
                 </td>
+                
                 <td style="vertical-align: middle;">
-                    <g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" class="pull-right"> 
+                    <a href="#" class="pull-right" type="button" ng-click="eliminaConfezione(confezioneCarrello)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </g:link>
+                    </a>
+            
+                    <%--<g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" class="pull-right"> 
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </g:link>--%>
                 </td>
             </tr>
             
+            <%--TOTALE --%>            
             <tr  style="border-top: 1px solid gray;">
                 <td colspan="2"><h4><g:message code="carrello.totale.label"/></h4></td>
                 <td></td>
@@ -69,12 +78,7 @@
             </tr>
            </tbody>
         </table>
-        
-        <%--<jq:jquery>
-          $(function() {
-            $( ".spinner" ).spinner();         
-          });
-        </jq:jquery>--%> 
+       
     </div>
            
 </div>

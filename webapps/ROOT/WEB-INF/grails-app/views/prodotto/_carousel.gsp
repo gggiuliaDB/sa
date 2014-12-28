@@ -4,6 +4,11 @@ $('.carousel').carousel({
 })
 </jq:jquery>
 
+<%--<g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>--%>
+<%--<g:if test="${!lang}">--%>
+<%--    <g:set var="lang" value="it"/>--%>
+<%--</g:if>    --%>
+
 <div class="row carousel-holder">
     <div class="col-md-12" >
         <div id="carousel-prodotti" class="carousel slide" data-ride="carousel" >
@@ -17,29 +22,21 @@ $('.carousel').carousel({
                     </g:else>
                 </g:each>
             </ol>
-            <div class="carousel-inner">
-            
+            <div class="carousel-inner">            
                 <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
                     <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
-                    <div class="item ${i==0 ? 'active' : ''}">
-            
+                    <div class="item ${i==0 ? 'active' : ''}">            
                         <div class="row">
                             <div class="col-sm-6">
                                 <img class="carousel-img" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
-		                    </div>
-		                    
+		                    </div>		                    
 		                    <div class="col-sm-4">
                                 <div >
-                                    <h3>
-                                        <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
-                                    </h3>
-                                    <div class="carousel-testo">
-                                        ${internazionalizzazione?.note?.toLowerCase()?.capitalize()}
-                                    </div>
+                                    <h3><g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link></h3>
+                                    <div class="carousel-testo">${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</div>
                                 </div>
                             </div>
-                        </div>                             
-                        
+                        </div>    
                     </div>
                 </g:each>
             </div>

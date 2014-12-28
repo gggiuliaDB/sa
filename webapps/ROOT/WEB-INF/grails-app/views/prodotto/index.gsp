@@ -20,7 +20,7 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <g:render template="tipi"></g:render>
+                    <g:render template="tipi" ></g:render>
                     <hr>
                     <locale:selector />
                 </div>

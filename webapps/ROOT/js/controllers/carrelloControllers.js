@@ -1,3 +1,22 @@
+$( ".addToChart" ).click(function() {
+    var id = this.id;    
+	$.ajax({
+			url: getValidPostcodeValuesURL,
+            data:{'id': id, 'carrelloId': carrelloId},
+			success: function(data) {
+		        //alert(data)
+			    angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
+	            $('#carrelloSize').html(data.length);
+			    $('#myModal').modal();
+		    },
+		    error: function(request, status, error) {
+		        alert(error)
+		    }	
+		    //$('#myModal').modal('toggle');
+	});	
+});
+
+
 'use strict';
 var carrelloApp = angular.module('carrelloApp', []);
 carrelloApp.directive('onlyDigits', function () {
@@ -34,6 +53,11 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	});        
     };
     
+    $scope.aggiornaConfezioni= function(confezioniCarrello){
+        $scope.confezioniCarrello = confezioniCarrello;
+        $scope.$apply();
+    };
+    
     var save = function(){
     	$http({
             method: 'PUT',
@@ -43,7 +67,6 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
         })
         .success(function(response, status, headers, config){
         	$scope.totale = response;     
-        	
         })
         .error(function(response, status, headers, config){
             $scope.error_message = response.error_message;
@@ -64,6 +87,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	$scope.confezioneCarrello.quantita = $scope.confezioneCarrello.quantita + 1;
     	save();
     };
+    
     $scope.togliUno = function(confezioneCarrello){
     	if(isNaN(confezioneCarrello.quantita))
 			return;
@@ -75,11 +99,20 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	save();
     };
     
-    
-//    $rootScope.$on('$includeContentRequested', function(){
-//    	$( ".spinner" ).spinner();
-//    });
-    
+
+    $scope.eliminaConfezione = function(confezioneCarrello){
+    	
+    	$http.delete($scope.url+'/confezioneCarrello/'+ confezioneCarrello.id+ '.json')
+        .success(function(response, status, headers, config){
+            $scope.confezioniCarrello = response;
+            $scope.$apply();
+            
+            $('#carrelloSize').html($scope.confezioniCarrello.length);
+        })
+        .error(function(response, status, headers, config){
+            //$scope.error_message = response.error_message;
+        });
+    };
 });
 	
 angular.bootstrap(document.getElementById("carrelloApp"),['carrelloApp']);

@@ -65,9 +65,11 @@ footer {
 
 
 .carousel {
-  height: 350px;
-  margin-bottom: 60px;  
+	height: 350px;
+    margin-bottom: 40px;
+    background-color: transparent;
 }
+
 .carousel-testo {
   color:black;
   text-shadow: blue; 
@@ -76,14 +78,19 @@ footer {
 .carousel .item {
   height: 350px;
   background-color: white;
+  width: 100%;
+  border-radius: 15px 15px 15px 15px;
+  
 }
-.carousel-inner > .item > img {
-  border: 1px solid red;
-}
+/* .carousel-inner > .item > img { */
+/*   border: 1px solid red; */
+/* } */
 .carousel-img{
 	width: 100%;
-	max-width: 300px;
-	 
+	max-width: 300px;	 
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none
 }
 
 /* .truncate-carousel{ */

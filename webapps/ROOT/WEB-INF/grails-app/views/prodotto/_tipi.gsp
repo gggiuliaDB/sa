@@ -2,6 +2,11 @@
 <%@ page import="it.ggg.sa.prodotto.TipoProdotto"%>
 <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm"  role="complementary">
 
+<g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
+<g:if test="${!lang}">
+    <g:set var="lang" value="it"/>
+</g:if>    
+
 <ul class="nav nav-pills nav-stacked">
     <g:each in="${Linea.list()}" var="l">
         <g:if test="${linea}">
@@ -11,7 +16,7 @@
             <li>
         </g:else>
         <g:link controller="prodotto" action="search"
-            params="[linea: l.id, tipoProdotto: tipoProdotto, visualizzazione: visualizzazione]"> <%--, max: params.max, offset: params.offset --%>
+            params="[linea: l.id, tipoProdotto: tipoProdotto, visualizzazione: visualizzazione]"> 
             ${l.getNome(lang.toString())}
         </g:link>
         </li>
@@ -39,50 +44,3 @@
     <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>
 </ul>
 </div>
-
-<!--
-    <ul class="nav nav-sidebar">
-            <li>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    More
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">About US</a></li>
-                                    <li><a href="#">Jobs</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-        </ul>
-    
-
-<hr>
-<ul class="nav nav-sidebar">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">About US</a></li>
-        <li><a href="#">Jobs</a></li>
-        </ul>
-    </li>
-    <li><a href="">Nav item again</a></li>
-    <li><a href="">One more nav</a></li>
-    <li><a href="">Another nav item</a></li>
-</ul>
--->
