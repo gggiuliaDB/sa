@@ -27,7 +27,8 @@
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;">
-                    {{confezioneCarrello.prezzo | number:2}}&euro;
+                    {{confezioneCarrello.prezzo | currency:"€ "}}
+<%--                    &euro; <g:formatNumber number="{{confezioneCarrello.prezzo | number:2}}" type="currency" currencyCode="EUR" currencySymbol=""/>--%>
                 </td>                
                 
                 <td style="vertical-align: middle; width: 120px; min-width: 100px;" >
@@ -51,7 +52,7 @@
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;"> 
-                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita | number:2}}&euro;
+                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita | currency:"€ "}}
                 </td>
                 
                 <td style="vertical-align: middle;">

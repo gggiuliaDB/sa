@@ -17,9 +17,6 @@
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
             
-<%--            <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}</h1>--%>
-<%--            <p >${internazionalizzazione.note}</p>--%>
-            
             <div class="page-header">
 			  <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}<br><small>${internazionalizzazione.note}</small></h1>
 			</div>
@@ -34,9 +31,9 @@
                         <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;" class="img-rounded"/>
                     </div>
                     <div class="col-sm-7">
-                      <small>
+                      
                         <ul class="list-group">
-                           <g:each in="${ prodottoInstance.confezioni }" var="confezione" >
+                           <g:each in="${ confezioni }" var="confezione" >
                                <li class="list-group-item list-group-item-info">
                                    <span >
                                        <a href="#" id="${confezione.id}" class="btn btn-success btn-sm pull-right addToChart">
@@ -44,12 +41,14 @@
                                            <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
                                        </a>
                                    </span>
-                                   <div style="min-height:40px;">${confezione.getDescrizione(lang.toString())}</div>
-                                   <h4 style="margin-top: 5px; margin-bottom: 0px;">${confezione.prezzo} &euro; ${confezione.unitaMisura}</h4>
+                                   <div style="min-height:40px;">${confezione.descrizione}</div>
+                                   <h4 style="margin-top: 5px; margin-bottom: 0px;">
+	                                    &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura}
+                                   </h4>    
+                                                                
                                </li>
                            </g:each>
                         </ul>
-                      </small>
                     </div>
                 </div>
                 <br>
