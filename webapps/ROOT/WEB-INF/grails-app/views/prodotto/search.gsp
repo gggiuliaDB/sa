@@ -13,7 +13,6 @@
         </g:if>
         
         <div class="container" > <%--style="background-color: #76AF8C;" --%>
-            
             <div class="row">
                 <div class="col-md-3">
                     <%--<g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>--%>
@@ -21,16 +20,16 @@
                 </div>
                 <div class="col-md-9" >
                     <div class="pull-right">
-                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'l']"><span class="glyphicon glyphicon-th-list " aria-hidden="true"></span></g:link>
-                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'm']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
+                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'grid']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
+                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'list']"><span class="glyphicon glyphicon-th-list " aria-hidden="true"></span></g:link>
                         <%--<g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></g:link>--%>
                     </div>
                     <br>
-                    <g:if test="${visualizzazione=='l'}">
-                        <g:render template="vetrinaL"></g:render>
+                    <g:if test="${visualizzazione=='list'}">
+                        <g:render template="vetrinaList"></g:render>
                     </g:if>
-                    <g:else test="${visualizzazione=='m'}">
-                        <g:render template="vetrinaM"></g:render>
+                    <g:else >
+                        <g:render template="vetrinaGrid"></g:render>
                     </g:else>
                     <%--<g:else>
                         <g:render template="vetrinaS"></g:render>
