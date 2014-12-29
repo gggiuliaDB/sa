@@ -14,8 +14,8 @@
                         <p class="small">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
                     </g:if>
                 </div>
-
-                <div class="ratings">
+                <g:mediaRatings id="${prodottoInstance.id}"/>
+                <%--<div class="ratings">
                     <p class="pull-right">15 reviews</p>
                     <p>
                         <span class="glyphicon glyphicon-star"></span>
@@ -24,7 +24,7 @@
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                     </p>
-                </div>
+                </div>--%>
             </div>
         </div>
     </g:each>

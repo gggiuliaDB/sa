@@ -65,6 +65,7 @@
     <resource>it.ggg.sa.carrello.ConfezioneCarrello</resource>
     <resource>it.ggg.sa.carrello.StatoCarrello</resource>
     <resource>it.ggg.sa.carrello.TipoDurata</resource>
+    <resource>it.ggg.sa.commento.Commento</resource>
     <resource>it.ggg.sa.prodotto.Confezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneConfezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneLinea</resource>
@@ -80,6 +81,7 @@
     <resource>it.ggg.sa.security.UserRole</resource>
     <resource>it.ggg.sa.carrello.CarrelloService</resource>
     <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
+    <resource>it.ggg.sa.commento.CommentoTagLib</resource>
     <resource>it.ggg.sa.localization.LocaleTagLib</resource>
   </resources>
   <plugins>

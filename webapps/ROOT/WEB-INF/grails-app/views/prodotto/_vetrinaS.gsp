@@ -14,16 +14,7 @@
                 </h4>
             </td>
             <td style="vertical-align: middle;">
-                <div class="ratings">
-                    <p class="pull-right">15 reviews</p>
-                    <p>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                    </p>
-                </div>
+                <g:mediaRatings id="${prodottoInstance.id}"/>
             </td>
         
         </tr>        

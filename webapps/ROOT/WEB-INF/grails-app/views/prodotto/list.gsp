@@ -22,7 +22,7 @@
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			
-			<g:link class="btn btn-primary" action="aggiornaListino">Aggiorna listino</g:link>
+			<%--<g:link class="btn btn-primary" action="aggiornaListino">Aggiorna listino</g:link>--%>
 			
 			<table>
 			<thead>

@@ -14,16 +14,7 @@
                 </div>
                 
                 <div class="col-sm-2">
-	                <div class="ratings">
-	                    <p class="pull-right">15 reviews</p>
-	                    <p class="pull-right">
-	                        <span class="glyphicon glyphicon-star"></span>
-	                        <span class="glyphicon glyphicon-star"></span>
-	                        <span class="glyphicon glyphicon-star"></span>
-	                        <span class="glyphicon glyphicon-star"></span>
-	                        <span class="glyphicon glyphicon-star"></span>
-	                    </p>
-	                </div>
+	                <g:mediaRatings id="${prodottoInstance.id}"/>
                 </div>
             </div>
         </g:link>        

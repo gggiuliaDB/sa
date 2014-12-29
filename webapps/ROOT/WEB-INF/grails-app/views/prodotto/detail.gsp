@@ -16,8 +16,14 @@
 
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
-            <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}</h1>
-            <p >${internazionalizzazione.note}</p>
+            
+<%--            <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}</h1>--%>
+<%--            <p >${internazionalizzazione.note}</p>--%>
+            
+            <div class="page-header">
+			  <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}<br><small>${internazionalizzazione.note}</small></h1>
+			</div>
+            
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -37,13 +43,9 @@
                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                            <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
                                        </a>
-                                       <%--<g:link controller="carrello" action="add" id="${confezione.id}" class="btn btn-success btn-sm pull-right addToChart">
-	                                       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-	                                       <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />	                                       
-	                                   </g:link>--%>
                                    </span>
                                    <div style="min-height:40px;">${confezione.getDescrizione(lang.toString())}</div>
-                                   <h4>${confezione.prezzo} &euro; ${confezione.unitaMisura}</h4>
+                                   <h4 style="margin-top: 5px; margin-bottom: 0px;">${confezione.prezzo} &euro; ${confezione.unitaMisura}</h4>
                                </li>
                            </g:each>
                         </ul>
@@ -51,19 +53,24 @@
                     </div>
                 </div>
                 <br>
-                <g:render template="details"></g:render>               
-                <g:render template="rating"></g:render>
+                <%--Ingredienti, come consumarlo e conservazione --%>
+                <g:render template="details"></g:render> 
+                
+                <%--Stelline con il rating medio del prodotto--%>
+                <g:mediaRatings id="${prodottoInstance.id}"/>
+                
+                <%--Commenti al prodotto --%>
+                <g:commentiProdotto id="${prodottoInstance.id}"/>
             </div>
         </div>
 
 		<script> 
 		  var getValidPostcodeValuesURL = "${createLink(controller:'carrello',action:'add')}";
 		  var carrelloId=${carrelloInstance.id};
-	    </script>
-	    
+	    </script>	    
         
 		<!-- Modal -->
-		<g:render template="/carrello/modal"></g:render>
+		<g:render template="/carrello/modalCarrello"></g:render>
                 
         
       </div>

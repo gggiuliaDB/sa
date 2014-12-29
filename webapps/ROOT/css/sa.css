@@ -111,9 +111,12 @@ footer {
     color: black;
 }
 
-.confezionamento-table{
+.rating-table{
     background-color: white;
     color: black;
+}
+.rating-modal{
+	color: white;
 }
 
 .panel-detail{
