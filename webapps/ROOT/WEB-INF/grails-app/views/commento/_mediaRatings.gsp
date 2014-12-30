@@ -1,5 +1,12 @@
 <div class="ratings">
-    <p class="pull-right">${!commenti ? 0 : commenti.size()} <g:message code="commento.commenti.label" /></p>
+    <p class="pull-right">
+        <g:if test="${numeroCommenti==1}">
+            ${numeroCommenti} <g:message code="commento.commento.label" />
+        </g:if>
+        <g:else>
+            ${numeroCommenti} <g:message code="commento.commenti.label" />
+        </g:else>
+    </p>
     <p>
         <g:render template="/commento/stars" model="[value: mediaRatings]"></g:render>
         <%--${mediaRatings} <g:message code="commento.stelle.label" />--%>
