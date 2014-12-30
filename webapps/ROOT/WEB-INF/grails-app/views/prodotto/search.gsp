@@ -15,7 +15,6 @@
         <div class="container" > <%--style="background-color: #76AF8C;" --%>
             <div class="row">
                 <div class="col-md-3">
-                    <%--<g:img file="saLogo.jpg" class="img-rounded" style="width: 100%;"/>--%>
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
@@ -25,6 +24,11 @@
                         <%--<g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></g:link>--%>
                     </div>
                     <br>
+                    
+                    <g:if test="${!prodottoInstanceList }">
+                        <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        
+                    </g:if>
+                    
                     <g:if test="${visualizzazione=='list'}">
                         <g:render template="vetrinaList"></g:render>
                     </g:if>

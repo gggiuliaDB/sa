@@ -1,7 +1,7 @@
 $( ".addToChart" ).click(function() {
     var id = this.id;    
 	$.ajax({
-			url: getValidPostcodeValuesURL,
+			url: url,
             data:{'id': id, 'carrelloId': carrelloId},
 			success: function(data) {
 		        //alert(data)

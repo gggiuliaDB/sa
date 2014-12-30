@@ -44,8 +44,7 @@
                                    <div style="min-height:40px;">${confezione.descrizione}</div>
                                    <h4 style="margin-top: 5px; margin-bottom: 0px;">
 	                                    &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura}
-                                   </h4>    
-                                                                
+                                   </h4>                                                                    
                                </li>
                            </g:each>
                         </ul>
@@ -64,7 +63,7 @@
         </div>
 
 		<script> 
-		  var getValidPostcodeValuesURL = "${createLink(controller:'carrello',action:'add')}";
+		  var url = "${createLink(controller:'carrello',action:'add')}";
 		  var carrelloId=${carrelloInstance.id};
 	    </script>	    
         

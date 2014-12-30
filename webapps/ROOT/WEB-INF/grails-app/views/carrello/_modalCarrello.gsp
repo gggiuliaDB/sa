@@ -10,7 +10,7 @@
 	        <g:render template="/carrello/carrelloTable" ></g:render>
 	      
 	        <button type="button" class="btn btn-default" data-dismiss="modal"><g:message code="button.continuaShopping.label" /></button>
-	        <button type="button" class="btn btn-success"><g:message code="button.vaiACarrello.label" /></button>
+	        <g:link controller="carrello" action="show" id="${carrelloInstance.id}" class="btn btn-success" ><g:message code="button.vaiACarrello.label" /></g:link>
 	      </div>
      </div>
    </div>

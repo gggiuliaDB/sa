@@ -4,13 +4,16 @@
 <%-- COMMENTI --%>
 <div class="well rating-table">
      <div >
-     
+            
+            <%--Bottone "Lascia un commento" --%>
   			<sec:ifLoggedIn>
 				<button class="btn btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 				  <g:message code="commento.lasciaUnCommento.label" />
 				</button>
 			</sec:ifLoggedIn>
-			<div class="collapse" id="collapseExample">
+			
+			<%--Form collassabile per inserire un commenti --%>
+            <div class="collapse" id="collapseExample">
 			  <div class="well">
 			    <g:form controller="prodotto" action="salvaCommento" >  
 			             <g:hiddenField name="prodotto.id" value="${id}"/>                  
@@ -33,9 +36,10 @@
 			         </g:form>
 			  </div>
 			</div>
-
      </div>
      <hr>     
+     
+     <%--Elenco commenti --%>            
      <g:each in="${commenti}" var="commento">
         <div class="row">
 	         <div class="col-md-12">
