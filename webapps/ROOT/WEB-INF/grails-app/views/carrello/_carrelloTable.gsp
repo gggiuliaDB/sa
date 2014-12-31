@@ -3,7 +3,7 @@
 
 <r:require module="carrello"/>
 <div id="carrelloApp" >
-    <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance.confezioniCarrello, lang)})">
+    <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance?.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)})">
     
         <table class="table table-responsive table-condensed " name="tabella">
           <thead>       
@@ -57,7 +57,8 @@
                 
                 <td style="vertical-align: middle;">
                     <a href="#" class="pull-right" type="button" ng-click="eliminaConfezione(confezioneCarrello)">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <%--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>--%>                        
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: red"></span>
                     </a>
             
                     <%--<g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" class="pull-right"> 

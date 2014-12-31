@@ -16,7 +16,7 @@
             <%--<a class="navbar-brand" href="#"><g:message code="site.title"/></a>--%>
             <sec:ifLoggedIn>
                 <g:link class="navbar-brand" controller="prodotto" >
-                    <g:img file="saLogo.jpg" class="img-rounded" />
+                    <g:img file="saLogo.jpg" class="img-rounded" style="height: 43px;"/>
                     <%--<g:message code="site.title"/>--%>
                 </g:link>
             </sec:ifLoggedIn>
@@ -25,6 +25,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <sec:ifLoggedIn>
             <ul class="nav navbar-nav">
+           
+            
                 <%--Prodotti--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.prodotti.label" default="Prodotti"/> <span class="caret"></span></a>

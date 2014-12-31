@@ -10,6 +10,7 @@
     <resource>grails.plugin.springsecurity.SpringSecurityService</resource>
     <resource>org.grails.paypal.PaymentItem</resource>
     <resource>grails.plugin.springsecurity.ui.RegistrationCodeController</resource>
+    <resource>org.grails.activiti.springsecurity.SetAuthenticatedUserIdFilters</resource>
     <resource>org.grails.plugin.resource.BaseUrlResourceMapper</resource>
     <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
     <resource>org.grails.plugin.resource.ResourceTagLib</resource>
@@ -50,6 +51,7 @@
     <resource>org.grails.paypal.Payment</resource>
     <resource>org.grails.plugin.resource.CSSPreprocessorResourceMapper</resource>
     <resource>DefaultWebXmlConfig</resource>
+    <resource>org.grails.activiti.TaskController</resource>
     <resource>ApplicationResources</resource>
     <resource>BootStrap</resource>
     <resource>BuildConfig</resource>
@@ -99,6 +101,7 @@
     <plugin>ScaffoldingGrailsPlugin</plugin>
     <plugin>WebxmlGrailsPlugin</plugin>
     <plugin>FamfamfamGrailsPlugin</plugin>
+    <plugin>ActivitiGrailsPlugin</plugin>
     <plugin>JqueryGrailsPlugin</plugin>
     <plugin>MailGrailsPlugin</plugin>
     <plugin>ResourcesGrailsPlugin</plugin>
@@ -107,6 +110,7 @@
     <plugin>JqueryUiGrailsPlugin</plugin>
     <plugin>SpringSecurityCoreGrailsPlugin</plugin>
     <plugin>HibernateGrailsPlugin</plugin>
+    <plugin>ActivitiSpringSecurityGrailsPlugin</plugin>
     <plugin>PaypalGrailsPlugin</plugin>
   </plugins>
 </grails>

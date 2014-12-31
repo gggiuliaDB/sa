@@ -71,7 +71,7 @@
 
 		<script> 
 		  var url = "${createLink(controller:'carrello',action:'add')}";
-		  var carrelloId=${carrelloInstance.id};
+		  var carrelloId=${carrelloInstance?.id};
 		  var lang="${lang}"
 	    </script>	    
         
