@@ -23,29 +23,22 @@
 			</g:if>
 			<ol class="property-list acquisto">
 			
+				<g:if test="${acquistoInstance?.confezioniAcquisto}">
+				<li class="fieldcontain">
+					<span id="confezioniAcquisto-label" class="property-label"><g:message code="acquisto.confezioniAcquisto.label" default="Confezioni Acquisto" /></span>
+					
+						<g:each in="${acquistoInstance.confezioniAcquisto}" var="c">
+						<span class="property-value" aria-labelledby="confezioniAcquisto-label"><g:link controller="confezioneAcquisto" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${acquistoInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="acquisto.dateCreated.label" default="Date Created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${acquistoInstance?.dateCreated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${acquistoInstance?.prodotto}">
-				<li class="fieldcontain">
-					<span id="prodotto-label" class="property-label"><g:message code="acquisto.prodotto.label" default="Prodotto" /></span>
-					
-						<span class="property-value" aria-labelledby="prodotto-label"><g:link controller="prodotto" action="show" id="${acquistoInstance?.prodotto?.id}">${acquistoInstance?.prodotto?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${acquistoInstance?.quantita}">
-				<li class="fieldcontain">
-					<span id="quantita-label" class="property-label"><g:message code="acquisto.quantita.label" default="Quantita" /></span>
-					
-						<span class="property-value" aria-labelledby="quantita-label"><g:fieldValue bean="${acquistoInstance}" field="quantita"/></span>
 					
 				</li>
 				</g:if>

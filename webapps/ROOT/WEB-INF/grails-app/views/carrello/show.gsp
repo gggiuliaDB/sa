@@ -32,7 +32,7 @@
 	                <g:message code="button.continuaShopping.label" />
 	            </g:link>
 	            
-	            <g:link controller="carrello" action="procedi" id="${carrelloInstance.id}" class="btn btn-success">
+	            <g:link controller="acquisto" action="procedi" id="${carrelloInstance.id}" class="btn btn-success">
 	                <g:message code="button.procediAcquisto.label" />
 	            </g:link>
 	            

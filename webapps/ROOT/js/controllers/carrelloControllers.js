@@ -2,7 +2,7 @@ $( ".addToChart" ).click(function() {
     var id = this.id;    
 	$.ajax({
 			url: url,
-            data:{'id': id, 'carrelloId': carrelloId},
+            data:{'id': id, 'carrelloId': carrelloId, 'lang': lang},
 			success: function(data) {
 		        //alert(data)
 			    angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);

@@ -2,21 +2,21 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: acquistoInstance, field: 'prodotto', 'error')} required">
-	<label for="prodotto">
-		<g:message code="acquisto.prodotto.label" default="Prodotto" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: acquistoInstance, field: 'confezioniAcquisto', 'error')} ">
+	<label for="confezioniAcquisto">
+		<g:message code="acquisto.confezioniAcquisto.label" default="Confezioni Acquisto" />
+		
 	</label>
-	<g:select id="prodotto" name="prodotto.id" from="${it.ggg.sa.prodotto.Prodotto.list()}" optionKey="id" required="" value="${acquistoInstance?.prodotto?.id}" class="many-to-one"/>
+	
+<ul class="one-to-many">
+<g:each in="${acquistoInstance?.confezioniAcquisto?}" var="c">
+    <li><g:link controller="confezioneAcquisto" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="confezioneAcquisto" action="create" params="['acquisto.id': acquistoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'confezioneAcquisto.label', default: 'ConfezioneAcquisto')])}</g:link>
+</li>
+</ul>
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: acquistoInstance, field: 'quantita', 'error')} required">
-	<label for="quantita">
-		<g:message code="acquisto.quantita.label" default="Quantita" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="quantita" type="number" value="${acquistoInstance.quantita}" required=""/>
 
 </div>
 

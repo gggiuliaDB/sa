@@ -2,55 +2,64 @@
   <resources>
     <resource>grails.plugin.springsecurity.ui.SecurityInfoController</resource>
     <resource>DefaultUiSecurityConfig</resource>
-    <resource>JQueryPluginResources</resource>
     <resource>DbdocUrlMappings</resource>
-    <resource>grails.plugin.springsecurity.ui.AclObjectIdentityController</resource>
-    <resource>DefaultSecurityConfig</resource>
-    <resource>com.grailsrocks.jqueryui.JqueryUiTagLib</resource>
+    <resource>JQueryPluginResources</resource>
     <resource>JQueryConfig</resource>
-    <resource>grails.plugin.springsecurity.ui.AclSidController</resource>
+    <resource>com.grailsrocks.jqueryui.JqueryUiTagLib</resource>
     <resource>JqueryUiPluginResources</resource>
-    <resource>grails.plugin.springsecurity.LoginController</resource>
     <resource>grails.plugin.springsecurity.SpringSecurityService</resource>
+    <resource>org.grails.paypal.PaymentItem</resource>
     <resource>grails.plugin.springsecurity.ui.RegistrationCodeController</resource>
-    <resource>grails.plugin.springsecurity.ui.SecurityUiTagLib</resource>
-    <resource>grails.plugin.springsecurity.ui.RoleController</resource>
-    <resource>grails.plugin.springsecurity.ui.RegisterController</resource>
     <resource>org.grails.plugin.resource.BaseUrlResourceMapper</resource>
     <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
-    <resource>DefaultCacheConfig</resource>
-    <resource>grails.plugin.springsecurity.ui.SpringSecurityUiService</resource>
     <resource>org.grails.plugin.resource.ResourceTagLib</resource>
     <resource>grails.plugin.cache.CacheTagLib</resource>
+    <resource>PaypalUrlMappings</resource>
     <resource>org.grails.plugin.resource.CSSRewriterResourceMapper</resource>
     <resource>com.burtbeckwith.grails.plugin.famfamfam.FamfamfamTagLib</resource>
-    <resource>grails.plugin.springsecurity.ui.RegistrationCode</resource>
-    <resource>grails.plugin.springsecurity.ui.UserController</resource>
-    <resource>JQueryService</resource>
-    <resource>grails.plugin.cache.GrailsCacheAdminService</resource>
-    <resource>grails.plugin.mail.MailService</resource>
-    <resource>grails.plugin.springsecurity.ui.RequestmapController</resource>
     <resource>SpringSecurityUIPluginResources</resource>
+    <resource>grails.plugin.springsecurity.ui.RequestmapController</resource>
     <resource>JQueryResourceTagLib</resource>
-    <resource>grails.plugin.springsecurity.ui.AclClassController</resource>
+    <resource>org.grails.paypal.PaypalTagLib</resource>
     <resource>grails.plugin.springsecurity.SecurityTagLib</resource>
     <resource>grails.plugin.springsecurity.LogoutController</resource>
     <resource>grails.plugin.springsecurity.ui.PersistentLoginController</resource>
     <resource>grails.plugin.databasemigration.DbdocController</resource>
-    <resource>org.grails.plugin.resource.BundleResourceMapper</resource>
     <resource>JQueryTagLib</resource>
     <resource>ResourcesBootStrap</resource>
-    <resource>DefaultWebXmlConfig</resource>
-    <resource>org.grails.plugin.resource.CSSPreprocessorResourceMapper</resource>
-    <resource>grails.plugin.springsecurity.ui.AclEntryController</resource>
     <resource>grails.plugin.springsecurity.ui.AbstractS2UiController</resource>
+    <resource>grails.plugin.springsecurity.ui.AclEntryController</resource>
+    <resource>DefaultSecurityConfig</resource>
+    <resource>grails.plugin.springsecurity.ui.AclObjectIdentityController</resource>
+    <resource>grails.plugin.springsecurity.ui.AclSidController</resource>
+    <resource>grails.plugin.springsecurity.LoginController</resource>
+    <resource>grails.plugin.springsecurity.ui.RegisterController</resource>
+    <resource>grails.plugin.springsecurity.ui.RoleController</resource>
+    <resource>grails.plugin.springsecurity.ui.SecurityUiTagLib</resource>
+    <resource>DefaultCacheConfig</resource>
+    <resource>grails.plugin.springsecurity.ui.SpringSecurityUiService</resource>
+    <resource>org.grails.paypal.PaypalController</resource>
+    <resource>grails.plugin.springsecurity.ui.UserController</resource>
+    <resource>grails.plugin.springsecurity.ui.RegistrationCode</resource>
+    <resource>JQueryService</resource>
+    <resource>grails.plugin.cache.GrailsCacheAdminService</resource>
+    <resource>grails.plugin.mail.MailService</resource>
+    <resource>grails.plugin.springsecurity.ui.AclClassController</resource>
+    <resource>org.grails.plugin.resource.BundleResourceMapper</resource>
+    <resource>org.grails.paypal.BuyerInformation</resource>
+    <resource>org.grails.paypal.Payment</resource>
+    <resource>org.grails.plugin.resource.CSSPreprocessorResourceMapper</resource>
+    <resource>DefaultWebXmlConfig</resource>
     <resource>ApplicationResources</resource>
     <resource>BootStrap</resource>
     <resource>BuildConfig</resource>
     <resource>Config</resource>
     <resource>DataSource</resource>
+    <resource>it.ggg.sa.acquisto.AcquistoCompletatoFilters</resource>
+    <resource>it.ggg.sa.acquisto.AcquistoFilters</resource>
     <resource>resources</resource>
     <resource>UrlMappings</resource>
+    <resource>it.ggg.sa.acquisto.AcquistoController</resource>
     <resource>it.ggg.sa.carrello.CarrelloController</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrelloController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>
@@ -60,6 +69,7 @@
     <resource>it.ggg.sa.security.RegisterController</resource>
     <resource>it.ggg.sa.security.UserController</resource>
     <resource>it.ggg.sa.acquisto.Acquisto</resource>
+    <resource>it.ggg.sa.acquisto.ConfezioneAcquisto</resource>
     <resource>it.ggg.sa.acquisto.StatoPagamento</resource>
     <resource>it.ggg.sa.carrello.Carrello</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrello</resource>
@@ -86,16 +96,17 @@
   </resources>
   <plugins>
     <plugin>DatabaseMigrationGrailsPlugin</plugin>
-    <plugin>SpringSecurityUiGrailsPlugin</plugin>
+    <plugin>ScaffoldingGrailsPlugin</plugin>
+    <plugin>WebxmlGrailsPlugin</plugin>
+    <plugin>FamfamfamGrailsPlugin</plugin>
+    <plugin>JqueryGrailsPlugin</plugin>
+    <plugin>MailGrailsPlugin</plugin>
+    <plugin>ResourcesGrailsPlugin</plugin>
     <plugin>CacheGrailsPlugin</plugin>
+    <plugin>SpringSecurityUiGrailsPlugin</plugin>
     <plugin>JqueryUiGrailsPlugin</plugin>
     <plugin>SpringSecurityCoreGrailsPlugin</plugin>
-    <plugin>WebxmlGrailsPlugin</plugin>
-    <plugin>ScaffoldingGrailsPlugin</plugin>
-    <plugin>FamfamfamGrailsPlugin</plugin>
     <plugin>HibernateGrailsPlugin</plugin>
-    <plugin>MailGrailsPlugin</plugin>
-    <plugin>JqueryGrailsPlugin</plugin>
-    <plugin>ResourcesGrailsPlugin</plugin>
+    <plugin>PaypalGrailsPlugin</plugin>
   </plugins>
 </grails>

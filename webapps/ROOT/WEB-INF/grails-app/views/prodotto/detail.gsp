@@ -44,7 +44,14 @@
                                    <div style="min-height:40px;">${confezione.descrizione}</div>
                                    <h4 style="margin-top: 5px; margin-bottom: 0px;">
 	                                    &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura}
-                                   </h4>                                                                    
+                                   </h4>         
+                                   
+                                   <%--<paypal:button
+								        itemName="${confezione.descrizione}"
+								        itemNumber="${confezione.id}"
+								        discountAmount="${0}"
+								        amount="${confezione.prezzo}"
+								        buyerId="1"/>--%>                                                           
                                </li>
                            </g:each>
                         </ul>
@@ -65,6 +72,7 @@
 		<script> 
 		  var url = "${createLink(controller:'carrello',action:'add')}";
 		  var carrelloId=${carrelloInstance.id};
+		  var lang="${lang}"
 	    </script>	    
         
 		<!-- Modal -->

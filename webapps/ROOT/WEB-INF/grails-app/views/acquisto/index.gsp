@@ -26,10 +26,6 @@
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'acquisto.dateCreated.label', default: 'Date Created')}" />
 					
-						<th><g:message code="acquisto.prodotto.label" default="Prodotto" /></th>
-					
-						<g:sortableColumn property="quantita" title="${message(code: 'acquisto.quantita.label', default: 'Quantita')}" />
-					
 						<g:sortableColumn property="statoPagamento" title="${message(code: 'acquisto.statoPagamento.label', default: 'Stato Pagamento')}" />
 					
 						<th><g:message code="acquisto.utente.label" default="Utente" /></th>
@@ -41,10 +37,6 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${acquistoInstance.id}">${fieldValue(bean: acquistoInstance, field: "dateCreated")}</g:link></td>
-					
-						<td>${fieldValue(bean: acquistoInstance, field: "prodotto")}</td>
-					
-						<td>${fieldValue(bean: acquistoInstance, field: "quantita")}</td>
 					
 						<td>${fieldValue(bean: acquistoInstance, field: "statoPagamento")}</td>
 					
