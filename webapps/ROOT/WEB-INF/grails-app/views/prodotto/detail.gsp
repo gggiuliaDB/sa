@@ -35,23 +35,19 @@
                         <ul class="list-group">
                            <g:each in="${ confezioni }" var="confezione" >
                                <li class="list-group-item list-group-item-info">
-                                   <span >
-                                       <a href="#" id="${confezione.id}" class="btn btn-success btn-sm pull-right addToChart">
+                                   <span>
+                                       <a href="#" id="${confezione.id}" class="btn btn-success btn-sm pull-right addToChart ">
                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                            <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
                                        </a>
                                    </span>
-                                   <div style="min-height:40px;">${confezione.descrizione}</div>
-                                   <h4 style="margin-top: 5px; margin-bottom: 0px;">
-	                                    &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura}
-                                   </h4>         
-                                   
-                                   <%--<paypal:button
-								        itemName="${confezione.descrizione}"
-								        itemNumber="${confezione.id}"
-								        discountAmount="${0}"
-								        amount="${confezione.prezzo}"
-								        buyerId="1"/>--%>                                                           
+                                   <strong><p style="margin-top: 5px; margin-bottom: 0px; margin-right: 10px;" class="pull-right">
+                                        &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}
+                                   </p>    </strong>                               
+                                   <div style="min-height:30px;">
+	                                   ${confezione.descrizione}
+                                   </div>
+         
                                </li>
                            </g:each>
                         </ul>

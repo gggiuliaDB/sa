@@ -8,6 +8,7 @@
             <%--<a href="#" tabindex="0" class="" role="button" data-toggle="popover" data-trigger="focus" title="Commenti" data-content="Bla bla bla">
                 ${numeroCommenti} <g:message code="commento.commenti.label" />
             </a>--%>
+            
         </g:else>
     </p>
     <p>

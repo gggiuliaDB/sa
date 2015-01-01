@@ -28,15 +28,17 @@
             <g:else>                        
 	            <g:render template="carrelloTable" ></g:render>
 	            
+	            <g:link controller="acquisto" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
+                    <g:message code="button.procediAcquisto.label" />
+                </g:link>
+                
+                
 	            <g:link controller="prodotto" action="search" class="btn btn-default">
 	                <g:message code="button.continuaShopping.label" />
 	            </g:link>
 	            
-	            <g:link controller="acquisto" action="procedi" id="${carrelloInstance.id}" class="btn btn-success">
-	                <g:message code="button.procediAcquisto.label" />
-	            </g:link>
 	            
-	            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
+	            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-default">
 	                <g:message code="button.svuotaCarrello.label" />
             </g:link>
             </g:else>

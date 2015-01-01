@@ -2,9 +2,9 @@
   <thead>       
     <tr>
        <th colspan="2"></th>
-       <th><g:message code="carrello.quantita.label" /></th>
-       <th><g:message code="carrello.prezzoUnitario.label" /></th>
-       <th><g:message code="carrello.prezzoTotale.label" /></th>
+       <th style="vertical-align: middle; text-align: right;"><g:message code="carrello.quantita.label" /></th>
+       <th style="vertical-align: middle; text-align: right;"><g:message code="carrello.prezzoUnitario.label" /></th>
+       <th style="vertical-align: middle; text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>
        <th></th>
     </tr>
   </thead>
@@ -19,16 +19,29 @@
             <h4>${confezioneCarrello.confezione.prodotto.getNome("it")}</h4>
             <p>${confezioneCarrello.confezione.getDescrizione("it")}</p>
         </td>
-        <td style="vertical-align: middle;">
+        <td style="vertical-align: middle; text-align: right;">
             ${confezioneCarrello.quantita}
         </td>
-        <td style="vertical-align: middle;">
-            ${confezioneCarrello.confezione.prezzo} &euro;
+        <td style="vertical-align: middle; text-align: right;">
+            &euro; <g:formatNumber number="${confezioneCarrello.confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/>
         </td>
-        <td style="vertical-align: middle;">
-            ${confezioneCarrello.confezione.prezzo * confezioneCarrello.quantita} &euro;
+        <td style="vertical-align: middle; text-align: right;">
+            &euro; <g:formatNumber number="${confezioneCarrello.confezione.prezzo * confezioneCarrello.quantita}" type="currency" currencyCode="EUR" currencySymbol=""/>
         </td>
     </tr>
     </g:each>
+    
+    <%--TOTALE --%>            
+    <tr  style="border-top: 1px solid gray;">
+	    <td colspan="2"><h4><g:message code="carrello.totale.label"/></h4></td>
+	    <td></td>
+	    <td></td>
+	    <td style="vertical-align: middle; text-align: right;">
+	         &euro; <g:formatNumber number="${totale}" type="currency" currencyCode="EUR" currencySymbol=""/> 
+	    </td>
+	    <td></td>
+	</tr>
+
    </tbody>
+   
 </table>

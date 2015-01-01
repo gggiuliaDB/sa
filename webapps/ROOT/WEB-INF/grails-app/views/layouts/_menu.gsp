@@ -25,7 +25,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <sec:ifLoggedIn>
             <ul class="nav navbar-nav">
-           
+                
+                <li>
+                    <g:link controller="prodotto" >                    
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </g:link>
+                </li>
+                       
             
                 <%--Prodotti--%>
                 <li class="dropdown">

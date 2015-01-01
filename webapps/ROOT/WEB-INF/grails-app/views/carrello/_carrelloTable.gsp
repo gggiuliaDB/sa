@@ -73,7 +73,7 @@
                 <td></td>
                 <td></td>
                 <td style="vertical-align: middle; text-align: right;">
-                    {{totale | number:2}}&euro;
+                    {{totale | currency:"€ "}}
                 </td>
                 <td></td>
             </tr>

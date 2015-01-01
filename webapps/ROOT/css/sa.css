@@ -105,7 +105,8 @@ footer {
 
 
 .thumbnail > img{ 
-    height: 200px; 
+    min-height: 200px; 
+/*     min-width: 237px;  */    
 }
 .cssform{
     color: black;
@@ -165,3 +166,5 @@ position: relative;}
 .navbar-brand {
 	padding-top: 8px;
 }
+
+
