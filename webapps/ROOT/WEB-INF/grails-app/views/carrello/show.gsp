@@ -28,8 +28,8 @@
             <g:else>                        
 	            <g:render template="carrelloTable" ></g:render>
 	            
-	            <g:link controller="acquisto" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
-                    <g:message code="button.procediAcquisto.label" />
+	            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
+                    <g:message code="button.richiediDisponobilita.label" />
                 </g:link>
                 
                 

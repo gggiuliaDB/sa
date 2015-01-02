@@ -44,9 +44,9 @@
                                    <strong><p style="margin-top: 5px; margin-bottom: 0px; margin-right: 10px;" class="pull-right">
                                         &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}
                                    </p>    </strong>                               
-                                   <div style="min-height:30px;">
+                                   <p style="min-height:30px;">
 	                                   ${confezione.descrizione}
-                                   </div>
+                                   </p>
          
                                </li>
                            </g:each>

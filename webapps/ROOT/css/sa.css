@@ -19,7 +19,8 @@ body {
 */
 
 .caption {
-    height: 160px;
+    /*height: 160px;*/
+    
     overflow: hidden;
 }
 
@@ -32,9 +33,9 @@ body {
     white-space: nowrap;
 }
 
-.thumbnail img {
-    width: 100%;
-}
+/* .thumbnail img { */
+/*     width: 100%; */
+/* } */
 
 .ratings {
     padding-right: 10px;
@@ -105,8 +106,10 @@ footer {
 
 
 .thumbnail > img{ 
-    min-height: 200px; 
-/*     min-width: 237px;  */    
+	 width: 100%;
+    height: 200px;
+    max-width: 300px; 
+/*      min-width: 237px;       */
 }
 .cssform{
     color: black;

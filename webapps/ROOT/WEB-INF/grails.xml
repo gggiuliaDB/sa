@@ -10,7 +10,6 @@
     <resource>grails.plugin.springsecurity.SpringSecurityService</resource>
     <resource>org.grails.paypal.PaymentItem</resource>
     <resource>grails.plugin.springsecurity.ui.RegistrationCodeController</resource>
-    <resource>org.grails.activiti.springsecurity.SetAuthenticatedUserIdFilters</resource>
     <resource>org.grails.plugin.resource.BaseUrlResourceMapper</resource>
     <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
     <resource>org.grails.plugin.resource.ResourceTagLib</resource>
@@ -57,27 +56,27 @@
     <resource>BuildConfig</resource>
     <resource>Config</resource>
     <resource>DataSource</resource>
-    <resource>it.ggg.sa.acquisto.AcquistoCompletatoFilters</resource>
-    <resource>it.ggg.sa.acquisto.AcquistoFilters</resource>
+    <resource>it.ggg.sa.ordine.OrdineCompletatoFilters</resource>
+    <resource>it.ggg.sa.ordine.OrdineFilters</resource>
     <resource>resources</resource>
     <resource>UrlMappings</resource>
-    <resource>it.ggg.sa.acquisto.AcquistoController</resource>
     <resource>it.ggg.sa.carrello.CarrelloController</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrelloController</resource>
+    <resource>it.ggg.sa.ordine.OrdineController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
     <resource>it.ggg.sa.security.LogoutController</resource>
     <resource>it.ggg.sa.security.RegisterController</resource>
     <resource>it.ggg.sa.security.UserController</resource>
-    <resource>it.ggg.sa.acquisto.Acquisto</resource>
-    <resource>it.ggg.sa.acquisto.ConfezioneAcquisto</resource>
-    <resource>it.ggg.sa.acquisto.StatoPagamento</resource>
     <resource>it.ggg.sa.carrello.Carrello</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrello</resource>
     <resource>it.ggg.sa.carrello.StatoCarrello</resource>
     <resource>it.ggg.sa.carrello.TipoDurata</resource>
     <resource>it.ggg.sa.commento.Commento</resource>
+    <resource>it.ggg.sa.ordine.ConfezioneOrdine</resource>
+    <resource>it.ggg.sa.ordine.Ordine</resource>
+    <resource>it.ggg.sa.ordine.StatoPagamento</resource>
     <resource>it.ggg.sa.prodotto.Confezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneConfezione</resource>
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneLinea</resource>
@@ -92,9 +91,11 @@
     <resource>it.ggg.sa.security.User</resource>
     <resource>it.ggg.sa.security.UserRole</resource>
     <resource>it.ggg.sa.carrello.CarrelloService</resource>
+    <resource>it.ggg.sa.ordine.OrdineService</resource>
     <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
     <resource>it.ggg.sa.commento.CommentoTagLib</resource>
     <resource>it.ggg.sa.localization.LocaleTagLib</resource>
+    <resource>it.ggg.sa.task.TaskTagLib</resource>
   </resources>
   <plugins>
     <plugin>DatabaseMigrationGrailsPlugin</plugin>
@@ -110,7 +111,6 @@
     <plugin>JqueryUiGrailsPlugin</plugin>
     <plugin>SpringSecurityCoreGrailsPlugin</plugin>
     <plugin>HibernateGrailsPlugin</plugin>
-    <plugin>ActivitiSpringSecurityGrailsPlugin</plugin>
     <plugin>PaypalGrailsPlugin</plugin>
   </plugins>
 </grails>

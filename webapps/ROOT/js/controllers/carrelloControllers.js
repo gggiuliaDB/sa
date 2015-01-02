@@ -6,7 +6,13 @@ $( ".addToChart" ).click(function() {
 			success: function(data) {
 		        //alert(data)
 			    angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
-	            $('#carrelloSize').html(data.length);
+			    
+			    var totaleQuantita=0;
+			    for(var i=0; i<data.length; i++){
+			    	totaleQuantita += data[i].quantita;
+			    }
+			    $('#carrelloSize').html(totaleQuantita);
+	            //$('#carrelloSize').html(data.length);
 			    $('#myModal').modal();
 		    },
 		    error: function(request, status, error) {
@@ -55,10 +61,18 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	});        
     };
     
-    $scope.aggiornaConfezioni= function(confezioniCarrello){
+    $scope.aggiornaConfezioni = function(confezioniCarrello){
         $scope.confezioniCarrello = confezioniCarrello;
         $scope.$apply();
     };
+    
+    var aggiornaQuantita = function(confezioniCarrello){
+    	var totaleQuantita=0;
+	    for(var i=0; i < confezioniCarrello.length; i++){
+	    	totaleQuantita +=  confezioniCarrello.quantita;
+	    }
+	    $('#carrelloSize').html(totaleQuantita);
+    }
     
     var save = function(){
     	$http({
@@ -68,7 +82,17 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
             headers: {'Content-Type': 'application/json'}
         })
         .success(function(response, status, headers, config){
-        	$scope.totale = response;     
+        	
+        	var totaleQuantita=0;
+        	var totalePrezzo=0;
+		    for(var i=0; i < response.length; i++){
+		    	totaleQuantita += response[i].quantita;
+		    	totalePrezzo += response[i].quantita * response[i].prezzo;
+		    }
+		    $('#carrelloSize').html(totaleQuantita);
+        	
+		    $scope.totale = totalePrezzo;
+        	//$scope.totale = response;     
         })
         .error(function(response, status, headers, config){
             $scope.error_message = response.error_message;
@@ -109,7 +133,8 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
             $scope.confezioniCarrello = response;
             $scope.$apply();
             
-            $('#carrelloSize').html($scope.confezioniCarrello.length);
+            aggiornaQuantita($scope.confezioniCarrello);
+            //$('#carrelloSize').html($scope.confezioniCarrello.length);
         })
         .error(function(response, status, headers, config){
             //$scope.error_message = response.error_message;

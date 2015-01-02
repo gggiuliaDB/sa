@@ -70,26 +70,32 @@
 	                  <span class="input-group-btn">
 				        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 				      </span>	                  
-                  </div>
-                   
+                  </div>                   
                 </div>
             </g:form>
             
-            <%--Cambia lingua--%>
-            <ul class="nav navbar-nav">                
+            <%--Task--%>
+            <ul class="nav navbar-nav">
+                <li>
+                    <g:link controller="ordine" action="tasks" >
+                        <g:numeroTaskUtente />
+                    </g:link>
+                </li>
+            </ul>
+          </sec:ifLoggedIn>
+          
+          
+          <ul class="nav navbar-nav navbar-right">
+                
+                <%--Cambia lingua--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <%--<g:message code="language.changeLanguage.label" default="Change language"/>--%>
                     <locale:flag/> 
                     <span class="caret"></span>
-                  </a>
-                  
+                  </a>                  
                   <locale:selector/>                  
-                </li>                
-            </ul>
-            
-          </sec:ifLoggedIn>
-          <ul class="nav navbar-nav navbar-right">
+                </li> 
+                
                 <sec:ifNotLoggedIn>
                    <%--Login (solo se non loggati)--%>
                    <li><g:link controller='login' action='auth'><g:message code="menu.login.label" /></g:link></li>
@@ -129,3 +135,5 @@
     </div>
     <!-- /.container -->
 </nav>
+
+
