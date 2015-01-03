@@ -53,6 +53,32 @@
 	        </div>
 	      </div>
 	    </footer>
-	                
+	
+        <!-- /.container -->
+        <r:layoutResources />
+<%--    
+        <!-- Navigation -->    
+        <g:render template="/layouts/menu" />   
+        
+       
+        <!-- Contenuto della pagina -->    
+        <g:layoutBody/>
+   
+        <!-- Footer -->
+        <div class="container">
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                      <sec:ifLoggedIn>
+                        <p>Sarda Affumicati s.r.l.- Loc. Sa Colombera- 09010 Buggerru (CI) P.I. 01853450920</p>
+                      </sec:ifLoggedIn>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /.container -->
+        <r:layoutResources />
+ --%>                    
     </body>
 </html>
