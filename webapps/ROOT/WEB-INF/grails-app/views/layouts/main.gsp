@@ -12,51 +12,47 @@
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
         <link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
         <link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
-<%--        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css">--%>
-<%--        <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">--%>
-<%--        <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">--%>
-<%--        <link rel="stylesheet" href="${resource(dir: 'css', file: 'sa.css')}" type="text/css">--%>
-<%--        <r:require module="bootstrap"/>--%>
-<%--        <r:require module="jquery"/>--%>
 
         <r:require module="jquery"/>
         <r:require module="bootstrap"/>
-		<r:require module="core"/>
+        <r:require module="core"/>
         
         <g:layoutHead/>
         <g:javascript library="application"/>
         <r:layoutResources />
         
     </head>
-    <body ><%--style="background-color: #76AF8C;" --%>
-		
-		<%--LANG--%>
-		<g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
-		<g:if test="${!lang}">
-		    <g:set var="lang" value="it"/>
-		</g:if>    
-    
-        <!-- Navigation -->    
-        <g:render template="/layouts/menu" />   
+    <body >
         
-        <!-- Contenuto della pagina -->    
-        <g:layoutBody/>
-
-        <!-- Footer -->
-        <div class="container">
+        
+        <%--LANG--%>
+        <g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
+        <g:if test="${!lang}">
+            <g:set var="lang" value="it"/>
+        </g:if>    
+    
+	    <!-- Fixed navbar -->
+	    <!-- Navigation -->    
+	    <g:render template="/layouts/menu" />
+	
+	    <!-- Begin page content -->
+	    <div class="container">
+	        <!-- Contenuto della pagina -->    
+	        <g:layoutBody/>
+	    </div>
+	
+	    <footer class="footer">
+	      <div class="container">
             <hr>
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                      <sec:ifLoggedIn>
-                        <p>Sarda Affumicati s.r.l.- Loc. Sa Colombera- 09010 Buggerru (CI) P.I. 01853450920</p>
-                      </sec:ifLoggedIn>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <!-- /.container -->
-        <r:layoutResources />
-                    
+	        <div class="row">
+	            <div class="col-lg-12">
+	              <sec:ifLoggedIn>
+	                <p>Sarda Affumicati s.r.l.- Loc. Sa Colombera- 09010 Buggerru (CI) P.I. 01853450920</p>
+	              </sec:ifLoggedIn>
+	            </div>
+	        </div>
+	      </div>
+	    </footer>
+	                
     </body>
 </html>
