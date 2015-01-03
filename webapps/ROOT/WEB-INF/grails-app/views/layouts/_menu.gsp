@@ -117,7 +117,8 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:username/><b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <li><a href="<g:createLink controller="user" action="cambioPassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
-                        <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>
+                        <%--<li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>--%>
+                        <li><a href="<g:createLink uri="" />/j_spring_security_logout"><g:message code="menu.logout.label" default="Logout"/></a></li>
                       </ul>
                     </li>
                 </sec:ifLoggedIn>
