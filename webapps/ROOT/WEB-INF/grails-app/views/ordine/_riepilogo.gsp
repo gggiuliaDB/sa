@@ -10,8 +10,7 @@
   </thead>
   <tbody>
     <g:each in="${ordine.confezioniOrdine}" var="confezioneCarrello">
-        <tr >
-    
+      <tr >    
         <td style="vertical-align: middle;">                    
             <img src='<g:createLink controller="prodotto" action="viewImage" id="${confezioneCarrello.confezione.prodotto.id}" />' style="width:100px;" class="img-rounded" />                
         </td>
@@ -21,6 +20,11 @@
         </td>
         <td style="vertical-align: middle; text-align: right;">
             ${confezioneCarrello.quantita}
+            <%--
+            <input class="form-control" style="text-align: right; font-size: small;" type="text" value="${confezioneCarrello.quantita}">
+            <g:field name="rating" type="number" min="0" max="5" style="border: 1px solid gray;"/>--%>                 
+                
+                
         </td>
         <td style="vertical-align: middle; text-align: right;">
             &euro; <g:formatNumber number="${confezioneCarrello.confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/>
@@ -28,7 +32,7 @@
         <td style="vertical-align: middle; text-align: right;">
             &euro; <g:formatNumber number="${confezioneCarrello.confezione.prezzo * confezioneCarrello.quantita}" type="currency" currencyCode="EUR" currencySymbol=""/>
         </td>
-    </tr>
+      </tr>
     </g:each>
     
     <%--TOTALE --%>            
@@ -41,7 +45,5 @@
 	    </td>
 	    <td></td>
 	</tr>
-
-   </tbody>
-   
+   </tbody>   
 </table>

@@ -30,7 +30,7 @@
         <g:if test="${!lang}">
             <g:set var="lang" value="it"/>
         </g:if>    
-    
+<%--    
 	    <!-- Fixed navbar -->
 	    <!-- Navigation -->    
 	    <g:render template="/layouts/menu" />
@@ -56,7 +56,8 @@
 	
         <!-- /.container -->
         <r:layoutResources />
-<%--    
+ --%>                    
+    
         <!-- Navigation -->    
         <g:render template="/layouts/menu" />   
         
@@ -79,6 +80,5 @@
         </div>
         <!-- /.container -->
         <r:layoutResources />
- --%>                    
     </body>
 </html>
