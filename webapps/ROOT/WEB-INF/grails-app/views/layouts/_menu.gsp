@@ -1,9 +1,8 @@
 <%@ page import="it.ggg.sa.prodotto.Linea"%>
 
 <!-- Navigation -->
-<%-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >--%>
-<nav class="navbar navbar-inverse navbar-default" role="navigation" >
-    <%-- style="background-color: #023261"#76AF8C--%>
+<nav class="navbar navbar-inverse navbar-default " role="navigation" >
+
     <div class="container" >
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -21,6 +20,7 @@
                 </g:link>
             </sec:ifLoggedIn>
         </div>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <sec:ifLoggedIn>
@@ -31,7 +31,6 @@
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     </g:link>
                 </li>
-                       
             
                 <%--Prodotti--%>
                 <li class="dropdown">
@@ -60,19 +59,6 @@
                     </g:link>
                 </li>
             </ul>
-            <%--Cerca--%>
-            <g:form class="navbar-form navbar-left" role="search" controller="prodotto" action="search" >
-                <div class="form-group">
-                  <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
-                  <div class="input-group input-group-md">
-	                  <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}">	                  
-	                  
-	                  <span class="input-group-btn">
-				        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-				      </span>	                  
-                  </div>                   
-                </div>
-            </g:form>
             
             <%--Task--%>
             <ul class="nav navbar-nav">
@@ -82,6 +68,7 @@
                     </g:link>
                 </li>
             </ul>
+                        
           </sec:ifLoggedIn>
           
           
@@ -99,18 +86,16 @@
                 <sec:ifNotLoggedIn>
                    <%--Login (solo se non loggati)--%>
                    <li><g:link controller='login' action='auth'><g:message code="menu.login.label" /></g:link></li>
+
                    <%--Registrazione (solo se non loggati)--%>
                    <li><g:link controller='register' ><g:message code="menu.register.label" /></g:link></li>
                 </sec:ifNotLoggedIn>
 
                 <sec:ifLoggedIn>
+                    <%--Carrello--%>
                     <li>
                         <g:carrelloIcon/>
-                        <%--<g:link controller="carrello" >
-                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                        </g:link>--%>
                     </li>
-                    
                 
                     <%--Cambio pwd e logout (solo per loggati)--%>
                     <li class="dropdown">
@@ -123,14 +108,21 @@
                     </li>
                 </sec:ifLoggedIn>
           </ul>
-          <%--
-            <form class="navbar-form navbar-right" role="login">
+          <sec:ifLoggedIn>
+            <%--Cerca--%>
+            <g:form class="navbar-form navbar-right" role="search" controller="prodotto" action="search" >
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="email">
-                  <input type="password" class="form-control" placeholder="password">
+                  <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
+                  <div class="input-group input-group-md">
+                      <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}">                   
+                      
+                      <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>                     
+                  </div>                   
                 </div>
-                <button type="submit" class="btn btn-default">Login</button>
-          </form> --%>
+            </g:form>
+          </sec:ifLoggedIn>
         </div>
         <!-- /.navbar-collapse -->
     </div>

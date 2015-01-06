@@ -4,48 +4,88 @@ $( ".addToChart" ).click(function() {
 			url: url,
             data:{'id': id, 'carrelloId': carrelloId, 'lang': lang},
 			success: function(data) {
-		        //alert(data)
-			    angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
-			    
-			    var totaleQuantita=0;
-			    for(var i=0; i<data.length; i++){
-			    	totaleQuantita += data[i].quantita;
-			    }
-			    $('#carrelloSize').html(totaleQuantita);
-	            //$('#carrelloSize').html(data.length);
+		        angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
 			    $('#myModal').modal();
 		    },
 		    error: function(request, status, error) {
 		        alert(error)
-		    }	
-		    //$('#myModal').modal('toggle');
+		    }
 	});	
 });
 
 
 'use strict';
 var carrelloApp = angular.module('carrelloApp', []);
-carrelloApp.directive('onlyDigits', function () {
-    return {
-      require: 'ngModel',
-      restrict: 'A',
-      link: function (scope, element, attr, ctrl) {
-        function inputValue(val) {
-          if (val) {
-            var digits = val.replace(/[^0-9]/g, '1');
 
-            if (digits !== val) {
-              ctrl.$setViewValue(digits);
-              ctrl.$render();
+carrelloApp.directive('onlyNum', function() {
+    return function(scope, element, attrs) {
+
+        var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110];
+        element.bind("keydown", function(event) {
+            //console.log($.inArray(event.which,keyCode));
+            if($.inArray(event.which,keyCode) == -1) {
+                scope.$apply(function(){
+                    scope.$eval(attrs.onlyNum);
+                    event.preventDefault();
+                });
+                event.preventDefault();
             }
-            return parseInt(digits,10);
-          }
-          return undefined;
-        }            
-        ctrl.$parsers.push(inputValue);
-      }
-    }
-});    
+        });
+    };
+});
+carrelloApp.directive('onlyDecimal', function() {
+    return function(scope, element, attrs) {
+
+        var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,188,190];
+        element.bind("keydown", function(event) {
+            //console.log($.inArray(event.which, keyCode));
+            if($.inArray(event.which, keyCode) == -1) {
+                scope.$apply(function(){
+                    scope.$eval(attrs.onlyDecimal);
+                    event.preventDefault();
+                });
+                event.preventDefault();
+            }
+        });
+    };
+});
+
+carrelloApp.directive("comaDotConverter",function(){
+	   return {
+	            require: 'ngModel',
+	            link: function (scope, element, attrs, modelCtrl) {
+	              
+	                modelCtrl.$parsers.push(function(inputValue) {
+	                    
+	                    if (typeof (inputValue) == "undefined") return '';
+	                    var transformedInput = inputValue.replace(/,/g,'.');
+	                    
+	                    if (transformedInput != inputValue) {
+	                        modelCtrl.$setViewValue(transformedInput);
+	                        modelCtrl.$render();
+	                    }
+
+	                    return transformedInput;
+	                });
+	            }
+	        };	  
+	});
+carrelloApp.directive('ngConfirmClick', [
+                                 function(){
+                                     return {
+                                         priority: 1,
+                                         terminal: true,
+                                         link: function (scope, element, attr) {
+                                             var msg = attr.ngConfirmClick || "Are you sure?";
+                                             var clickAction = attr.ngClick;
+                                             element.bind('click',function (event) {
+                                                 if ( window.confirm(msg) ) {
+                                                     scope.$eval(clickAction)
+                                                 }
+                                             });
+                                         }
+                                     };
+                             }])
 carrelloApp.controller('carrelloController', function($scope, $rootScope, $http, $location) {
 	
 	$scope.predicate = 'descrizione';
@@ -63,15 +103,23 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     
     $scope.aggiornaConfezioni = function(confezioniCarrello){
         $scope.confezioniCarrello = confezioniCarrello;
+        aggiornaQuantita(confezioniCarrello);
         $scope.$apply();
     };
     
     var aggiornaQuantita = function(confezioniCarrello){
     	var totaleQuantita=0;
+    	var totalePrezzo=0;
 	    for(var i=0; i < confezioniCarrello.length; i++){
-	    	totaleQuantita +=  confezioniCarrello.quantita;
+	    	totalePrezzo += confezioniCarrello[i].quantita * confezioniCarrello[i].prezzo;
+
+	    	if(confezioniCarrello[i].unitaMisura=="UNITA")
+	    		totaleQuantita += confezioniCarrello[i].quantita;
+	    	else
+	    		totaleQuantita += 1;
 	    }
 	    $('#carrelloSize').html(totaleQuantita);
+	    $scope.totale = totalePrezzo;
     }
     
     var save = function(){
@@ -82,17 +130,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
             headers: {'Content-Type': 'application/json'}
         })
         .success(function(response, status, headers, config){
-        	
-        	var totaleQuantita=0;
-        	var totalePrezzo=0;
-		    for(var i=0; i < response.length; i++){
-		    	totaleQuantita += response[i].quantita;
-		    	totalePrezzo += response[i].quantita * response[i].prezzo;
-		    }
-		    $('#carrelloSize').html(totaleQuantita);
-        	
-		    $scope.totale = totalePrezzo;
-        	//$scope.totale = response;     
+            aggiornaQuantita(response);            
         })
         .error(function(response, status, headers, config){
             $scope.error_message = response.error_message;
@@ -100,7 +138,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     }
     
     $scope.changeQuantita = function(confezioneCarrello){
-    	if(isNaN(confezioneCarrello.quantita))
+    	if(!isNumber(confezioneCarrello.quantita))
 			return;
     	$scope.confezioneCarrello = confezioneCarrello;
     	save();
@@ -110,7 +148,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	if(isNaN(confezioneCarrello.quantita))
 			return;
     	$scope.confezioneCarrello = confezioneCarrello;
-    	$scope.confezioneCarrello.quantita = $scope.confezioneCarrello.quantita + 1;
+    	$scope.confezioneCarrello.quantita = parseInt($scope.confezioneCarrello.quantita) + 1;
     	save();
     };
     
@@ -121,7 +159,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 			return;
     	
 		$scope.confezioneCarrello = confezioneCarrello;
-    	$scope.confezioneCarrello.quantita = $scope.confezioneCarrello.quantita - 1;
+    	$scope.confezioneCarrello.quantita = parseInt($scope.confezioneCarrello.quantita) - 1;
     	save();
     };
     
@@ -131,15 +169,20 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	$http.delete($scope.url+'/confezioneCarrello/'+ confezioneCarrello.id+ '.json')
         .success(function(response, status, headers, config){
             $scope.confezioniCarrello = response;
-            $scope.$apply();
+            //$scope.$apply();
             
             aggiornaQuantita($scope.confezioniCarrello);
-            //$('#carrelloSize').html($scope.confezioniCarrello.length);
         })
         .error(function(response, status, headers, config){
-            //$scope.error_message = response.error_message;
+            alert(response.error_message);
         });
     };
+    
+    function isNumber(n) {
+        'use strict';
+        //n = n.replace(/\./g, '').replace(',', '.');
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }  
 });
 	
 angular.bootstrap(document.getElementById("carrelloApp"),['carrelloApp']);

@@ -15,7 +15,7 @@
             </g:if>
             <g:else>
             
-                <g:render template="riepilogo" ></g:render>
+                <g:render template="ordineTable" ></g:render>
                 
 				<g:link class="btn btn-success" controller="ordine" action="esitoMerceDisponibile" params="[taskId: taskId, disponibile: 1]">
 				    <g:message code="ordine.merceDisponibile.button" />

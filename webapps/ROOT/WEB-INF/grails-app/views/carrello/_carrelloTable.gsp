@@ -2,6 +2,7 @@
 <%@page import="grails.converters.JSON"%>
 
 <r:require module="carrello"/>
+
 <div id="carrelloApp" >
     <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance?.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)})">
     
@@ -9,7 +10,7 @@
           <thead>       
             <tr  >
                <th colspan="2"></th>
-               <th style="text-align: right;"><g:message code="carrello.prezzoUnitario.label" /></th>
+               <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>
                <th style="text-align: center;"><g:message code="carrello.quantita.label" /></th>
                <th style="text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>
                <th></th>
@@ -27,43 +28,53 @@
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;">
-                    {{confezioneCarrello.prezzo | currency:"€ "}}
-<%--                    &euro; <g:formatNumber number="{{confezioneCarrello.prezzo | number:2}}" type="currency" currencyCode="EUR" currencySymbol=""/>--%>
+                    {{confezioneCarrello.prezzo | currency:"€"}}
                 </td>                
                 
                 <td style="vertical-align: middle; width: 120px; min-width: 100px;" >
-                    <div class="input-group input-group-sm">                      
+                    
+                    <div  ng-if="confezioneCarrello.unitaMisura == 'UNITA'" class="input-group input-group-sm">                      
+                                          
                         <span class="input-group-btn">
 				            <button class="btn btn-default" type="button" ng-click="togliUno(confezioneCarrello)">
 				                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 				            </button>
 				        </span>
+				        
                         <input class="form-control" style="text-align: right; font-size: small;" type="text"  
 	                        value="{{confezioneCarrello.quantita}}"  
 	                        ng-model="confezioneCarrello.quantita" 
 	                        ng-change="changeQuantita(confezioneCarrello)"
-	                        only-digits>
+	                        only-num>
+	                        
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button" ng-click="aggiungiUno(confezioneCarrello)">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </button>
                         </span>
                     </div>    
+                    <div ng-if="confezioneCarrello.unitaMisura != 'UNITA'" class="input-group-sm">
+                        <div class="input-group input-group-sm">
+						  <input class="form-control" style="text-align: right; font-size: small;" type="text"
+						        aria-describedby="basic-addon2"  
+                                value="{{confezioneCarrello.quantita}}"  
+                                ng-model="confezioneCarrello.quantita" 
+                                ng-blur="changeQuantita(confezioneCarrello)"
+                                only-decimal 
+                                coma-dot-converter="coma-dot-converter" >
+						  <span class="input-group-addon" id="basic-addon2">Kg</span>
+						</div>        
+                    </div>
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;"> 
-                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita | currency:"€ "}}
+                    {{confezioneCarrello.prezzo * confezioneCarrello.quantita | currency:"€"}}
                 </td>
                 
                 <td style="vertical-align: middle;">
-                    <a href="#" class="pull-right" type="button" ng-click="eliminaConfezione(confezioneCarrello)">
-                        <%--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>--%>                        
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: red"></span>
+                    <a href="#" class="pull-right" type="button" ng-click="eliminaConfezione(confezioneCarrello)" ng-confirm-click="Confermi la cancellazione?">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: red"></span>
                     </a>
-            
-                    <%--<g:link controller="carrello" action="removeConfezione" id="{{confezioneCarrello.id}}" class="pull-right"> 
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </g:link>--%>
                 </td>
             </tr>
             
@@ -73,7 +84,7 @@
                 <td></td>
                 <td></td>
                 <td style="vertical-align: middle; text-align: right;">
-                    {{totale | currency:"€ "}}
+                    {{totale | currency:"€"}}
                 </td>
                 <td></td>
             </tr>
