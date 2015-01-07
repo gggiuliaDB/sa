@@ -65,6 +65,7 @@
     <resource>it.ggg.sa.ordine.ConfezioneOrdineController</resource>
     <resource>it.ggg.sa.ordine.OrdineController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>
+    <resource>it.ggg.sa.prodotto.CopyOfProdottoController</resource>
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
     <resource>it.ggg.sa.security.LogoutController</resource>

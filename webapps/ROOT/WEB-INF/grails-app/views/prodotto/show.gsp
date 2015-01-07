@@ -8,8 +8,6 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-	  <div class="container">
-	   
 		<a href="#show-prodotto" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -24,15 +22,6 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list prodotto">
-			
-				<g:if test="${prodottoInstance?.descrizione}">
-				<li class="fieldcontain">
-					<span id="descrizione-label" class="property-label"><g:message code="prodotto.descrizione.label" default="Descrizione" /></span>
-					
-						<span class="property-value" aria-labelledby="descrizione-label"><g:fieldValue bean="${prodottoInstance}" field="descrizione"/></span>
-					
-				</li>
-				</g:if>
 			
 				<g:if test="${prodottoInstance?.durata}">
 				<li class="fieldcontain">
@@ -52,58 +41,62 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${prodottoInstance?.comeGustarlo}">
+				<g:if test="${prodottoInstance?.commenti}">
 				<li class="fieldcontain">
-					<span id="comeGustarlo-label" class="property-label"><g:message code="prodotto.comeGustarlo.label" default="Come Gustarlo" /></span>
+					<span id="commenti-label" class="property-label"><g:message code="prodotto.commenti.label" default="Commenti" /></span>
 					
-						<span class="property-value" aria-labelledby="comeGustarlo-label"><g:fieldValue bean="${prodottoInstance}" field="comeGustarlo"/></span>
+						<g:each in="${prodottoInstance.commenti}" var="c">
+						<span class="property-value" aria-labelledby="commenti-label"><g:link controller="commento" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${prodottoInstance?.ingredienti}">
+				<g:if test="${prodottoInstance?.confezioni}">
 				<li class="fieldcontain">
-					<span id="ingredienti-label" class="property-label"><g:message code="prodotto.ingredienti.label" default="Ingredienti" /></span>
+					<span id="confezioni-label" class="property-label"><g:message code="prodotto.confezioni.label" default="Confezioni" /></span>
 					
-						<span class="property-value" aria-labelledby="ingredienti-label"><g:fieldValue bean="${prodottoInstance}" field="ingredienti"/></span>
+						<g:each in="${prodottoInstance.confezioni}" var="c">
+						<span class="property-value" aria-labelledby="confezioni-label"><g:link controller="confezione" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${prodottoInstance?.conservazione}">
+				<g:if test="${prodottoInstance?.internazionalizzazioni}">
 				<li class="fieldcontain">
-					<span id="conservazione-label" class="property-label"><g:message code="prodotto.conservazione.label" default="Conservazione" /></span>
+					<span id="internazionalizzazioni-label" class="property-label"><g:message code="prodotto.internazionalizzazioni.label" default="Internazionalizzazioni" /></span>
 					
-						<span class="property-value" aria-labelledby="conservazione-label"><g:fieldValue bean="${prodottoInstance}" field="conservazione"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${prodottoInstance?.note}">
-				<li class="fieldcontain">
-					<span id="note-label" class="property-label"><g:message code="prodotto.note.label" default="Note" /></span>
-					
-						<span class="property-value" aria-labelledby="note-label"><g:fieldValue bean="${prodottoInstance}" field="note"/></span>
+						<g:each in="${prodottoInstance.internazionalizzazioni}" var="i">
+						<span class="property-value" aria-labelledby="internazionalizzazioni-label"><g:link controller="internazionalizzazioneProdotto" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
 			
 				<g:if test="${prodottoInstance?.linea}">
 				<li class="fieldcontain">
-					<span id="linea-label" class="property-label"><g:message code="prodotto.linea.label" default="linea" /></span>
+					<span id="linea-label" class="property-label"><g:message code="prodotto.linea.label" default="Linea" /></span>
 					
-						<span class="property-value" aria-labelledby="linea-label">
-						      ${prodottoInstance?.linea?.encodeAsHTML()}
-					    </span>
+						<span class="property-value" aria-labelledby="linea-label"><g:link controller="linea" action="show" id="${prodottoInstance?.linea?.id}">${prodottoInstance?.linea?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${prodottoInstance?.nome}">
+				<g:if test="${prodottoInstance?.tipoProdotto}">
 				<li class="fieldcontain">
-					<span id="nome-label" class="property-label"><g:message code="prodotto.nome.label" default="Nome" /></span>
+					<span id="tipoProdotto-label" class="property-label"><g:message code="prodotto.tipoProdotto.label" default="Tipo Prodotto" /></span>
 					
-						<span class="property-value" aria-labelledby="nome-label"><g:fieldValue bean="${prodottoInstance}" field="nome"/></span>
+						<span class="property-value" aria-labelledby="tipoProdotto-label"><g:link controller="tipoProdotto" action="show" id="${prodottoInstance?.tipoProdotto?.id}">${prodottoInstance?.tipoProdotto?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${prodottoInstance?.top}">
+				<li class="fieldcontain">
+					<span id="top-label" class="property-label"><g:message code="prodotto.top.label" default="Top" /></span>
+					
+						<span class="property-value" aria-labelledby="top-label"><g:fieldValue bean="${prodottoInstance}" field="top"/></span>
 					
 				</li>
 				</g:if>
@@ -116,6 +109,5 @@
 				</fieldset>
 			</g:form>
 		</div>
-	  </div>
 	</body>
 </html>

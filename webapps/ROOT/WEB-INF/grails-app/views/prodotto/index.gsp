@@ -3,22 +3,22 @@
 <%@ page import="it.ggg.sa.prodotto.TipoProdotto" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main">
-        <g:set var="entityName" value="${message(code: 'prodotto.label', default: 'Prodotto')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+	<head>
+		<meta name="layout" content="main">
+		<g:set var="entityName" value="${message(code: 'prodotto.label', default: 'Prodotto')}" />
+		<title><g:message code="default.list.label" args="[entityName]" /></title>
         
-    </head>
-    <body>
+	</head>
+	<body>
         <g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
         <g:if test="${!lang}">
             <g:set var="lang" value="it"/>
-        </g:if>    
-
+			</g:if>
+					
         <div class="container">
-            
+					
             <div class="row">
-
+					
                 <div class="col-md-2">
                     <g:render template="tipi" ></g:render>
                     <hr>
@@ -31,7 +31,7 @@
                     <g:render template="carousel"></g:render>
                     <g:render template="topProducts" model="[prodottoInstanceList: topProducts]"></g:render>
                 </div>
-            </div>
-        </div>
-    </body>
+			</div>
+		</div>
+	</body>
 </html>

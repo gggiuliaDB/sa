@@ -2,15 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'descrizione', 'error')} ">
-	<label for="descrizione">
-		<g:message code="prodotto.descrizione.label" default="Descrizione" />
-		
-	</label>
-	<g:textArea name="descrizione" cols="40" rows="5" maxlength="1024" value="${prodottoInstance?.descrizione}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'durata', 'error')} ">
 	<label for="durata">
 		<g:message code="prodotto.durata.label" default="Durata" />
@@ -29,57 +20,84 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'comeGustarlo', 'error')} ">
-	<label for="comeGustarlo">
-		<g:message code="prodotto.comeGustarlo.label" default="Come Gustarlo" />
+<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'commenti', 'error')} ">
+	<label for="commenti">
+		<g:message code="prodotto.commenti.label" default="Commenti" />
 		
 	</label>
-	<g:textArea name="comeGustarlo" cols="40" rows="5" maxlength="1024" value="${prodottoInstance?.comeGustarlo}"/>
+	
+<ul class="one-to-many">
+<g:each in="${prodottoInstance?.commenti?}" var="c">
+    <li><g:link controller="commento" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="commento" action="create" params="['prodotto.id': prodottoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'commento.label', default: 'Commento')])}</g:link>
+</li>
+</ul>
+
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'ingredienti', 'error')} ">
-	<label for="ingredienti">
-		<g:message code="prodotto.ingredienti.label" default="Ingredienti" />
+<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'confezioni', 'error')} ">
+	<label for="confezioni">
+		<g:message code="prodotto.confezioni.label" default="Confezioni" />
 		
 	</label>
-	<g:textArea name="ingredienti" cols="40" rows="5" maxlength="1024" value="${prodottoInstance?.ingredienti}"/>
+	
+<ul class="one-to-many">
+<g:each in="${prodottoInstance?.confezioni?}" var="c">
+    <li><g:link controller="confezione" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="confezione" action="create" params="['prodotto.id': prodottoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'confezione.label', default: 'Confezione')])}</g:link>
+</li>
+</ul>
+
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'conservazione', 'error')} ">
-	<label for="conservazione">
-		<g:message code="prodotto.conservazione.label" default="Conservazione" />
+<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'internazionalizzazioni', 'error')} ">
+	<label for="internazionalizzazioni">
+		<g:message code="prodotto.internazionalizzazioni.label" default="Internazionalizzazioni" />
 		
 	</label>
-	<g:textArea name="conservazione" cols="40" rows="5" maxlength="1024" value="${prodottoInstance?.conservazione}"/>
+	
+<ul class="one-to-many">
+<g:each in="${prodottoInstance?.internazionalizzazioni?}" var="i">
+    <li><g:link controller="internazionalizzazioneProdotto" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="internazionalizzazioneProdotto" action="create" params="['prodotto.id': prodottoInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'internazionalizzazioneProdotto.label', default: 'InternazionalizzazioneProdotto')])}</g:link>
+</li>
+</ul>
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'note', 'error')} ">
-	<label for="note">
-		<g:message code="prodotto.note.label" default="Note" />
-		
-	</label>
-	<g:textArea name="note" cols="40" rows="5" maxlength="1024" value="${prodottoInstance?.note}"/>
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'linea', 'error')} required">
 	<label for="linea">
-		<g:message code="prodotto.linea.label" default="linea" />
+		<g:message code="prodotto.linea.label" default="Linea" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="linea" name="linea.id" from="${it.ggg.sa.prodotto.Linea.list()}" optionKey="id" required="" value="${prodottoInstance?.linea?.id}" class="many-to-one"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'nome', 'error')} required">
-	<label for="nome">
-		<g:message code="prodotto.nome.label" default="Nome" />
+<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'tipoProdotto', 'error')} required">
+	<label for="tipoProdotto">
+		<g:message code="prodotto.tipoProdotto.label" default="Tipo Prodotto" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="nome" required="" value="${prodottoInstance?.nome}"/>
+	<g:select id="tipoProdotto" name="tipoProdotto.id" from="${it.ggg.sa.prodotto.TipoProdotto.list()}" optionKey="id" required="" value="${prodottoInstance?.tipoProdotto?.id}" class="many-to-one"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: prodottoInstance, field: 'top', 'error')} required">
+	<label for="top">
+		<g:message code="prodotto.top.label" default="Top" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="top" type="number" value="${prodottoInstance.top}" required=""/>
 
 </div>
 
