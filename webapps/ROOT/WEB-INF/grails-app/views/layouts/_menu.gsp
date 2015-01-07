@@ -1,7 +1,7 @@
 <%@ page import="it.ggg.sa.prodotto.Linea"%>
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-default " role="navigation" >
+<!-- Navigation navbar-fixed-top-->
+<nav class="navbar navbar-inverse " role="navigation" >
 
     <div class="container" >
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,20 +44,42 @@
                         </li>
                     </g:each>
                     <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>                  
+                    <li><g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaOfferte.label"/></g:link></li>
                   </ul>
                 </li>
+                
+                <%--L'azienda--%>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.azienda.label" default="L'azienda"/> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" >
+                     <li>
+                        <%--Chi siamo--%>
+                        <g:link controller="profilo" action="chiSiamo">
+	                        <g:message code="menu.chisiamo.label"/>
+	                    </g:link>
+                     </li>
+                     <li>
+                        <%--Contatti--%>
+                        <g:link controller="profilo" action="contatti">
+                            <g:message code="menu.contatti.label"/>
+                        </g:link>
+                     </li>                 
+                  </ul>
+                </li>
+                
+                
                 <%--Chi siamo--%>
-                <li>
+                <%--<li>
                     <g:link controller="profilo" action="chiSiamo">
                         <g:message code="menu.chisiamo.label"/>
                     </g:link>
-                </li>
+                </li>--%>
                 <%--Contatti--%>
-                <li>
+                <%--<li>
                     <g:link controller="profilo" action="contatti">
                         <g:message code="menu.contatti.label"/>
                     </g:link>
-                </li>
+                </li>--%>
             </ul>
             
             <%--Task--%>
@@ -114,7 +136,7 @@
                 <div class="form-group">
                   <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
                   <div class="input-group input-group-md">
-                      <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}">                   
+                      <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}" style="width: 150px;">                   
                       
                       <span class="input-group-btn">
                         <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>

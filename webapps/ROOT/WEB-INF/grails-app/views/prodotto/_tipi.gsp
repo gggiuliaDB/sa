@@ -42,5 +42,9 @@
 <hr>
 <ul class="nav nav-pills nav-stacked">
     <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>
+    <li><g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaOfferte.label"/></g:link></li>
 </ul>
+
+
+
 </div>

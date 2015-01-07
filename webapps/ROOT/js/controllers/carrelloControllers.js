@@ -90,8 +90,9 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	
 	$scope.predicate = 'descrizione';
 	
-    $scope.init = function(url, id, confezioniCarrello){
+    $scope.init = function(url, controller, id, confezioniCarrello){
     	$scope.url=url;
+    	$scope.controller=controller;
     	$scope.id=id;
     	$scope.confezioniCarrello = [];
         $scope.confezioniCarrello = confezioniCarrello;
@@ -125,7 +126,8 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     var save = function(){
     	$http({
             method: 'PUT',
-            url: $scope.url+'/confezioneCarrello/'+ $scope.confezioneCarrello.id+ '.json',
+            url: $scope.url + '/' + $scope.controller + '/' + $scope.confezioneCarrello.id + '.json',
+            //url: $scope.url+'/confezioneCarrello/'+ $scope.confezioneCarrello.id+ '.json',
             params: {quantita: $scope.confezioneCarrello.quantita},
             headers: {'Content-Type': 'application/json'}
         })
@@ -166,7 +168,8 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 
     $scope.eliminaConfezione = function(confezioneCarrello){
     	
-    	$http.delete($scope.url+'/confezioneCarrello/'+ confezioneCarrello.id+ '.json')
+    	//$http.delete($scope.url+'/confezioneCarrello/'+ confezioneCarrello.id+ '.json')
+    	$http.delete($scope.url+'/'+$scope.controller+'/'+confezioneCarrello.id+ '.json')
         .success(function(response, status, headers, config){
             $scope.confezioniCarrello = response;
             //$scope.$apply();

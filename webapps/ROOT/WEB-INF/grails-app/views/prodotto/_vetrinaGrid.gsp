@@ -7,6 +7,11 @@
                 <g:render template="/prodotto/image" model="[id: prodottoInstance.id]"/>
                 <div class="caption-vetrina">
                     <h5>
+                        <%--Sconto--%>
+                        <g:set var="sconto" value="${prodottoInstance.maxSconto()}" />
+                        <g:if test="${sconto!=0}">
+                            <div class="pull-right"><span class="label label-info">-${sconto*100}%</span></div>
+                        </g:if>
                         <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione?.nome.toLowerCase()?.capitalize()}</g:link>
                     </h5>
                 </div>
@@ -16,10 +21,10 @@
         </div>
     </g:each>
 </div>
-<%--<g:if test="${prodottoInstanceList?.size()>3 }">--%>
+<g:if test="${prodottoInstanceCount}">
     <div class="row">
         <div class="pagination " id="paginazione">
             <g:paginate total="${prodottoInstanceCount ?: 0}" />
         </div>
     </div>
-<%--</g:if>--%>
+</g:if>

@@ -1,13 +1,14 @@
-<%@page import="it.ggg.sa.carrello.Carrello"%>
 <%@page import="grails.converters.JSON"%>
 
 <r:require module="carrello"/>
-
 <div id="carrelloApp" >
-    <div id="carrelloController" ng-controller="carrelloController" ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance?.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)})">
-    
+    <div id="carrelloController" 
+        ng-controller="carrelloController" 
+        ng-init="init('<g:createLink  uri=""/>', '${controller}', ${carrelloInstance?.id}, ${confezioniCarrello})">
+        
+   
         <table class="table table-responsive table-condensed " name="tabella">
-          <thead>       
+          <thead>        
             <tr  >
                <th colspan="2"></th>
                <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>

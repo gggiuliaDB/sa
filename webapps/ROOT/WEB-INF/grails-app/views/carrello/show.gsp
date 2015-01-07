@@ -26,7 +26,9 @@
                 </div>                       
             </g:if>
             <g:else>                        
-	            <g:render template="carrelloTable" ></g:render>
+	            <g:render template="carrelloTable" 
+	               model="[controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
+	            </g:render>
 	            
 	            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
                     <g:message code="button.richiediDisponobilita.label" />

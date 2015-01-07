@@ -13,7 +13,7 @@
                     <g:if test="${internazionalizzazione.note}" > 
                         <p class="small">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
                     </g:if>
-                    <h3><span class="label label-success pull-right">-30%</span></h3>
+                    <span class="label label-info pull-right">-30%</span>
                 </div>
                 <g:mediaRatings id="${prodottoInstance.id}"/>                
             </div>

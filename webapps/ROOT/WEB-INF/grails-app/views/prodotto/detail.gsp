@@ -17,10 +17,13 @@
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
             
+            <%--<g:breadcrumb aaa="aaa"></g:breadcrumb>--%>
+            
             <div class="page-header">
 			  <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}<br><small>${internazionalizzazione.note}</small></h1>
 			</div>
-            
+			
+			
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -34,25 +37,34 @@
                       
                         <ul class="list-group">
                            <g:each in="${ confezioni }" var="confezione" >
+                               
                                <li class="list-group-item list-group-item-info">
                                    <span>
-                                       <a href="#" id="${confezione.id}" class="btn btn-success btn-sm pull-right addToChart ">
+                                       <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
                                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                            <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
                                        </a>
                                    </span>
-                                   <strong><p style="margin-top: 5px; margin-bottom: 0px; margin-right: 10px;" class="pull-right">
-                                        &euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}
-                                   </p>    </strong>                               
+           
                                    <p style="min-height:30px;">
-	                                   ${confezione.descrizione}
+                                       ${confezione.descrizione}
                                    </p>
+                                   
+                                   <div >
+                                       <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</strong>
+	                                   <g:if test="${confezione.sconto!=null}">
+                                            <s>&euro; <g:formatNumber number="${confezione.prezzo + (confezione.prezzo*confezione.sconto)}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</s>
+                                            <span class="label label-info">-${confezione.sconto*100}%</span>
+                                       </g:if>               
+                                   </div>
+                                        
          
                                </li>
                            </g:each>
                         </ul>
                     </div>
                 </div>
+                
                 <br>
                 <%--Ingredienti, come consumarlo e conservazione --%>
                 <g:render template="details"></g:render> 
@@ -68,7 +80,7 @@
 		<script> 
 		  var url = "${createLink(controller:'carrello',action:'add')}";
 		  var carrelloId=${carrelloInstance?.id};
-		  var lang="${lang}"
+		  var lang="${lang}"		  
 	    </script>	    
         
 		<!-- Modal -->

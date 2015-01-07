@@ -3,6 +3,7 @@
 	  <span class="glyphicon glyphicon-star-empty"></span>
 	</g:each>
 </g:if>
+
 <g:elseif test="${value==5}">
     <g:each in="${(1..5)}" >
       <span class="glyphicon glyphicon-star"></span>
