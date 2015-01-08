@@ -12,7 +12,14 @@
             <g:set var="lang" value="it"/>
         </g:if>
         
-        <div class="container" > <%--style="background-color: #76AF8C;" --%>
+        <div class="container" >
+        
+            <ul class="breadcrumb">
+              <li><g:link controller="prodotto" >Home</g:link></li>
+              <li><g:link controller="prodotto" action="search" ><g:message code="visualizzaTutti.label"/></g:link></li>
+              <li class="active">${ricerca}</li>
+            </ul>
+            
             <div class="row">
                 <div class="col-md-3">
                     <g:render template="tipi" ></g:render>

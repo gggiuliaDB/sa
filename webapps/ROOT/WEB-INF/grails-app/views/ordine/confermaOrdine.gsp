@@ -16,13 +16,18 @@
             </g:if>
             <g:else>
                 
-                <g:render template="/carrello/carrelloTable" model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang)]"></g:render>
+                <g:render template="/carrello/carrelloTable" model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang), solaLettura:true]"></g:render>
                 
-				<g:link class="btn btn-success" controller="ordine" action="esitoConfermaOrdine" params="[taskId: taskId, conferma: 1]">
+				<g:link class="btn btn-success" controller="ordine" action="selezionaModalitaPagamento" params="[taskId: taskId]">
 				    <g:message code="ordine.confermaOrdineSI.button" />
 			    </g:link>
-				<g:link class="btn btn-danger" controller="ordine" action="esitoConfermaOrdine" params="[taskId: taskId, conferma: 0]">
-				    <g:message code="ordine.confermaOrdineNO.button" />
+			    
+			    <g:link class="btn btn-info" controller="ordine" action="modificaOrdine" params="[taskId: taskId]">
+                    <g:message code="ordine.modificaOrdine.button" />
+                </g:link>
+                
+				<g:link class="btn btn-danger" controller="ordine" action="annullaOrdine" params="[taskId: taskId, conferma: 0]">
+				    <g:message code="ordine.annullaOrdine.button" />
 			    </g:link>
            </g:else>
         </div>

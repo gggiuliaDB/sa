@@ -12,7 +12,7 @@
             <tr  >
                <th colspan="2"></th>
                <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>
-               <th style="text-align: center;"><g:message code="carrello.quantita.label" /></th>
+               <th style="text-align: right;"><g:message code="carrello.quantita.label" /></th>
                <th style="text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>
                <th></th>
             </tr>
@@ -32,40 +32,44 @@
                     {{confezioneCarrello.prezzo | currency:"€"}}
                 </td>                
                 
-                <td style="vertical-align: middle; width: 120px; min-width: 100px;" >
+                <td style="vertical-align: middle; width: 120px; min-width: 100px; text-align: right;" >
                     
-                    <div  ng-if="confezioneCarrello.unitaMisura == 'UNITA'" class="input-group input-group-sm">                      
-                                          
-                        <span class="input-group-btn">
-				            <button class="btn btn-default" type="button" ng-click="togliUno(confezioneCarrello)">
-				                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-				            </button>
-				        </span>
-				        
-                        <input class="form-control" style="text-align: right; font-size: small;" type="text"  
-	                        value="{{confezioneCarrello.quantita}}"  
-	                        ng-model="confezioneCarrello.quantita" 
-	                        ng-change="changeQuantita(confezioneCarrello)"
-	                        only-num>
-	                        
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" ng-click="aggiungiUno(confezioneCarrello)">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                            </button>
-                        </span>
-                    </div>    
-                    <div ng-if="confezioneCarrello.unitaMisura != 'UNITA'" class="input-group-sm">
-                        <div class="input-group input-group-sm">
-						  <input class="form-control" style="text-align: right; font-size: small;" type="text"
-						        aria-describedby="basic-addon2"  
-                                value="{{confezioneCarrello.quantita}}"  
-                                ng-model="confezioneCarrello.quantita" 
-                                ng-blur="changeQuantita(confezioneCarrello)"
-                                only-decimal 
-                                coma-dot-converter="coma-dot-converter" >
-						  <span class="input-group-addon" id="basic-addon2">Kg</span>
-						</div>        
-                    </div>
+                    <g:if test="${solaLettura}">
+                        {{confezioneCarrello.quantita}}
+                    </g:if>
+                    <g:else>
+	                    <div ng-if="confezioneCarrello.unitaMisura == 'UNITA'" class="input-group input-group-sm">  
+	                        <span class="input-group-btn">
+					            <button class="btn btn-default" type="button" ng-click="togliUno(confezioneCarrello)">
+					                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					            </button>
+					        </span>
+					        
+	                        <input class="form-control" style="text-align: right; font-size: small;" type="text"  
+		                        value="{{confezioneCarrello.quantita}}"  
+		                        ng-model="confezioneCarrello.quantita" 
+		                        ng-change="changeQuantita(confezioneCarrello)"
+		                        only-num>
+		                        
+	                        <span class="input-group-btn">
+	                            <button class="btn btn-default" type="button" ng-click="aggiungiUno(confezioneCarrello)">
+	                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	                            </button>
+	                        </span>
+	                    </div>    
+	                    <div ng-if="confezioneCarrello.unitaMisura != 'UNITA'" class="input-group-sm">
+	                        <div class="input-group input-group-sm">
+							  <input class="form-control" style="text-align: right; font-size: small;" type="text"
+							        aria-describedby="basic-addon2"  
+	                                value="{{confezioneCarrello.quantita}}"  
+	                                ng-model="confezioneCarrello.quantita" 
+	                                ng-blur="changeQuantita(confezioneCarrello)"
+	                                only-decimal 
+	                                coma-dot-converter="coma-dot-converter" >
+							  <span class="input-group-addon" id="basic-addon2">Kg</span>
+							</div>        
+	                    </div>
+                    </g:else>
                 </td>
                 
                 <td style="vertical-align: middle; text-align: right;"> 

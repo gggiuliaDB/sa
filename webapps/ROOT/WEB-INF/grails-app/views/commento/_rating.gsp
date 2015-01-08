@@ -28,7 +28,7 @@
 			                 <label for="rating">
 			                     <g:message code="commento.rating.label" default="Rating" />                         
 			                 </label>
-			                 <g:field name="rating" type="number" min="0" max="5" style="border: 1px solid gray;"/>                 
+			                 <g:field name="rating" type="number" min="0" max="5" style="border: 1px solid gray;" value="0"/>                 
 			             </div>
 			             
 			             <g:submitButton name="create" class="btn btn-success" value="${message(code: 'commento.salva.label') }" />

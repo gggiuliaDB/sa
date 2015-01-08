@@ -18,15 +18,9 @@
                     <g:if test="${internazionalizzazione.note}" > 
                         <p class="small">${internazionalizzazione.note?.toLowerCase()?.capitalize()}</p>
                     </g:if>
-                    <%--<span class="label label-info pull-right">-30%</span>--%>
                 </div>
                 <g:mediaRatings id="${prodottoInstance.id}"/>                
             </div>
         </div>
     </g:each>
-    
-    <%--<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>--%>
-    
-    
-    
 </div>

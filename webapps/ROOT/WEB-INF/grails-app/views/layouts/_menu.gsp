@@ -124,8 +124,8 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:username/><b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <li><a href="<g:createLink controller="user" action="cambioPassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
-                        <%--<li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>--%>
-                        <li><a href="<g:createLink uri="" />/j_spring_security_logout"><g:message code="menu.logout.label" default="Logout"/></a></li>
+                        <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>
+                        <%--<li><a href="<g:createLink uri="" />/j_spring_security_logout"><g:message code="menu.logout.label" default="Logout"/></a></li>--%>
                       </ul>
                     </li>
                 </sec:ifLoggedIn>
@@ -135,6 +135,7 @@
             <g:form class="navbar-form navbar-right" role="search" controller="prodotto" action="search" >
                 <div class="form-group">
                   <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
+                  <g:hiddenField name="lang" value="${lang}"/>
                   <div class="input-group input-group-md">
                       <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}" style="width: 150px;">                   
                       

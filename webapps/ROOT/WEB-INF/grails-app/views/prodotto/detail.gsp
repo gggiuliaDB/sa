@@ -8,6 +8,7 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
+    
       <g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
       <g:if test="${!lang}">
         <g:set var="lang" value="it"/>
@@ -18,6 +19,16 @@
         <div id="show-prodotto" class="content scaffold-show" role="main">
             
             <%--<g:breadcrumb aaa="aaa"></g:breadcrumb>--%>
+            <ul class="breadcrumb">
+			  <li><g:link controller="prodotto" >Home</g:link></li>
+			  <li><g:link controller="prodotto" action="search" ><g:message code="visualizzaTutti.label"/></g:link></li>
+			  <li>
+			     <g:link controller="prodotto" action="search" params="[linea: prodottoInstance.linea.id]">
+                    ${prodottoInstance.linea.getNome(lang.toString())}
+                 </g:link>
+              </li>
+			  <li class="active">${internazionalizzazione.nome.toLowerCase().capitalize()}</li>
+			</ul>
             
             <div class="page-header">
 			  <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}<br><small>${internazionalizzazione.note}</small></h1>
@@ -53,12 +64,10 @@
                                    <div >
                                        <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</strong>
 	                                   <g:if test="${confezione.sconto!=null}">
-                                            <s>&euro; <g:formatNumber number="${confezione.prezzo + (confezione.prezzo*confezione.sconto)}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</s>
+                                            <s>&euro; <g:formatNumber number="${confezione.prezzoNS}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</s>
                                             <span class="label label-info">-${confezione.sconto*100}%</span>
                                        </g:if>               
                                    </div>
-                                        
-         
                                </li>
                            </g:each>
                         </ul>
