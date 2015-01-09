@@ -8,63 +8,55 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-prodotto" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+	  <div class="container" >
+        
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+			<ul class="nav nav-pills">
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		}
+		
 		<div id="list-prodotto" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+				<div class="alert alert-success" >${flash.message}</div>
 			</g:if>
 			
-			<%--<g:link class="btn btn-primary" action="aggiornaListino">Aggiorna listino</g:link>--%>
-			
-			<table>
-			<thead>
+			<table class="table table-hover table-condensed">
+                <thead>
 					<tr>
-					
-						<g:sortableColumn property="nome" title="${message(code: 'prodotto.nome.label', default: 'Nome')}" />
-					
-						<g:sortableColumn property="durata" title="${message(code: 'prodotto.durata.label', default: 'Durata')}" />
-					
-						<g:sortableColumn property="immagine" title="${message(code: 'prodotto.immagine.label', default: 'Immagine')}" />
-					
-						<g:sortableColumn property="comeGustarlo" title="${message(code: 'prodotto.comeGustarlo.label', default: 'Come Gustarlo')}" />
-					
-						<g:sortableColumn property="ingredienti" title="${message(code: 'prodotto.ingredienti.label', default: 'Ingredienti')}" />
-					
-						<g:sortableColumn property="conservazione" title="${message(code: 'prodotto.conservazione.label', default: 'Conservazione')}" />
-					
+						<g:sortableColumn property="id" title="${message(code: 'prodotto.id.label', default: 'ID')}" />
+                        <th>${message(code: 'prodotto.nome.label', default: 'Nome')}</th>
+                        <g:sortableColumn property="linea" title="${message(code: 'prodotto.durata.label', default: 'Linea')}" />
+                        <g:sortableColumn property="tipoProdotto" title="${message(code: 'prodotto.durata.label', default: 'Tipo')}" />
+						<%--<g:sortableColumn property="durata" title="${message(code: 'prodotto.durata.label', default: 'Durata')}" />--%>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${prodottoInstance.id}">${fieldValue(bean: prodottoInstance, field: "nome")}</g:link></td>
-					
-						<td>${fieldValue(bean: prodottoInstance, field: "durata")}</td>
-					
-						<td>${fieldValue(bean: prodottoInstance, field: "immagine")}</td>
-					
-						<td>${fieldValue(bean: prodottoInstance, field: "comeGustarlo")}</td>
-					
-						<td>${fieldValue(bean: prodottoInstance, field: "ingredienti")}</td>
-					
-						<td>${fieldValue(bean: prodottoInstance, field: "conservazione")}</td>
-					
-					</tr>
-				</g:each>
+				    <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
+						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+							<td>${fieldValue(bean: prodottoInstance, field: "id")}</td>
+	                        <td>${prodottoInstance}</td>
+                            <td>${prodottoInstance.linea}</td>
+                            <td>${prodottoInstance.tipoProdotto}</td>
+							<%--<td>${fieldValue(bean: prodottoInstance, field: "durata")}</td>--%>
+							<td>
+							     <g:link action="show" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-search"></span></g:link>
+                                 <%--
+                                 <g:link action="edit" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-edit"></span></g:link>
+                                 <g:link action="delete" id="${prodottoInstance.id}" onclick="return confirm('Sei sicuro?')"><span class="glyphicon glyphicon-remove"></span></g:link>
+                                 --%>
+                            </td>
+						</tr>
+					</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
+		
+			<div class="pagination" id="paginazione">
 				<g:paginate total="${prodottoInstanceCount ?: 0}" />
 			</div>
 		</div>
+	  </div>
 	</body>
 </html>

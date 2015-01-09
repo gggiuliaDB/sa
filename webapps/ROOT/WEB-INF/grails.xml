@@ -11,7 +11,6 @@
     <resource>org.grails.paypal.PaymentItem</resource>
     <resource>grails.plugin.springsecurity.ui.RegistrationCodeController</resource>
     <resource>org.grails.plugin.resource.BaseUrlResourceMapper</resource>
-    <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
     <resource>org.grails.plugin.resource.ResourceTagLib</resource>
     <resource>grails.plugin.cache.CacheTagLib</resource>
     <resource>PaypalUrlMappings</resource>
@@ -24,11 +23,13 @@
     <resource>grails.plugin.springsecurity.SecurityTagLib</resource>
     <resource>grails.plugin.springsecurity.LogoutController</resource>
     <resource>grails.plugin.springsecurity.ui.PersistentLoginController</resource>
+    <resource>grails.plugin.mail.MailService</resource>
     <resource>grails.plugin.databasemigration.DbdocController</resource>
     <resource>JQueryTagLib</resource>
     <resource>ResourcesBootStrap</resource>
     <resource>grails.plugin.springsecurity.ui.AbstractS2UiController</resource>
     <resource>grails.plugin.springsecurity.ui.AclEntryController</resource>
+    <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
     <resource>DefaultSecurityConfig</resource>
     <resource>grails.plugin.springsecurity.ui.AclObjectIdentityController</resource>
     <resource>grails.plugin.springsecurity.ui.AclSidController</resource>
@@ -43,7 +44,6 @@
     <resource>grails.plugin.springsecurity.ui.RegistrationCode</resource>
     <resource>JQueryService</resource>
     <resource>grails.plugin.cache.GrailsCacheAdminService</resource>
-    <resource>grails.plugin.mail.MailService</resource>
     <resource>grails.plugin.springsecurity.ui.AclClassController</resource>
     <resource>org.grails.plugin.resource.BundleResourceMapper</resource>
     <resource>org.grails.paypal.BuyerInformation</resource>
@@ -66,6 +66,8 @@
     <resource>it.ggg.sa.ordine.OrdineController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>
     <resource>it.ggg.sa.prodotto.CopyOfProdottoController</resource>
+    <resource>it.ggg.sa.prodotto.InternazionalizzazioneConfezioneController</resource>
+    <resource>it.ggg.sa.prodotto.InternazionalizzazioneProdottoController</resource>
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
     <resource>it.ggg.sa.security.LogoutController</resource>

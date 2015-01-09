@@ -8,10 +8,9 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-confezione" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+      <div class="container" >
 		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <ul class="nav nav-pills">
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -24,17 +23,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="descrizione" title="${message(code: 'confezione.descrizione.label', default: 'Descrizione')}" />
-					
 						<g:sortableColumn property="sconto" title="${message(code: 'confezione.sconto.label', default: 'Sconto')}" />
 					
-						<g:sortableColumn property="note" title="${message(code: 'confezione.note.label', default: 'Note')}" />
+						<g:sortableColumn property="unitaMisura" title="${message(code: 'confezione.unitaMisura.label', default: 'Unita Misura')}" />
 					
 						<g:sortableColumn property="peso" title="${message(code: 'confezione.peso.label', default: 'Peso')}" />
 					
-						<g:sortableColumn property="prezzo" title="${message(code: 'confezione.prezzo.label', default: 'Prezzo')}" />
+						<g:sortableColumn property="durata" title="${message(code: 'confezione.durata.label', default: 'Durata')}" />
 					
-						<th><g:message code="confezione.prodotto.label" default="prodotto" /></th>
+						<g:sortableColumn property="quantitaCartone" title="${message(code: 'confezione.quantitaCartone.label', default: 'Quantita Cartone')}" />
+					
+						<g:sortableColumn property="prezzo" title="${message(code: 'confezione.prezzo.label', default: 'Prezzo')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +41,17 @@
 				<g:each in="${confezioneInstanceList}" status="i" var="confezioneInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${confezioneInstance.id}">${fieldValue(bean: confezioneInstance, field: "descrizione")}</g:link></td>
+						<td><g:link action="show" id="${confezioneInstance.id}">${fieldValue(bean: confezioneInstance, field: "sconto")}</g:link></td>
 					
-						<td>${fieldValue(bean: confezioneInstance, field: "sconto")}</td>
-					
-						<td>${fieldValue(bean: confezioneInstance, field: "note")}</td>
+						<td>${fieldValue(bean: confezioneInstance, field: "unitaMisura")}</td>
 					
 						<td>${fieldValue(bean: confezioneInstance, field: "peso")}</td>
 					
-						<td>${fieldValue(bean: confezioneInstance, field: "prezzo")}</td>
+						<td>${fieldValue(bean: confezioneInstance, field: "durata")}</td>
 					
-						<td>${fieldValue(bean: confezioneInstance, field: "prodotto")}</td>
+						<td>${fieldValue(bean: confezioneInstance, field: "quantitaCartone")}</td>
+					
+						<td>${fieldValue(bean: confezioneInstance, field: "prezzo")}</td>
 					
 					</tr>
 				</g:each>
@@ -62,5 +61,6 @@
 				<g:paginate total="${confezioneInstanceCount ?: 0}" />
 			</div>
 		</div>
+      </div>
 	</body>
 </html>
