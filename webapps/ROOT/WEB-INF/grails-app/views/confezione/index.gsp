@@ -19,7 +19,7 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+            <table class="table table-hover table-condensed">
 			<thead>
 					<tr>
 					
@@ -57,7 +57,7 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
+            <div class="pagination" id="paginazione">
 				<g:paginate total="${confezioneInstanceCount ?: 0}" />
 			</div>
 		</div>

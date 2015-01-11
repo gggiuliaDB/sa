@@ -9,7 +9,7 @@
             </td>
             <td style="vertical-align: middle;">
                 <h4><g:link action="detail" id="${prodottoInstance.id}" style="text-decoration: none;">
-                        ${internazionalizzazione?.nome.toLowerCase()?.capitalize()}
+                        ${internazionalizzazione?.nome?.toLowerCase()?.capitalize()}
                     </g:link>
                 </h4>
             </td>

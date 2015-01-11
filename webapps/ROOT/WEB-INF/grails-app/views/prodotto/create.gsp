@@ -15,7 +15,7 @@
 		<div id="create-prodotto" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+                 <div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			<g:hasErrors bean="${prodottoInstance}">
 			<ul class="errors" role="alert">
@@ -24,15 +24,25 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:prodottoInstance, action:'save']" >
+			
+			<g:uploadForm url="[resource:prodottoInstance, action:'update']"  class="form-horizontal">
+                <fieldset class="form">
+                    <g:render template="form"/>
+                </fieldset>
+                <fieldset class="buttons">
+                    <g:submitButton name="create"  class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />
+                </fieldset>
+            </g:uploadForm>
+			<%--         
+            <g:form url="[resource:prodottoInstance, action:'update']"  class="form-horizontal">
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="form"/>									
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<g:submitButton name="create"  class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />
 				</fieldset>
 			</g:form>
-        </div>
+        </div> --%>
       </div>
 	</body>
 </html>

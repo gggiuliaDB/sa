@@ -117,8 +117,9 @@
                     <%--Voci per admin--%>
                     <sec:access expression="hasRole('ROLE_ADMIN')">
                         <li class="dropdown">
-	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><b class="caret"></b></a>
+	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></a>
 	                      <ul class="dropdown-menu">
+                          <li><a href="<g:createLink controller="listino" action="list" />" >Gestione listino</a></li>
 	                        <li><a href="<g:createLink controller="prodotto" action="list" />" >Gestione prodotti</a></li>
 	                        <li><a href="<g:createLink controller="user"  />">Gestione utenti</a></li>
 	                      </ul>

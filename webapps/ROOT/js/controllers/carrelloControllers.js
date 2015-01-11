@@ -120,7 +120,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	    		totaleQuantita += 1;
 	    }
 	    $('#carrelloSize').html(totaleQuantita);
-	    $scope.totale = totalePrezzo;
+	    $scope.totale = totalePrezzo;   
     }
     
     var save = function(){

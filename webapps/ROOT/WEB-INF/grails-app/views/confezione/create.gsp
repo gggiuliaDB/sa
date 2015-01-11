@@ -7,11 +7,11 @@
 	</head>
 	<body>
       <div class="container" >
-		<div class="nav" role="navigation">
+		<%--<div class="nav" role="navigation">
             <ul class="nav nav-pills">
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 			</ul>
-		</div>
+		</div>--%>
 		<div id="create-confezione" class="content scaffold-create" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -24,12 +24,12 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:confezioneInstance, action:'save']" >
+			<g:form url="[resource:confezioneInstance, action:'update']" class="form-horizontal">
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<g:submitButton class="btn btn-success" name="create"  value="${message(code: 'default.button.save.label', default: 'Salva')}" />
 				</fieldset>
 			</g:form>
 		</div>

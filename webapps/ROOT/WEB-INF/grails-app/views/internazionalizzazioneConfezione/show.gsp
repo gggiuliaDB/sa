@@ -9,12 +9,12 @@
 	</head>
 	<body>
       <div class="container" >
-        <div class="nav" role="navigation">
+        <%--<div class="nav" role="navigation">
             <ul class="nav nav-pills">
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
-		</div>
+		</div>--%>
 		<div id="show-internazionalizzazioneConfezione" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">

@@ -13,9 +13,9 @@
                         <g:if test="${sconto!=0}">
                             <div class="pull-right"><span class="label label-info">-${sconto*100}%</span></div>
                         </g:if>
-                        ${internazionalizzazione?.nome.toLowerCase()?.capitalize()}
+                        ${internazionalizzazione?.nome?.toLowerCase()?.capitalize()}
 	                </h4>
-	                <div style="color: white;">${internazionalizzazione?.note.toLowerCase()?.capitalize()}</div>
+	                <div style="color: white;">${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</div>
 	                
 	                
 	                

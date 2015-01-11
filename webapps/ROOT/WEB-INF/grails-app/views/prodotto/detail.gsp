@@ -18,7 +18,6 @@
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
             
-            <%--<g:breadcrumb aaa="aaa"></g:breadcrumb>--%>
             <ul class="breadcrumb">
 			  <li><g:link controller="prodotto" >Home</g:link></li>
 			  <li><g:link controller="prodotto" action="search" ><g:message code="visualizzaTutti.label"/></g:link></li>

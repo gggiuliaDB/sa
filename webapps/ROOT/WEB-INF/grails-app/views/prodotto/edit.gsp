@@ -15,9 +15,9 @@
 			</ul>
 		</div>
 		<div id="edit-prodotto" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+			<h1><g:message code="default.edit.label" args="[entityName]" /> ${prodottoInstance}</h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+                 <div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			<g:hasErrors bean="${prodottoInstance}">
 			<ul class="errors" role="alert">
@@ -26,15 +26,16 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:prodottoInstance, action:'update']" method="PUT" >
+			<g:uploadForm url="[resource:prodottoInstance, action:'update']" method="PUT" class="form-horizontal">
 				<g:hiddenField name="version" value="${prodottoInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
+				<br>
 				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+					<g:actionSubmit class="btn btn-success" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
-			</g:form>
+			</g:uploadForm>
 		</div>
       </div>
 	</body>
