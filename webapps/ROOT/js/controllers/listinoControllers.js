@@ -19,7 +19,7 @@ listinoApp.controller('listinoController', function($scope, $rootScope, $http, $
     $scope.update = function(){
         $http({
             method: 'PUT',
-            url: $scope.url+'/listino/'+ $scope.confezione.id+ '.json',
+            url: $scope.url+'/aggiornamentoListino/'+ $scope.confezione.id+ '.json',
             params: {id: $scope.confezione.id, prezzo: $scope.confezione.prezzo, sconto: $scope.confezione.sconto},
             headers: {'Content-Type': 'application/json'}
         })
