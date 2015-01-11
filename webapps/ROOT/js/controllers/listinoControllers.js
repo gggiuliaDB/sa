@@ -20,7 +20,10 @@ listinoApp.controller('listinoController', function($scope, $rootScope, $http, $
         $http({
             method: 'PUT',
             url: $scope.url+'/listino/'+ $scope.confezione.id+ '.json',
-            params: {id: $scope.confezione.id, prezzo: $scope.confezione.prezzo, sconto: $scope.confezione.sconto},
+            params: {
+            	id: $scope.confezione.id, 
+            	prezzo: $scope.confezione.prezzo, 
+            	sconto: $scope.confezione.sconto},
             headers: {'Content-Type': 'application/json'}
         })
         .success(function(response, status, headers, config){
@@ -36,8 +39,8 @@ listinoApp.controller('listinoController', function($scope, $rootScope, $http, $
         });
     };
 
-    $scope.cancel = function(){
-        $scope.confezione.editing = false;        
+    $scope.cancel = function(){ 
+        $scope.confezione.editing = false;  
     };  
 });
 
