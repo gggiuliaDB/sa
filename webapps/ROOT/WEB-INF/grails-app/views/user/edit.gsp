@@ -10,7 +10,7 @@
       <div class="container" >
         <div class="nav" role="navigation">
             <ul class="nav nav-pills">
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="list" action="index"><g:message code="elenco.utente" default="Elenco utenti"/></g:link></li>
 			</ul>
 		</div>
 		<div id="edit-user" class="content scaffold-edit" role="main">

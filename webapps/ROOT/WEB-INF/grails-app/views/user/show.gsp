@@ -11,13 +11,13 @@
       <div class="container" >
         <div class="nav" role="navigation">
             <ul class="nav nav-pills">
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="index"><g:message code="elenco.utente" default="Elenco utenti"/></g:link></li>
 			</ul>
 		</div>
 		<div id="show-user" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+                <div class="message" role="status">${flash.message}</div>
 			</g:if>
 
 			<%--<ol class="property-list user">--%>

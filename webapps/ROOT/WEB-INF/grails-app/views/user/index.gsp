@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'user.label', default: 'Utente')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<title><g:message code="elenco.utente" default="Elenco utenti"/></title>
 	</head>
 	<body>
       <div class="container" >
@@ -15,7 +15,7 @@
 			</ul>
 		</div>--%>
 		<div id="list-user" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1><g:message code="elenco.utente" default="Elenco utenti"/></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -44,7 +44,8 @@
 						<td><g:formatBoolean boolean="${userInstance.accountLocked}" /></td>
 						<td><g:formatBoolean boolean="${userInstance.enabled}" /></td>
 						<td><g:formatBoolean boolean="${userInstance.passwordExpired}" /></td>
-						<td><g:link action="show" id="${userInstance.id}"><span class="glyphicon glyphicon-search"></span></g:link></td>
+						<td><g:link action="show" id="${userInstance.id}"><span class="glyphicon glyphicon-info-sign"></span></g:link></td>
+						<td><g:link action="edit" id="${userInstance.id}"><span class="glyphicon glyphicon-edit"></span></g:link></td>
 					</tr>
 				</g:each>
 				</tbody>

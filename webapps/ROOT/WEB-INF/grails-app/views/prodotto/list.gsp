@@ -29,7 +29,6 @@
                         <th>${message(code: 'prodotto.nome.label', default: 'Nome')}</th>
                         <g:sortableColumn property="linea" title="${message(code: 'prodotto.durata.label', default: 'Linea')}" />
                         <g:sortableColumn property="tipoProdotto" title="${message(code: 'prodotto.durata.label', default: 'Tipo')}" />
-						<%--<g:sortableColumn property="durata" title="${message(code: 'prodotto.durata.label', default: 'Durata')}" />--%>
 						<th></th>
 					</tr>
 				</thead>
@@ -40,13 +39,11 @@
 	                        <td>${prodottoInstance}</td>
                             <td>${prodottoInstance.linea}</td>
                             <td>${prodottoInstance.tipoProdotto}</td>
-							<%--<td>${fieldValue(bean: prodottoInstance, field: "durata")}</td>--%>
 							<td>
-							     <g:link action="show" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-search"></span></g:link>
-                                 <%--
+							     <g:link action="show" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-info-sign"></span></g:link>
+                            </td>
+                            <td>
                                  <g:link action="edit" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-edit"></span></g:link>
-                                 <g:link action="delete" id="${prodottoInstance.id}" onclick="return confirm('Sei sicuro?')"><span class="glyphicon glyphicon-remove"></span></g:link>
-                                 --%>
                             </td>
 						</tr>
 					</g:each>
