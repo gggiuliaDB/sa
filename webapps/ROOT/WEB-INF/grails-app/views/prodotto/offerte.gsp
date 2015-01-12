@@ -12,7 +12,7 @@
             <g:set var="lang" value="it"/>
         </g:if>
         
-        <div class="container" > <%--style="background-color: #76AF8C;" --%>
+        <div class="container" >        
         
             <ul class="breadcrumb">
               <li><g:link controller="prodotto" >Home</g:link></li>
@@ -25,26 +25,9 @@
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
-                    <div >
-                        <g:link controller="prodotto" action="offerte" params="[visualizzazione: 'grid']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
-                        <g:link controller="prodotto" action="offerte" params="[visualizzazione: 'list']"><span class="glyphicon glyphicon-th-list " aria-hidden="true"></span></g:link>
-                    </div>
-                    <br>
-                    
-                    <g:if test="${!prodottoInstanceList }">
-                        <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        
-                    </g:if>
-                    
-                    <g:if test="${visualizzazione=='list'}">
-                        <g:render template="vetrinaList"></g:render>
-                    </g:if>
-                    <g:else >
-                        <g:render template="vetrinaGrid"></g:render>
-                    </g:else>
-                        
+                    <g:render template="tipoVisualizzazione" model="[action: 'offerte']"/>
                 </div>
             </div>
         </div>
-
     </body>
 </html>

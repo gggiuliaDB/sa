@@ -4,7 +4,7 @@
     <head>
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'ordine.label', default: 'Ordine')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title><g:message code="ordine.controlloDisponibilita.title"/></title>
     </head>
     <body>
         <div class="container">

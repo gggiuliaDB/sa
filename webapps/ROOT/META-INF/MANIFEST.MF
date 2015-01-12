@@ -74,9 +74,10 @@ Bundle-ClassPath: .,WEB-INF/classes,WEB-INF/lib/activation-1.1.jar,WEB
  3.RELEASE.jar,WEB-INF/lib/spring-security-web-3.2.3.RELEASE.jar,WEB-I
  NF/lib/spring-tx-3.2.8.RELEASE.jar,WEB-INF/lib/spring-web-3.2.8.RELEA
  SE.jar,WEB-INF/lib/spring-webmvc-3.2.8.RELEASE.jar,WEB-INF/lib/standa
- rd-1.1.2.jar,WEB-INF/lib/tomcat-embed-logging-log4j-7.0.50.jar,WEB-IN
- F/lib/tomcat-jdbc-7.0.50.jar,WEB-INF/lib/tomcat-juli-7.0.50.jar,WEB-I
- NF/lib/validation-api-1.0.0.GA.jar,WEB-INF/lib/xpp3_min-1.1.4c.jar
+ rd-1.1.2.jar,WEB-INF/lib/stripe-java-1.17.0.jar,WEB-INF/lib/tomcat-em
+ bed-logging-log4j-7.0.50.jar,WEB-INF/lib/tomcat-jdbc-7.0.50.jar,WEB-I
+ NF/lib/tomcat-juli-7.0.50.jar,WEB-INF/lib/validation-api-1.0.0.GA.jar
+ ,WEB-INF/lib/xpp3_min-1.1.4c.jar
 
 Name: Grails Application
 Implementation-Title: SA

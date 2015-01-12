@@ -35,12 +35,12 @@
                 </g:link>
                 
                 
-	            <g:link controller="prodotto" action="search" class="btn btn-default">
+	            <g:link controller="prodotto" action="search" class="btn btn-success">
 	                <g:message code="button.continuaShopping.label" />
 	            </g:link>
 	            
 	            
-	            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-default">
+	            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
 	                <g:message code="button.svuotaCarrello.label" />
             </g:link>
             </g:else>

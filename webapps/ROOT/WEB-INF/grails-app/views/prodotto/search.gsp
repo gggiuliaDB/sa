@@ -25,30 +25,20 @@
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
-                    <div >
-                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'grid']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
-                        <g:link controller="prodotto" action="search" params="[visualizzazione: 'list']"><span class="glyphicon glyphicon-th-list " aria-hidden="true"></span></g:link>
-                        <%--<g:link controller="prodotto" action="search" params="[visualizzazione: 's']"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></g:link>--%>
-                    </div>
-                    <br>
+                    <g:render template="tipoVisualizzazione" model="[action: 'search']"/>                    
                     
-                    <g:if test="${!prodottoInstanceList }">
-                        <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        
-                    </g:if>
-                    
-                    <g:if test="${visualizzazione=='list'}">
-                        <g:render template="vetrinaList"></g:render>
-                    </g:if>
-                    <g:else >
-                        <g:render template="vetrinaGrid"></g:render>
-                    </g:else>
-                    <%--<g:else>
-                        <g:render template="vetrinaS"></g:render>
-                    </g:else>--%>
-                        
+<%--                    <g:if test="${!prodottoInstanceList }">--%>
+<%--                        <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        --%>
+<%--                    </g:if>--%>
+<%--                    --%>
+<%--                    <g:if test="${visualizzazione=='list'}">--%>
+<%--                        <g:render template="vetrinaList"></g:render>--%>
+<%--                    </g:if>--%>
+<%--                    <g:else >--%>
+<%--                        <g:render template="vetrinaGrid"></g:render>--%>
+<%--                    </g:else>                                            --%>
                 </div>
             </div>
         </div>
-
     </body>
 </html>

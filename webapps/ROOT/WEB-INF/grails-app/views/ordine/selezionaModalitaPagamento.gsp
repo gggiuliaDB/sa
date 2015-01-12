@@ -4,7 +4,7 @@
     <head>
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'ordine.label', default: 'Ordine')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title><g:message code="ordine.selezionaModalitaPagamento.title"/></title>
     </head>
     <body>
         <div class="container">
@@ -15,13 +15,30 @@
                 </div>                       
             </g:if>
             <g:else>
-                
+                <%--
                 <paypal:button
                        itemName="${ordineInstance.id}"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="${0}"
                        amount="${totale}"
-                       buyerId="${ordineInstance.utente }"/>
+                       buyerId="${ordineInstance.utente }"/> --%>
+                       
+				<stripe:script formName="payment-form"/>
+				
+				<g:form controller="ordine" action="charge" method="POST" name="payment-form"> 
+                    <g:hiddenField name="ordineId" value="${ordineInstance.id}"/>
+                    <g:hiddenField name="taskId" value="${taskId}"/>
+				    
+				    <div class="form-row"> 
+				        <label>Amount (euro)</label> 
+				        <input type="text" size="20" autocomplete="off" id="amount" name="amount"/> 
+			        </div>
+				
+				    <stripe:creditCardInputs cssClass="form-row"/>
+				
+				    <button type="submit"><g:message code="pagamento.submitPayment.button" /></button> 
+				</g:form>   
+                       
            </g:else>
         </div>
     </body>

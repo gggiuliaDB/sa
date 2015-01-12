@@ -4,14 +4,6 @@
   <process id="checkout" name="checkout" isExecutable="true">
     <serviceTask id="attivazioneOrdine" name="Attivazione ordine" activiti:expression="#{ordineService.attivazioneOrdine(ordineId)}"></serviceTask>
     <startEvent id="startevent1" name="Start"></startEvent>
-    <intermediateCatchEvent id="messageintermediatecatchevent1" name="PagamentoRicevutoMessage">
-      <messageEventDefinition messageRef="pagamentoRicevuto"></messageEventDefinition>
-    </intermediateCatchEvent>
-    <sequenceFlow id="flow6" sourceRef="messageintermediatecatchevent1" targetRef="attivazioneOrdine"></sequenceFlow>
-    <eventBasedGateway id="eventgateway1" name="Event Gateway"></eventBasedGateway>
-    <sequenceFlow id="flow8" sourceRef="eventgateway1" targetRef="messageintermediatecatchevent1"></sequenceFlow>
-    <serviceTask id="inviaPromemoriaUtente" name="Invia promemoria utente" activiti:expression="#{ordineService.inviaPromemoria(ordineId)}"></serviceTask>
-    <sequenceFlow id="flow11" sourceRef="inviaPromemoriaUtente" targetRef="eventgateway1"></sequenceFlow>
     <serviceTask id="creazioneOrdineCliente" name="Creazione ordine cliente" activiti:expression="#{ordineService.creazioneOrdine(carrelloId, execution)}"></serviceTask>
     <sequenceFlow id="flow12" sourceRef="startevent1" targetRef="creazioneOrdineCliente"></sequenceFlow>
     <userTask id="usertask1" name="Controllo disponibilita merce in magazzino" activiti:assignee="admin" activiti:formKey="/ordine/controlloDisponibilita">
@@ -37,20 +29,12 @@
     </sequenceFlow>
     <endEvent id="endevent3" name="End"></endEvent>
     <sequenceFlow id="flow33" sourceRef="annullamentoOrdineDaCliente" targetRef="endevent3"></sequenceFlow>
-    <intermediateCatchEvent id="timerintermediatecatchevent1" name="TimerCatchEvent">
-      <timerEventDefinition>
-        <timeDuration>PT1H</timeDuration>
-      </timerEventDefinition>
-    </intermediateCatchEvent>
-    <sequenceFlow id="flow35" sourceRef="eventgateway1" targetRef="timerintermediatecatchevent1"></sequenceFlow>
-    <sequenceFlow id="flow36" sourceRef="timerintermediatecatchevent1" targetRef="inviaPromemoriaUtente"></sequenceFlow>
     <serviceTask id="modificaOrdine" name="Modifica Ordine" activiti:expression="#{ordineService.annullamentoOrdinePerModifica(ordineId)}"></serviceTask>
     <endEvent id="endevent4" name="End"></endEvent>
     <sequenceFlow id="flow38" sourceRef="modificaOrdine" targetRef="endevent4"></sequenceFlow>
-    <userTask id="usertask3" name="Selezione modalità di pagamento" activiti:assignee="${utente}"  activiti:formKey="/ordine/selezionaModalitaPagamento">
+    <userTask id="usertask3" name="Selezione modalità di pagamento" activiti:assignee="${utente}" activiti:formKey="/ordine/selezionaModalitaPagamento">
       <documentation>Selezione modalità di pagamento</documentation>
     </userTask>
-    <sequenceFlow id="flow39" sourceRef="usertask3" targetRef="eventgateway1"></sequenceFlow>
     <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow40" sourceRef="usertask2" targetRef="exclusivegateway2"></sequenceFlow>
     <sequenceFlow id="flow41" sourceRef="exclusivegateway2" targetRef="usertask3">
@@ -62,23 +46,17 @@
     <sequenceFlow id="flow43" sourceRef="exclusivegateway2" targetRef="modificaOrdine">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${azione=="modifica"}]]></conditionExpression>
     </sequenceFlow>
+    <endEvent id="endevent5" name="End"></endEvent>
+    <sequenceFlow id="flow44" sourceRef="attivazioneOrdine" targetRef="endevent5"></sequenceFlow>
+    <sequenceFlow id="flow45" sourceRef="usertask3" targetRef="attivazioneOrdine"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_checkout">
     <bpmndi:BPMNPlane bpmnElement="checkout" id="BPMNPlane_checkout">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
         <omgdc:Bounds height="35.0" width="35.0" x="10.0" y="270.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="messageintermediatecatchevent1" id="BPMNShape_messageintermediatecatchevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="783.0" y="198.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="eventgateway1" id="BPMNShape_eventgateway1">
-        <omgdc:Bounds height="40.0" width="40.0" x="780.0" y="108.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="attivazioneOrdine" id="BPMNShape_attivazioneOrdine">
-        <omgdc:Bounds height="55.0" width="105.0" x="870.0" y="188.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="inviaPromemoriaUtente" id="BPMNShape_inviaPromemoriaUtente">
-        <omgdc:Bounds height="55.0" width="105.0" x="870.0" y="101.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="815.0" y="101.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="creazioneOrdineCliente" id="BPMNShape_creazioneOrdineCliente">
         <omgdc:Bounds height="55.0" width="105.0" x="60.0" y="260.0"></omgdc:Bounds>
@@ -107,9 +85,6 @@
       <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
         <omgdc:Bounds height="35.0" width="35.0" x="820.0" y="286.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="timerintermediatecatchevent1" id="BPMNShape_timerintermediatecatchevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="783.0" y="30.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="modificaOrdine" id="BPMNShape_modificaOrdine">
         <omgdc:Bounds height="55.0" width="105.0" x="658.0" y="364.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
@@ -122,18 +97,9 @@
       <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
         <omgdc:Bounds height="40.0" width="40.0" x="622.0" y="195.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
-        <omgdi:waypoint x="818.0" y="215.0"></omgdi:waypoint>
-        <omgdi:waypoint x="870.0" y="215.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
-        <omgdi:waypoint x="800.0" y="148.0"></omgdi:waypoint>
-        <omgdi:waypoint x="800.0" y="198.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow11" id="BPMNEdge_flow11">
-        <omgdi:waypoint x="870.0" y="128.0"></omgdi:waypoint>
-        <omgdi:waypoint x="820.0" y="128.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape bpmnElement="endevent5" id="BPMNShape_endevent5">
+        <omgdc:Bounds height="35.0" width="35.0" x="980.0" y="111.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow12" id="BPMNEdge_flow12">
         <omgdi:waypoint x="45.0" y="287.0"></omgdi:waypoint>
         <omgdi:waypoint x="60.0" y="287.0"></omgdi:waypoint>
@@ -168,22 +134,9 @@
         <omgdi:waypoint x="767.0" y="303.0"></omgdi:waypoint>
         <omgdi:waypoint x="820.0" y="303.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow35" id="BPMNEdge_flow35">
-        <omgdi:waypoint x="800.0" y="108.0"></omgdi:waypoint>
-        <omgdi:waypoint x="800.0" y="65.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow36" id="BPMNEdge_flow36">
-        <omgdi:waypoint x="818.0" y="47.0"></omgdi:waypoint>
-        <omgdi:waypoint x="922.0" y="47.0"></omgdi:waypoint>
-        <omgdi:waypoint x="922.0" y="101.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow38" id="BPMNEdge_flow38">
         <omgdi:waypoint x="763.0" y="391.0"></omgdi:waypoint>
         <omgdi:waypoint x="850.0" y="391.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="flow39" id="BPMNEdge_flow39">
-        <omgdi:waypoint x="767.0" y="128.0"></omgdi:waypoint>
-        <omgdi:waypoint x="780.0" y="128.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow40" id="BPMNEdge_flow40">
         <omgdi:waypoint x="592.0" y="215.0"></omgdi:waypoint>
@@ -203,6 +156,14 @@
         <omgdi:waypoint x="642.0" y="235.0"></omgdi:waypoint>
         <omgdi:waypoint x="642.0" y="391.0"></omgdi:waypoint>
         <omgdi:waypoint x="658.0" y="391.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow44" id="BPMNEdge_flow44">
+        <omgdi:waypoint x="920.0" y="128.0"></omgdi:waypoint>
+        <omgdi:waypoint x="980.0" y="128.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow45" id="BPMNEdge_flow45">
+        <omgdi:waypoint x="767.0" y="128.0"></omgdi:waypoint>
+        <omgdi:waypoint x="815.0" y="128.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
