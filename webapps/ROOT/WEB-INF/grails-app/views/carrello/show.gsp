@@ -12,7 +12,7 @@
         <g:if test="${!lang}">
             <g:set var="lang" value="it"/>
         </g:if>
-    
+        
         <div class="container">
             <h1><g:message code="carrello.label" /><%--<g:message code="default.show.label" args="[entityName]" /> --%></h1>
             <g:if test="${flash.message}">
@@ -27,22 +27,34 @@
             </g:if>
             <g:else>                        
 	            <g:render template="carrelloTable" 
-	               model="[controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
+	               model="[costoSpedizione: 8, controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
 	            </g:render>
 	            
-	            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
-                    <g:message code="button.richiediDisponobilita.label" />
-                </g:link>
-                
-                
-	            <g:link controller="prodotto" action="search" class="btn btn-success">
-	                <g:message code="button.continuaShopping.label" />
-	            </g:link>
+	            <div class="col-md-5">
+			        <div class="panel panel-success">
+			            <div class="panel-body panel-detail">
+		                   <h3>Quanto costa la spedizione?</h3>
+		                   <hr>
+		                   <strong>8,00&euro;</strong> <small>per acquisti fino a 50&euro;</small><br/>
+		                   <strong>5,00&euro;</strong> <small>per acquisti tra 50&euro; e 100&euro;</small><br/>
+		                   <strong>GRATIS</strong> <small>per acquisti superiori a 100&euro;</small><br/>
+			            </div>
+			        </div>
+                </div>
 	            
-	            
-	            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
-	                <g:message code="button.svuotaCarrello.label" />
-            </g:link>
+                <div class="col-md-12">
+		            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
+	                    <g:message code="button.richiediDisponobilita.label" />
+	                </g:link>                
+	                
+		            <g:link controller="prodotto" action="search" class="btn btn-success">
+		                <g:message code="button.continuaShopping.label" />
+		            </g:link>	            
+		            
+		            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
+		                <g:message code="button.svuotaCarrello.label" />
+	                </g:link>
+               </div>
             </g:else>
         </div>
     </body>
