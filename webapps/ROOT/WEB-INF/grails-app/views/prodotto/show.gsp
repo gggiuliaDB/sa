@@ -22,14 +22,8 @@
 			     <div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>
 			
-			<%--<ul class="property-list prodotto">--%>
             <dl class="dl-horizontal"> <%-- class="dl-horizontal" --%>
 			
-                <%--<g:if test="${prodottoInstance?.durata}">
-                    <dt><g:message code="prodotto.durata.label" default="Durata" /></dt>
-                    <dd><g:fieldValue bean="${prodottoInstance}" field="durata"/></dd>
-                </g:if>--%>
-           
                 <g:if test="${prodottoInstance}">
                     <dt><g:message code="prodotto.nome.label" default="Nome" /></dt>
                     <dd>${prodottoInstance}</dd>
@@ -53,11 +47,20 @@
                 <g:if test="${prodottoInstance?.confezioni}">
                     <dt><g:message code="prodotto.confezioni.label" default="Confezioni" /></dt>
                     <dd>
-                    <ul>
+                    <table class="table table-condensed">
                         <g:each in="${prodottoInstance.confezioni}" var="c">
-                            <li><g:link controller="confezione" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+                            <tr>
+                                <td><g:link controller="confezione" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></td>
+                                <td>
+                                    &euro; <g:formatNumber number="${c.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/>
+                                    ${c.unitaMisura.toString("it")} 
+                                </td>
+                                <td> 
+                                    <g:if test="${c.sconto}">${c.sconto*100}%</g:if> 
+                                </td>                                
+                            </tr>
                         </g:each>
-                    </ul>
+                    </table>
                     </dd>
                 </g:if>
             

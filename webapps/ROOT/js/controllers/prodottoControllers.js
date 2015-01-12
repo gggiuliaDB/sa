@@ -4,7 +4,7 @@ var prodottoApp = angular.module('prodottoApp', []);
 prodottoApp.directive('onlyNum', function() {
     return function(scope, element, attrs) {
 
-        var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110];
+        var keyCode = [46,8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110];
         element.bind("keydown", function(event) {
             //console.log($.inArray(event.which,keyCode));
             if($.inArray(event.which,keyCode) == -1) {
@@ -20,7 +20,7 @@ prodottoApp.directive('onlyNum', function() {
 prodottoApp.directive('onlyDecimal', function() {
     return function(scope, element, attrs) {
 
-        var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,188,190];
+        var keyCode = [46,8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,188,190];
         element.bind("keydown", function(event) {
             //console.log($.inArray(event.which, keyCode));
             if($.inArray(event.which, keyCode) == -1) {

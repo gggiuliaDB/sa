@@ -62,7 +62,6 @@
     <resource>UrlMappings</resource>
     <resource>it.ggg.sa.carrello.CarrelloController</resource>
     <resource>it.ggg.sa.carrello.ConfezioneCarrelloController</resource>
-    <resource>it.ggg.sa.listino.ListinoController</resource>
     <resource>it.ggg.sa.ordine.ConfezioneOrdineController</resource>
     <resource>it.ggg.sa.ordine.OrdineController</resource>
     <resource>it.ggg.sa.prodotto.ConfezioneController</resource>

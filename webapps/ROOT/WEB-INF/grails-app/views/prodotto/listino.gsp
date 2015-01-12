@@ -32,8 +32,7 @@
 			            <th style="text-align: center;" colspan="2">Peso</th>
 			            <th style="text-align: right; width: 100px;">Prezzo</th>
 			            <th style="text-align: right; width: 100px;">Sconto</th>
-                        <th style="text-align: center; width: 140px;"></th>
-                        
+                        <th style="text-align: center; width: 140px;"></th>                        
 		            </tr>
 		          </thead>
 		          <tbody>
