@@ -27,8 +27,8 @@
         </g:link>        
     </g:each>
 </div>
-<div class="row">
-    <div class="pagination " id="paginazione">
-        <g:paginate total="${prodottoInstanceCount ?: 0}" />
-    </div>
-</div>
+<%--<div class="row">--%>
+<%--    <div class="pagination " id="paginazione">--%>
+<%--        <g:paginate total="${prodottoInstanceCount ?: 0}" />--%>
+<%--    </div>--%>
+<%--</div>--%>

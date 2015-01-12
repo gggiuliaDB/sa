@@ -30,7 +30,7 @@
                     <g:hiddenField name="taskId" value="${taskId}"/>
 				    
 				    <div class="form-row"> 
-				        <label>Amount (euro)</label> 
+				        <label>Totale ordine (euro)</label> 
 				        <input type="text" size="20" autocomplete="off" id="amount" name="amount"/> 
 			        </div>
 				

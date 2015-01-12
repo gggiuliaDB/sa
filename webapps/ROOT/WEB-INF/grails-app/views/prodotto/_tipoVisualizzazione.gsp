@@ -1,7 +1,7 @@
 <div >
-	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid']"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
-	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'list']"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link>
-    <g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid2']"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></g:link>	
+	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid' , max: max]"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
+	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'list' , max: max]"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link>
+    <g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid2', max: max]"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></g:link>	
     
     <%--<input type="text" value="10" class="form-control input-sm" style="display:inline; width: 100px; text-align: right;"/>--%>
     <g:if test="${max==100}">

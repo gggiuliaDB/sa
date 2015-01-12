@@ -37,6 +37,15 @@
 <%--                    <g:else >--%>
 <%--                        <g:render template="vetrinaGrid"></g:render>--%>
 <%--                    </g:else>                                            --%>
+
+
+					<g:if test="${prodottoInstanceCount}">
+					    <div class="row">
+					        <div class="pagination" id="paginazione">
+					            <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max]"/>
+					        </div>
+					    </div>
+					</g:if>
                 </div>
             </div>
         </div>

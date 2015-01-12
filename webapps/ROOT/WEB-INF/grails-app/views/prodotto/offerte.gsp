@@ -26,6 +26,14 @@
                 </div>
                 <div class="col-md-9" >
                     <g:render template="tipoVisualizzazione" model="[action: 'offerte']"/>
+                    
+                    <g:if test="${prodottoInstanceCount}">
+                        <div class="row">
+                            <div class="pagination" id="paginazione">
+                                <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max]"/>
+                            </div>
+                        </div>
+                    </g:if>
                 </div>
             </div>
         </div>

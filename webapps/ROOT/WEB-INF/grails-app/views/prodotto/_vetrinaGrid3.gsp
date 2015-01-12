@@ -21,10 +21,10 @@
         </div>
     </g:each>
 </div>
-<g:if test="${prodottoInstanceCount}">
-    <div class="row">
-        <div class="pagination " id="paginazione">
-            <g:paginate total="${prodottoInstanceCount ?: 0}" />
-        </div>
-    </div>
-</g:if>
+<%--<g:if test="${prodottoInstanceCount}">--%>
+<%--    <div class="row">--%>
+<%--        <div class="pagination " id="paginazione">--%>
+<%--            <g:paginate total="${prodottoInstanceCount ?: 0}" />--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</g:if>--%>

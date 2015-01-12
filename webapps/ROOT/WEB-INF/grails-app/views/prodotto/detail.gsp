@@ -49,13 +49,14 @@
                            <g:each in="${ confezioni }" var="confezione" >
                                
                                <li class="list-group-item list-group-item-info">
-                                   <span>
-                                       <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
-                                           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-                                           <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
-                                       </a>
-                                   </span>
-           
+                                   <sec:access expression="hasRole('ROLE_USER')">
+	                                   <span>
+	                                       <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
+	                                           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+	                                           <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
+	                                       </a>
+	                                   </span>
+                                   </sec:access>
                                    <p style="min-height:30px;">
                                        ${confezione.descrizione}
                                    </p>
