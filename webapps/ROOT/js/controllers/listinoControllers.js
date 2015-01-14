@@ -1,6 +1,6 @@
 'use strict';
 
-var listinoApp = angular.module('listinoApp', []);
+var listinoApp = angular.module('listinoApp', ['utilityApp']);
 
 listinoApp.controller('listinoController', function($scope, $rootScope, $http, $location) {
 	$scope.init = function(url, confezioni){
@@ -44,7 +44,7 @@ listinoApp.controller('listinoController', function($scope, $rootScope, $http, $
         $scope.confezione.editing = false;  
     };  
 });
-
+/*
 listinoApp.directive('onlyDecimal', function() {
     return function(scope, element, attrs) {
 
@@ -83,6 +83,6 @@ listinoApp.directive("comaDotConverter",function(){
 	            }
 	        };	  
 	});
-
+*/
 angular.bootstrap(document.getElementById("listinoApp"),['listinoApp']);
 

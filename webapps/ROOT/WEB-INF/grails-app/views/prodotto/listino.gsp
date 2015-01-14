@@ -29,7 +29,7 @@
 		            <tr>
 			            <th>Prodotto</th>
 			            <th>Confezione</th>
-			            <th style="text-align: center;" colspan="2">Peso</th>
+			            <%--<th style="text-align: center;" colspan="2">Peso</th>--%>
 			            <th style="text-align: right; width: 100px;">Prezzo</th>
 			            <th style="text-align: right; width: 100px;">Sconto</th>
                         <th style="text-align: center; width: 140px;"></th>                        
@@ -40,11 +40,11 @@
 		            
 		                <td>{{confezione.prodotto}}</td>
 		                <td>{{confezione.nome}}</td>
-		                <td style="text-align: right;">{{confezione.peso}}</td>
+		                <%--<td style="text-align: right;">{{confezione.peso}}</td>
 		                <td>{{confezione.unitaMisura}}</td>
-		                
+		                --%>
 		                <td style="text-align: right;" >
-		                    <div ng-hide="confezione.editing">{{confezione.prezzo | currency:"€"}}</div>
+		                    <div ng-hide="confezione.editing">{{confezione.prezzo | currency:"€"}} {{confezione.unitaMisura}}</div>
 		                    <div ng-show="confezione.editing" class="input-group input-group-sm">
 		                      <input class="form-control" style="text-align: right; font-size: small;" type="text"
                                     aria-describedby="basic-addon-euro"  

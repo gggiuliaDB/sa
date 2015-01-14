@@ -15,8 +15,9 @@
                 </div>                       
             </g:if>
             <g:else>
-                
-                <g:render template="/carrello/carrelloTable" model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang), solaLettura:true]"></g:render>
+                           
+                <g:render template="/carrello/carrelloTable" 
+                    model="[mostraCostoSpedizione: true, controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang), solaLettura:true]"></g:render>
                 
 				<g:link class="btn btn-success" controller="ordine" action="selezionaModalitaPagamento" params="[taskId: taskId]">
 				    <g:message code="ordine.confermaOrdineSI.button" />

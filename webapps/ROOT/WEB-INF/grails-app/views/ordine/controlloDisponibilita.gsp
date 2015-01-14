@@ -16,7 +16,8 @@
             </g:if>
             <g:else>
             
-                <g:render template="/carrello/carrelloTable" model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang)]"></g:render>
+                <g:render template="/carrello/carrelloTable" 
+                    model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang)]"></g:render>
                 
 				<g:link class="btn btn-success" controller="ordine" action="esitoMerceDisponibile" params="[taskId: taskId, disponibile: 1]">
 				    <g:message code="ordine.merceDisponibile.button" />

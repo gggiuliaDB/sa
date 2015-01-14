@@ -1,4 +1,5 @@
 <%@ page import="it.ggg.sa.carrello.Carrello" %>
+<%@ page import="it.ggg.sa.ordine.Ordine" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,9 +26,10 @@
                     ${flash.error}
                 </div>                       
             </g:if>
-            <g:else>                        
+            <g:else>        
+                            
 	            <g:render template="carrelloTable" 
-	               model="[costoSpedizione: 8, controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
+	               model="[mostraCostoSpedizione: true, controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
 	            </g:render>
 	            
 	            <div class="col-md-5">

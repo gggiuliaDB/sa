@@ -15,14 +15,14 @@
                 </div>                       
             </g:if>
             <g:else>
-                <%--
                 <paypal:button
                        itemName="${ordineInstance.id}"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="${0}"
                        amount="${totale}"
-                       buyerId="${ordineInstance.utente }"/> --%>
+                       buyerId="${ordineInstance.utente }"/> 
                        
+				<%--
 				<stripe:script formName="payment-form"/>
 				
 				<g:form controller="ordine" action="charge" method="POST" name="payment-form"> 
@@ -31,14 +31,14 @@
 				    
 				    <div class="form-row"> 
 				        <label>Totale ordine (euro)</label> 
-				        <input type="text" size="20" autocomplete="off" id="amount" name="amount"/> 
+				        <input type="text" size="20" autocomplete="off" id="amount" name="amount" value="${totale}"/> 
 			        </div>
 				
 				    <stripe:creditCardInputs cssClass="form-row"/>
 				
-				    <button type="submit"><g:message code="pagamento.submitPayment.button" /></button> 
+				    <button type="submit" class="btn btn-success"><g:message code="pagamento.submitPayment.button" /></button> 
 				</g:form>   
-                       
+                --%>   
            </g:else>
         </div>
     </body>

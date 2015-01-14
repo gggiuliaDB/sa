@@ -52,38 +52,50 @@ footer {
     overflow: hidden;
 }
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
 
 .carousel {
-	height: 350px;
+	min-height: 350px;
     margin-bottom: 40px;
     background-color: transparent;
 }
 
 .carousel-testo {
   color:black;
-  text-shadow: blue; 
+  text-shadow: blue;
+  margin-bottom: 30px;
+ /* min-height: 100px;*/ 
+ margin-bottom: 50px;
 }
 
 .carousel .item {
-  height: 350px;
+  min-height: 350px;
   background-color: white;
   width: 100%;
   border-radius: 15px 15px 15px 15px;
   
 }
-/* .carousel-inner > .item > img { */
-/*   border: 1px solid red; */
-/* } */
 .carousel-img{
-	width: 100%;
+	/*  width: 60%;*/
 	max-width: 300px;	 
 }
 .carousel-control.left, .carousel-control.right {
     background-image: none
 }
+.carousel .item {
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+div.item{
+	padding-left: 30px;
+}
+
+
+
+
+
 
 
 #paginazione a {
@@ -203,3 +215,39 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .carousel { */
+/*     height: 400px; */
+/*     overflow: hidden; */
+/* } */
+/* .carousel .item { */
+/*     -webkit-transition: opacity 1s; */
+/*     -moz-transition: opacity 1s; */
+/*     -ms-transition: opacity 1s; */
+/*     -o-transition: opacity 1s; */
+/*     transition: opacity 1s; */
+/* } */
+/* .carousel .active.left, .carousel .active.right { */
+/*     left:0; */
+/*     opacity:0; */
+/*     z-index:2; */
+/* } */
+/* .carousel .next, .carousel .prev { */
+/*     left:0; */
+/*     opacity:1; */
+/*     z-index:1; */
+/* } */

@@ -62,9 +62,9 @@
                                    </p>
                                    
                                    <div >
-                                       <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</strong>
+                                       <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura?.toString(lang?.toString())}</strong>
 	                                   <g:if test="${confezione.sconto!=null}">
-                                            <s>&euro; <g:formatNumber number="${confezione.prezzoNS}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura.toString(lang.toString())}</s>
+                                            <s>&euro; <g:formatNumber number="${confezione.prezzoNS}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura?.toString(lang?.toString())}</s>
                                             <span class="label label-info">-${confezione.sconto*100}%</span>
                                        </g:if>               
                                    </div>

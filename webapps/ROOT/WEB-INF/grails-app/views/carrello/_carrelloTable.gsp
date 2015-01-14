@@ -4,7 +4,7 @@
 <div id="carrelloApp" >
     <div id="carrelloController" 
         ng-controller="carrelloController" 
-        ng-init="init('<g:createLink  uri=""/>', '${controller}', ${carrelloInstance?.id}, ${confezioniCarrello}, ${costoSpedizione?:-1})">
+        ng-init="init('<g:createLink  uri=""/>', '${controller}', ${carrelloInstance?.id}, ${confezioniCarrello})">
         
    
         <table class="table table-responsive table-condensed " name="tabella">
@@ -84,7 +84,7 @@
             </tr>
             
             <%--TOTALE PRODOTTI--%>            
-            <tr  style="border-top: 1px solid gray;">
+            <tr style="border-top: 1px solid gray;">
                 <td colspan="2"><h4><g:message code="carrello.totaleProdotti.label"/></h4></td>
                 <td></td>
                 <td></td>
@@ -94,22 +94,20 @@
                 <td></td>
             </tr>
             
-                  
-            <div ng-show="{{costoSpedizione!=-1}}">
+            <g:if test="${mostraCostoSpedizione}">
                 <%--COSTO SPEDIZIONE --%>      
-	            <tr  style="border-top: 1px solid gray;">
+	            <tr style="border-top: 1px solid gray;">
 	                <td colspan="2"><h4><g:message code="carrello.costoSpedizione.label" default="Costo spedizione"/></h4></td>
 	                <td></td>
 	                <td></td>
 	                <td style="vertical-align: middle; text-align: right;">
-	                   <%--&euro;<g:formatNumber number="${costoSpedizione}" type="currency" currencyCode="EUR" currencySymbol=""/>--%>
                         {{costoSpedizione | currency:"€"}}
                     </td>
 	                <td></td>
 	            </tr>
 	            
 	             <%--TOTALE --%>            
-	            <tr  style="border-top: 1px solid gray;">
+	            <tr style="border-top: 1px solid gray;">
 	                <td colspan="2"><h3><g:message code="carrello.totale.label"/></h3></td>
 	                <td></td>
 	                <td></td>
@@ -118,11 +116,8 @@
 	                </td>
 	                <td></td>
                 </tr>
-            </div>
-            
+            </g:if>
            </tbody>
-        </table>
-       
-    </div>
-           
+        </table>       
+    </div>           
 </div>

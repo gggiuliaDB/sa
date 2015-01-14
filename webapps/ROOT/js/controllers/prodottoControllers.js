@@ -1,6 +1,7 @@
 'use strict';
-var prodottoApp = angular.module('prodottoApp', []);
+var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
 
+/*
 prodottoApp.directive('onlyNum', function() {
     return function(scope, element, attrs) {
 
@@ -54,7 +55,7 @@ prodottoApp.directive("comaDotConverter",function(){
 	            }
 	        };	  
 	});
-
+*/
 prodottoApp.controller('prodottoController', function($scope, $rootScope, $http, $location) {
   
 });

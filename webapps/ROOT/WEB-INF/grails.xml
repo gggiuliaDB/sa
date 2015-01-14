@@ -11,7 +11,6 @@
     <resource>org.grails.paypal.PaymentItem</resource>
     <resource>grails.plugin.springsecurity.ui.RegistrationCodeController</resource>
     <resource>org.grails.plugin.resource.BaseUrlResourceMapper</resource>
-    <resource>StripeResources</resource>
     <resource>org.grails.plugin.resource.ResourceTagLib</resource>
     <resource>grails.plugin.cache.CacheTagLib</resource>
     <resource>PaypalUrlMappings</resource>
@@ -31,7 +30,6 @@
     <resource>grails.plugin.springsecurity.ui.AbstractS2UiController</resource>
     <resource>grails.plugin.springsecurity.ui.AclEntryController</resource>
     <resource>grails.plugin.mail.PlainTextMailTagLib</resource>
-    <resource>grails.plugins.stripe.StripeTagLib</resource>
     <resource>DefaultSecurityConfig</resource>
     <resource>grails.plugin.springsecurity.ui.AclObjectIdentityController</resource>
     <resource>grails.plugin.springsecurity.ui.AclSidController</resource>
@@ -112,7 +110,6 @@
     <plugin>JqueryGrailsPlugin</plugin>
     <plugin>MailGrailsPlugin</plugin>
     <plugin>ResourcesGrailsPlugin</plugin>
-    <plugin>StripeGrailsPlugin</plugin>
     <plugin>CacheGrailsPlugin</plugin>
     <plugin>SpringSecurityUiGrailsPlugin</plugin>
     <plugin>JqueryUiGrailsPlugin</plugin>

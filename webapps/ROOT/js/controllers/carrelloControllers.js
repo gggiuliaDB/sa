@@ -15,13 +15,13 @@ $( ".addToChart" ).click(function() {
 
 
 'use strict';
-var carrelloApp = angular.module('carrelloApp', []);
+var carrelloApp = angular.module('carrelloApp', ['utilityApp']);
 
 carrelloApp.controller('carrelloController', function($scope, $rootScope, $http, $location) {
 	
 	$scope.predicate = 'descrizione';
 	
-    $scope.init = function(url, controller, id, confezioniCarrello, costoSpedizione){
+    $scope.init = function(url, controller, id, confezioniCarrello){
     	
     	$scope.url=url;
     	$scope.controller=controller;
@@ -29,10 +29,10 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
     	$scope.confezioniCarrello = [];
         $scope.confezioniCarrello = confezioniCarrello;
         $scope.totale=0;
-        $scope.costoSpedizione = costoSpedizione;
         angular.forEach(confezioniCarrello, function(value, key) {
         	$scope.totale += value.quantita * value.prezzo;
     	});        
+        $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
     };
     
     $scope.aggiornaConfezioni = function(confezioniCarrello){
@@ -54,6 +54,17 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	    }
 	    $('#carrelloSize').html(totaleQuantita);
 	    $scope.totale = totalePrezzo;   
+        $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
+    }
+    
+    var calcolaCostoSpedizione = function(totale){
+        if(totale <= 50 ){
+            return 8;
+        }
+        else if(totale <= 100 ){
+            return 5;
+        }
+        return 0;
     }
     
     var save = function(){
@@ -122,7 +133,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 });
 	
 
-
+/*
 carrelloApp.directive('onlyNum', function() {
     return function(scope, element, attrs) {
 
@@ -192,6 +203,7 @@ carrelloApp.directive('ngConfirmClick', [
          }
      };
  }]);
+*/
 
 angular.bootstrap(document.getElementById("carrelloApp"),['carrelloApp']);
 
