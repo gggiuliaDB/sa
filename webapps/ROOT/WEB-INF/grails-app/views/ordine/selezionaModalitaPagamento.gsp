@@ -20,7 +20,7 @@
                        itemNumber="${ordineInstance.id}"
                        discountAmount="${0}"
                        amount="${totale}"
-                       buyerId="${ordineInstance.utente }"/> 
+                       buyerId="${ordineInstance.utente}"/> 
                        
 				<%--
 				<stripe:script formName="payment-form"/>
