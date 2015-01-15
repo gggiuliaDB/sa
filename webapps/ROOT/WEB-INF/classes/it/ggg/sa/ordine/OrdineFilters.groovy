@@ -5,9 +5,9 @@ import it.ggg.sa.prodotto.Confezione;
 class OrdineFilters {
 
     def filters = {
-        all(controller:'paypal', action:'buy') {
+        all(controller:'paypal', action:'*') {  //buy
             before = {
-                println("OrdineFilters payment: before")
+                println("OrdineFilters payment: before actionName: ${actionName}")
                 
             }
             after = { Map model ->
