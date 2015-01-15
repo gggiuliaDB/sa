@@ -15,12 +15,15 @@
                 </div>                       
             </g:if>
             <g:else>
+            
+                <h3>Totale ordine</h3>
+                <div>${totale}</div>
                 <paypal:button
                        itemName="${ordineInstance.id}"
                        itemNumber="${ordineInstance.id}"
-                       discountAmount="${0}"
+                       discountAmount="0"
                        amount="${totale}"
-                       buyerId="${ordineInstance.utente}"/> 
+                       buyerId="${ordineInstance.utente.id}"/> 
                        
 				<%--
 				<stripe:script formName="payment-form"/>

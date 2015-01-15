@@ -6,7 +6,10 @@ class OrdineFilters {
 
     def filters = {
         all(controller:'paypal', action:'buy') {
-           
+            before = {
+                println("OrdineFilters payment: before")
+                
+            }
             after = { Map model ->
                 def payment = request.payment
                 println("OrdineFilters payment: ${payment} (model: ${model})")
