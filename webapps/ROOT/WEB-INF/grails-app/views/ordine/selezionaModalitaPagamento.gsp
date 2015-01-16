@@ -18,20 +18,21 @@
             
                 <h3>Totale ordine</h3>
                 <div>${totale}</div>
-                <paypal:button
+                <%--<paypal:button
                        itemName="${ordineInstance.id}"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
                        amount="0.01"
-                       buyerId="${ordineInstance.utente.id}"/> 
+                       buyerId="${ordineInstance.utente.id}"/>--%> 
                        
-                       aaaa
-                <%--<script src="../paypal-button.min.js?merchant=giuliadb-facilitator@hotmail.com"
-				    data-button="buynow"
-				    data-name="My product"
-				    data-amount="1.00"
-				    async
-				></script>--%>
+                 				
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="FS8E7SD65A8UJ">
+					<input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+					<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+                </form>
+				
                        
 				<%--
 				<stripe:script formName="payment-form"/>
