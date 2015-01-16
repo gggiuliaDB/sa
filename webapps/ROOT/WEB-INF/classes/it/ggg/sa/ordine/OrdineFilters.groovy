@@ -12,7 +12,7 @@ class OrdineFilters {
             }
             after = { Map model ->
                 def payment = request.payment
-                println("OrdineFilters payment: ${payment} (model: ${model})")
+                println("OrdineFilters payment: ${payment} (model: ${model}) (params: ${params})")
                 
 //                def user = User.get(request.payment.buyerId)
 //                def item = Confezione.findByName(request.payment.paymentItems[0].itemName)

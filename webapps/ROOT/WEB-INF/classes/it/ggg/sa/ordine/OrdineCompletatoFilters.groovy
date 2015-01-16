@@ -8,7 +8,7 @@ class OrdineCompletatoFilters {
             after = { Map model ->
                 
                 def payment = request.payment
-                println("OrdineCompletatoFilters payment: ${payment}")
+                println("OrdineCompletatoFilters payment: ${payment} (params: ${params}")
                 
                 if(payment && payment.status == org.grails.paypal.Payment.COMPLETE) {
                     println("Stato del pagamento COMPLETE")    

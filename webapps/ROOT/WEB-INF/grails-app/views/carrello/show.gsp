@@ -32,31 +32,37 @@
 	               model="[mostraCostoSpedizione: true, controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
 	            </g:render>
 	            
-	            <div class="col-md-5">
-			        <div class="panel panel-success">
-			            <div class="panel-body panel-detail">
-		                   <h3>Quanto costa la spedizione?</h3>
-		                   <hr>
-		                   <strong>8,00&euro;</strong> <small>per acquisti fino a 50&euro;</small><br/>
-		                   <strong>5,00&euro;</strong> <small>per acquisti tra 50&euro; e 100&euro;</small><br/>
-		                   <strong>GRATIS</strong> <small>per acquisti superiori a 100&euro;</small><br/>
-			            </div>
-			        </div>
-                </div>
-	            
-                <div class="col-md-12">
-		            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
-	                    <g:message code="button.richiediDisponobilita.label" />
-	                </g:link>                
-	                
-		            <g:link controller="prodotto" action="search" class="btn btn-success">
-		                <g:message code="button.continuaShopping.label" />
-		            </g:link>	            
-		            
-		            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
-		                <g:message code="button.svuotaCarrello.label" />
-	                </g:link>
+	            <div class="row">
+	                <div class="col-md-12">
+			            <g:link controller="ordine" action="procedi" id="${carrelloInstance.id}" class="btn btn-info pull-right ">
+		                    <g:message code="button.richiediDisponobilita.label" />
+		                </g:link>                
+		                
+			            <g:link controller="prodotto" action="search" class="btn btn-success">
+			                <g:message code="button.continuaShopping.label" />
+			            </g:link>	            
+			            
+			            <g:link controller="carrello" action="svuota" id="${carrelloInstance.id}" class="btn btn-warning">
+			                <g:message code="button.svuotaCarrello.label" />
+		                </g:link>
+	               </div>
                </div>
+               
+               <br/>    
+                                    
+               <div class="row">
+	               <div class="col-md-5">
+	                    <div class="panel panel-success">
+	                        <div class="panel-body panel-detail" >
+	                           <h3 style="margin-top: 0px;">Quanto costa la spedizione?</h3>
+	                           <hr>
+	                           <strong>8,00&euro;</strong> <small>per acquisti fino a 50&euro;</small><br/>
+	                           <strong>5,00&euro;</strong> <small>per acquisti tra 50&euro; e 100&euro;</small><br/>
+	                           <strong>GRATIS</strong> <small>per acquisti superiori a 100&euro;</small><br/>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
             </g:else>
         </div>
     </body>
