@@ -23,10 +23,13 @@
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
                        amount="0.01"
-                       buyerId="${ordineInstance.utente.id}"/>--%> 
+                       buyerId="${ordineInstance.utente.id}"/>--%>
                        
-                 				
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                       <%-- 
+                        www.paypal.com/cgi-bin/webscr
+           			    www.sandbox.paypal.com/cgi-bin/webscr
+           			    --%>
+				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="FS8E7SD65A8UJ">
 					<input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
