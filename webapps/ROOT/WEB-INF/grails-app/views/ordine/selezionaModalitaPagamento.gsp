@@ -22,8 +22,16 @@
                        itemName="${ordineInstance.id}"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
-                       amount="${totale}"
+                       amount="0.01"
                        buyerId="${ordineInstance.utente.id}"/> 
+                       
+                       aaaa
+                <%--<script src="../paypal-button.min.js?merchant=giuliadb-facilitator@hotmail.com"
+				    data-button="buynow"
+				    data-name="My product"
+				    data-amount="1.00"
+				    async
+				></script>--%>
                        
 				<%--
 				<stripe:script formName="payment-form"/>
