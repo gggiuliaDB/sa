@@ -18,12 +18,20 @@
             
                 <h3>Totale ordine</h3>
                 <div>${totale}</div>
-                <%--<paypal:button
-                       itemName="${ordineInstance.id}"
+                <paypal:button
+                       itemName="Acquisto prodotti"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
-                       amount="0.01"
-                       buyerId="${ordineInstance.utente.id}"/>--%>
+                       amount="${totale}"
+                       buyerId="${ordineInstance.utente.id}"
+                       currency="EUR"
+                       buttonSrc="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" 
+                       buttonAlt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare."
+                       returnController="ordine"
+                       returnAction="pagamentoSuccess"
+                       cancelController="ordine"
+                       cancelAction="pagamentoCancel"
+                       />
                        
                        <%-- 
                         www.paypal.com/cgi-bin/webscr
@@ -63,12 +71,13 @@
 					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 				</form>
 					 --%>		
-                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <%--<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="WCAX6FRZ29R7A">
 					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
 					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
-				</form>
+					<input type="hidden" name="amount" value="${totale}">                    
+				</form>--%>
 								
                        
 				<%--
