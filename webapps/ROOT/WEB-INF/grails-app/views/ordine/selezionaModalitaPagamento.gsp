@@ -47,6 +47,12 @@
 					<input type="hidden" name="hosted_button_id" value="Y7HNGTHZ2ZUR6">
 					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
 					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+					
+					<input type="hidden" name="currency_code" value="EUR">
+					<input type="hidden" name="item_name" value="Acquisto prodotti">
+                    <input type="hidden" name="amount" value="1">
+                    <INPUT TYPE="hidden" NAME="return" value="URLspecificToThisTransaction">
+                    <input name="notify_url" value="http://jbossews-saff.rhcloud.com/ipn/listen" type="hidden">
 				</form>
 				                
 				
