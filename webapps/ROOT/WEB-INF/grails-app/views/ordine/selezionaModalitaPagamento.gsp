@@ -42,7 +42,7 @@
 					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
 					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 				</form> --%> 
-               <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+               <%--<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="Y7HNGTHZ2ZUR6">
 					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
@@ -53,9 +53,23 @@
                     <input type="hidden" name="amount" value="1">
                     <INPUT TYPE="hidden" NAME="return" value="URLspecificToThisTransaction">
                     <input name="notify_url" value="http://jbossews-saff.rhcloud.com/ipn/listen" type="hidden">
+				</form>--%>
+				            
+				<%--                
+				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="WCAX6FRZ29R7A">
+					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 				</form>
-				                
-				
+					 --%>		
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="WCAX6FRZ29R7A">
+					<input type="image" src="https://www.sandbox.paypal.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+					<img alt="" border="0" src="https://www.sandbox.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+				</form>
+								
                        
 				<%--
 				<stripe:script formName="payment-form"/>
