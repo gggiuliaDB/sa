@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <title>Transaction Complete</title>
+        <meta name="layout" content="main">
+        <title><g:message code="pagamento.transazione.completa.title"/></title>
     </head>
     <body id="body">
-    GGGGGGGGGGGGGGGGGGGG
-        Your purchase is complete. Information for your reference can be seen below:
+    
+        <h1><g:message code="pagamento.transazione.completa.title"/></h1>
+    
+        <g:message code="pagamento.transazione.completa.message"/>
+        
         <div id="transactionSummary" class="transactionSummary">
             <div class="transSummaryItem">
                 <span class="transSummaryItemName">Transaction ID:</span>

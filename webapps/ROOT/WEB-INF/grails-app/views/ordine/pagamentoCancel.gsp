@@ -1,11 +1,15 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <title>Transaction Cancelled</title>
+        <meta name="layout" content="main">
+        <title><g:message code="pagamento.transazione.annullata.title"/></title>
     </head>
     <body id="body">
-    GGGGGGGGGGGGGGGGGGGGGGGGGGG
-        Your purchase transaction has been cancelled. Information about the items you planned to purchase can be seen below:
+        
+        <h1><g:message code="pagamento.transazione.annullata.title"/></h1>
+
+        <g:message code="pagamento.transazione.annullata.message"/>
+
         <div id="transactionSummary" class="transactionSummary">
             <g:render template="txsummary" model="[payment:payment]"/>
         </div>
