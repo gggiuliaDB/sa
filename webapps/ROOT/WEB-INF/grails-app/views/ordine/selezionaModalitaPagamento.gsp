@@ -17,12 +17,12 @@
             <g:else>
             
                 <h3>Totale ordine</h3>
-                <div>&euro; <g:formatNumber number="${totale}" type="currency" currencyCode="EUR" currencySymbol=""/></div>
+                <div>&euro; ${totale}</div>
                 <paypal:button
                        itemName="Acquisto prodotti"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
-                       amount="${totale.toString().replace('.', ',')}"
+                       amount="${totale}"
                        buyerId="${ordineInstance.utente.id}"
                        currency="EUR"
                        buttonSrc="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" 
