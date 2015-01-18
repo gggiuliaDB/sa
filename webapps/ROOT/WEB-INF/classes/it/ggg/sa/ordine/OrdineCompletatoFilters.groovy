@@ -18,8 +18,20 @@ class OrdineCompletatoFilters {
                  
                     //Chiudo il task
                     try{
-                        taskService.complete(ordine.taskId.toString(), [azione:"conferma"])
-                        println("TTTTTTTTTTTTTTTtask completato")
+                        /*
+                        def tasks = taskService.
+                            createTaskQuery().
+                            taskAssignee(ordine.utente.username).
+                            list()
+                        tasks.each {
+                            println("TASK ${it.id}")  
+                            it.properties.each {k, v->
+                                println("  ${k}: ${v}")
+                            }
+                        }*/
+                        
+                        taskService.complete(ordine.taskId.toString(), [azione: "conferma"]) 
+                        println("TTTTTTTTTTTTTTTtask completato con id ${ordine.taskId}")
                     }
                     catch(RuntimeException ex){
                         println("EEEEEEEEEEEEEEEerrore in OrdineFilters - complete ${ex}")
