@@ -31,6 +31,8 @@
 				    <g:message code="ordine.annullaOrdine.button" />
 			    </g:link>
            </g:else>
+           
+            
         </div>
     </body>
 </html>

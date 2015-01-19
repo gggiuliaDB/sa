@@ -70,6 +70,7 @@
     <resource>it.ggg.sa.prodotto.InternazionalizzazioneProdottoController</resource>
     <resource>it.ggg.sa.prodotto.ProdottoController</resource>
     <resource>it.ggg.sa.profilo.ProfiloController</resource>
+    <resource>it.ggg.sa.ricette.RicetteController</resource>
     <resource>it.ggg.sa.security.LogoutController</resource>
     <resource>it.ggg.sa.security.RegisterController</resource>
     <resource>it.ggg.sa.security.UserController</resource>
@@ -96,6 +97,7 @@
     <resource>it.ggg.sa.security.UserRole</resource>
     <resource>it.ggg.sa.carrello.CarrelloService</resource>
     <resource>it.ggg.sa.ordine.OrdineService</resource>
+    <resource>it.ggg.sa.prodotto.ProdottoService</resource>
     <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
     <resource>it.ggg.sa.commento.CommentoTagLib</resource>
     <resource>it.ggg.sa.localization.LocaleTagLib</resource>

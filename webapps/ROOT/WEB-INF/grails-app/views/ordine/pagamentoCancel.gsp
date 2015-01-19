@@ -5,13 +5,15 @@
         <title><g:message code="pagamento.transazione.annullata.title"/></title>
     </head>
     <body id="body">
+        <div class="container">
         
-        <h1><g:message code="pagamento.transazione.annullata.title"/></h1>
-
-        <g:message code="pagamento.transazione.annullata.message"/>
-
-        <div id="transactionSummary" class="transactionSummary">
-            <g:render template="txsummary" model="[payment:payment]"/>
-        </div>
+	        <h1><g:message code="pagamento.transazione.annullata.title"/></h1>
+	
+	        <g:message code="pagamento.transazione.annullata.message"/>
+	
+	        <div id="transactionSummary" class="transactionSummary">
+	            <g:render template="txsummary" model="[payment:payment]"/>
+	        </div>
+	    </div>
     </body>
 </html>

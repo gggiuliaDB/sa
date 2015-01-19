@@ -25,24 +25,12 @@
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
-                    <g:render template="tipoVisualizzazione" model="[action: 'search']"/>                    
+                    <g:render template="tipoVisualizzazione" model="[action: 'search', q: q, max: max, offset:offset]"/>                    
                     
-<%--                    <g:if test="${!prodottoInstanceList }">--%>
-<%--                        <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        --%>
-<%--                    </g:if>--%>
-<%--                    --%>
-<%--                    <g:if test="${visualizzazione=='list'}">--%>
-<%--                        <g:render template="vetrinaList"></g:render>--%>
-<%--                    </g:if>--%>
-<%--                    <g:else >--%>
-<%--                        <g:render template="vetrinaGrid"></g:render>--%>
-<%--                    </g:else>                                            --%>
-
-
 					<g:if test="${prodottoInstanceCount}">
 					    <div class="row">
 					        <div class="pagination" id="paginazione">
-					            <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max]"/>
+					            <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"/>
 					        </div>
 					    </div>
 					</g:if>

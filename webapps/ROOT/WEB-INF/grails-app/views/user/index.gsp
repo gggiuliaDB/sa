@@ -44,7 +44,7 @@
 						<td><g:formatBoolean boolean="${userInstance.accountLocked}" /></td>
 						<td><g:formatBoolean boolean="${userInstance.enabled}" /></td>
 						<td><g:formatBoolean boolean="${userInstance.passwordExpired}" /></td>
-						<td><g:link action="show" id="${userInstance.id}"><span class="glyphicon glyphicon-info-sign"></span></g:link></td>
+						<td><g:link action="show" id="${userInstance.id}"><span class="glyphicon glyphicon-chevron-right"></span></g:link></td>
 						<td><g:link action="edit" id="${userInstance.id}"><span class="glyphicon glyphicon-edit"></span></g:link></td>
 					</tr>
 				</g:each>

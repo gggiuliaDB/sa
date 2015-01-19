@@ -1,14 +1,20 @@
+<%--MAX: ${max }<br>
+offset: ${offset }<br>
+q: ${q }<br>
+linea: ${linea}<br>
+tipoProdotto: ${tipoProdotto }<br>
+--%>
+
 <div >
-	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid' , max: max]"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
-	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'list' , max: max]"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link>
-    <g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid2', max: max]"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></g:link>	
+	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid' , max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></g:link> 
+	<g:link controller="prodotto" action="${action}" params="[visualizzazione: 'list' , max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></g:link>
+    <g:link controller="prodotto" action="${action}" params="[visualizzazione: 'grid2', max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></g:link>	
     
-    <%--<input type="text" value="10" class="form-control input-sm" style="display:inline; width: 100px; text-align: right;"/>--%>
-    <g:if test="${max==100}">
-        <g:link controller="prodotto" action="${action}" params="[visualizzazione: visualizzazione, max:10]"><g:message code="visualizza.10perpagina.label"/></g:link>
+    <g:if test="${max==prodottoInstanceCount}">
+        <g:link controller="prodotto" action="${action}" params="[visualizzazione: visualizzazione, max:10, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"><g:message code="visualizza.10perpagina.label"/></g:link>
     </g:if>
     <g:else>
-        <g:link controller="prodotto" action="${action}" params="[visualizzazione: visualizzazione, max:100]"><g:message code="visualizza.tutti.label"/></g:link>
+        <g:link controller="prodotto" action="${action}" params="[visualizzazione: visualizzazione, max:-1, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"><g:message code="visualizza.tutti.label" args="[prodottoInstanceCount]"/></g:link>
     </g:else> 
 </div>
 <br>

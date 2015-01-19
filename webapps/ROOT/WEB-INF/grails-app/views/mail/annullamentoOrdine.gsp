@@ -1,2 +1,2 @@
 <%@ page contentType="text/html"%>
-L'utente ${username} ha annullato l'ordine con id ${orderId}.
+L'utente ${ordine.utente.username} ha annullato l'ordine con id ${ordine.id}.

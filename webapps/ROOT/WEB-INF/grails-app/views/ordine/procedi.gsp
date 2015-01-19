@@ -21,9 +21,8 @@
             </g:elseif>
             <g:else>
                 <div class="alert alert-success" role="alert"><g:message code="ordine.avvioProcesso.message"/></div>
-            
-			    <%--<g:render template="riepilogo" model="[ordine: ordineInstance]"></g:render>--%>
-			        
+                
+                    
 			    <%--<paypal:button
 			           itemName="${ordineInstance.id}"
 			           itemNumber="${ordineInstance.id}"
@@ -31,6 +30,7 @@
 			           amount="${totale}"
 			           buyerId="${ordineInstance.utente }"/>--%>
             </g:else>
+                
         </div>
 	</body>
 </html>

@@ -26,15 +26,18 @@
           <sec:ifLoggedIn>
             <ul class="nav navbar-nav">
                 
-                <li>
+                <%--<li>
                     <g:link controller="prodotto" >                    
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     </g:link>
-                </li>
+                </li>--%>
             
                 <%--Prodotti--%>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.prodotti.label" default="Prodotti"/> <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <div style="text-align: center;"><span class="glyphicon glyphicon-cutlery" aria-hidden="true" /></div>
+                    <g:message code="menu.prodotti.label" default="Prodotti"/> <%--<span class="caret"></span>--%>
+                  </a>
                   <ul class="dropdown-menu" >
                     <g:each in="${Linea.list()}" var="l">
                         <li>
@@ -44,13 +47,29 @@
                         </li>
                     </g:each>
                     <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>                  
-                    <li><g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaOfferte.label"/></g:link></li>
+                    <li><g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaOfferte.label"/></g:link></li><%--<span class="glyphicon glyphicon-tags"></span>--%>
                   </ul>
-                </li>
+                </li>  
                 
+                <%--Offerte--%>              
+                <li>
+                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
+                        <div style="text-align: center;"><span class="glyphicon glyphicon-tags" aria-hidden="true"/></div> 
+                        <g:message code="visualizzaOfferte.label"/>
+                    </g:link>
+                </li>
+                <%--<li>
+                    <g:link controller="ricette" >                    
+                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                    </g:link>
+                </li>--%>
+            
                 <%--L'azienda--%>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><g:message code="menu.azienda.label" default="L'azienda"/> <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">                  
+	                  <div style="text-align: center;"><span class="glyphicon glyphicon-home" aria-hidden="true"/></div>
+	                  <g:message code="menu.azienda.label" default="L'azienda"/> <%--<span class="caret"></span>--%>
+                  </a> 
                   <ul class="dropdown-menu" >
                      <li>
                         <%--Chi siamo--%>
@@ -68,18 +87,6 @@
                 </li>
                 
                 
-                <%--Chi siamo--%>
-                <%--<li>
-                    <g:link controller="profilo" action="chiSiamo">
-                        <g:message code="menu.chisiamo.label"/>
-                    </g:link>
-                </li>--%>
-                <%--Contatti--%>
-                <%--<li>
-                    <g:link controller="profilo" action="contatti">
-                        <g:message code="menu.contatti.label"/>
-                    </g:link>
-                </li>--%>
             </ul>
             
             <%--Task--%>
@@ -100,7 +107,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <locale:flag/> 
-                    <span class="caret"></span>
+                    <%--<span class="caret"></span>--%>
                   </a>                  
                   <locale:selector/>                  
                 </li> 
@@ -133,7 +140,10 @@
                 
                     <%--Cambio pwd e logout (solo per loggati)--%>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><sec:username/><b class="caret"></b></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <div style="text-align: center;"><span class="glyphicon glyphicon-user" aria-hidden="true"/></div>
+                        <sec:username/>
+                      </a>
                       <ul class="dropdown-menu">
                         <li><a href="<g:createLink controller="user" action="cambioPassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
                         <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>

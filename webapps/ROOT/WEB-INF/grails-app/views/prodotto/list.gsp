@@ -40,7 +40,7 @@
                             <td>${prodottoInstance.linea}</td>
                             <td>${prodottoInstance.tipoProdotto}</td>
 							<td>
-							     <g:link action="show" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-info-sign"></span></g:link>
+							     <g:link action="show" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-chevron-right"></span></g:link>
                             </td>
                             <td>
                                  <g:link action="edit" id="${prodottoInstance.id}"><span class="glyphicon glyphicon-edit"></span></g:link>

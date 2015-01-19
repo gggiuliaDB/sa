@@ -25,7 +25,7 @@
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
-                    <g:render template="tipoVisualizzazione" model="[action: 'offerte']"/>
+                    <g:render template="tipoVisualizzazione" model="[action: 'offerte', q: q, max: max, offset:offset]"/>
                     
                     <g:if test="${prodottoInstanceCount}">
                         <div class="row">
