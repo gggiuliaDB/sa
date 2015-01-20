@@ -1,10 +1,12 @@
+Riepilogo ordine:<br/>
+
 <g:set var="totale" value="${ordine.calcolaTotale()}"></g:set>
 <g:set var="costoSpedizione" value="${ordine.costoSpedizione(totale)}"></g:set>
 
 <table class="table table-responsive table-condensed " name="tabella">
   <thead>        
     <tr  >
-       <th colspan="2"></th>
+       <th style="text-align: right;"><g:message code="carrello.prodotto.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.quantita.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>
@@ -14,12 +16,9 @@
   <tbody>
     <g:each in="${ordine.confezioniOrdine}" var="confezioneOrdine">
 	    <tr style="font-size: small;">
-	        <td style="vertical-align: middle;">                    
-	            <img src='<g:createLink controller="prodotto" action="viewImage" id="${confezioneOrdine.confezione.prodotto.id}" />' style="width:50px;" class="img-rounded" />                
-	        </td>
-	        
-	        <td style="vertical-align: middle;">
-	            <h5>${confezioneOrdine.confezione.prodotto.nome}</h5>
+	        	        
+	        <td style="vertical-align: middle;; text-align: left;">
+	            <strong>${confezioneOrdine.confezione.prodotto.nome}</strong>
 	            ${confezioneOrdine.confezione.nome}
 	        </td>
 	        
@@ -39,7 +38,7 @@
     
     <%--TOTALE PRODOTTI--%>            
     <tr style="border-top: 1px solid gray;">
-        <td colspan="2"><h4><g:message code="carrello.totaleProdotti.label"/></h4></td>
+        <td><h4><g:message code="carrello.totaleProdotti.label"/></h4></td>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">
@@ -49,7 +48,7 @@
     
     <%--COSTO SPEDIZIONE --%>      
     <tr style="border-top: 1px solid gray;">
-        <td colspan="2"><h4><g:message code="carrello.costoSpedizione.label" default="Costo spedizione"/></h4></td>
+        <td><h4><g:message code="carrello.costoSpedizione.label" default="Costo spedizione"/></h4></td>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">
@@ -60,7 +59,7 @@
     
      <%--TOTALE --%>            
     <tr style="border-top: 1px solid gray;">
-        <td colspan="2"><h3><g:message code="carrello.totale.label"/></h3></td>
+        <td><h3><g:message code="carrello.totale.label"/></h3></td>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">

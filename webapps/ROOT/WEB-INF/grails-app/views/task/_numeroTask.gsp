@@ -1,5 +1,5 @@
 <div id="box">
-    <div style="text-align: center;"><span class="glyphicon glyphicon-transfer" aria-hidden="true"/></div>
+    <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span><br/>
 	<g:message code="task.list.title" default="Attività"/> 
 	<span class="badge badge-red">${numeroTask}</span>
 </div>

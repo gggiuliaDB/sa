@@ -9,9 +9,9 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">${internazionalizzazione.ingredienti}</div>
-    <div role="tabpanel" class="tab-pane" id="profile">${internazionalizzazione.comeGustarlo}</div>
-    <div role="tabpanel" class="tab-pane" id="messages">${internazionalizzazione.conservazione}</div>
+    <div role="tabpanel" class="tab-pane active" id="home">${internazionalizzazione?.ingredienti}</div>
+    <div role="tabpanel" class="tab-pane" id="profile">${internazionalizzazione?.comeGustarlo}</div>
+    <div role="tabpanel" class="tab-pane" id="messages">${internazionalizzazione?.conservazione}</div>
   </div>
 </div>
 --%>
@@ -22,7 +22,7 @@
                 <h3 class="panel-title"><g:message code="prodotto.ingredienti.label"></g:message></h3>
             </div>
             <div class="panel-body panel-detail">
-                ${internazionalizzazione.ingredienti}
+                ${internazionalizzazione?.ingredienti}
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
                 <h3 class="panel-title"><g:message code="prodotto.comeConsumarlo.label"></g:message></h3>
             </div>
             <div class="panel-body panel-detail">
-                ${internazionalizzazione.comeGustarlo}
+                ${internazionalizzazione?.comeGustarlo}
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <h3 class="panel-title"><g:message code="prodotto.conservazione.label"></g:message></h3>
             </div>
             <div class="panel-body panel-detail">
-                ${internazionalizzazione.conservazione}
+                ${internazionalizzazione?.conservazione}
             </div>
         </div>
     </div>

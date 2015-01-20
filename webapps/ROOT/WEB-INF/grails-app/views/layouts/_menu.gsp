@@ -1,7 +1,7 @@
 <%@ page import="it.ggg.sa.prodotto.Linea"%>
 
 <!-- Navigation navbar-fixed-top-->
-<nav class="navbar navbar-inverse " role="navigation" >
+<nav class="navbar navbar-inverse " role="navigation" style="text-align: center;">
 
     <div class="container" >
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -12,11 +12,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%--<a class="navbar-brand" href="#"><g:message code="site.title"/></a>--%>
             <sec:ifLoggedIn>
                 <g:link class="navbar-brand" controller="prodotto" >
                     <g:img file="saLogo.jpg" class="img-rounded" style="height: 43px;"/>
-                    <%--<g:message code="site.title"/>--%>
                 </g:link>
             </sec:ifLoggedIn>
         </div>
@@ -26,17 +24,11 @@
           <sec:ifLoggedIn>
             <ul class="nav navbar-nav">
                 
-                <%--<li>
-                    <g:link controller="prodotto" >                    
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </g:link>
-                </li>--%>
-            
                 <%--Prodotti--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <div style="text-align: center;"><span class="glyphicon glyphicon-cutlery" aria-hidden="true" /></div>
-                    <g:message code="menu.prodotti.label" default="Prodotti"/> <%--<span class="caret"></span>--%>
+                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true" ></span><br/>
+                    <g:message code="menu.prodotti.label" default="Prodotti"/> 
                   </a>
                   <ul class="dropdown-menu" >
                     <g:each in="${Linea.list()}" var="l">
@@ -54,21 +46,16 @@
                 <%--Offerte--%>              
                 <li>
                     <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
-                        <div style="text-align: center;"><span class="glyphicon glyphicon-tags" aria-hidden="true"/></div> 
+                        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br/>
                         <g:message code="visualizzaOfferte.label"/>
                     </g:link>
                 </li>
-                <%--<li>
-                    <g:link controller="ricette" >                    
-                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
-                    </g:link>
-                </li>--%>
             
                 <%--L'azienda--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">                  
-	                  <div style="text-align: center;"><span class="glyphicon glyphicon-home" aria-hidden="true"/></div>
-	                  <g:message code="menu.azienda.label" default="L'azienda"/> <%--<span class="caret"></span>--%>
+	                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><br/>
+	                  <g:message code="menu.azienda.label" default="L'azienda"/> 
                   </a> 
                   <ul class="dropdown-menu" >
                      <li>
@@ -107,7 +94,6 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <locale:flag/> 
-                    <%--<span class="caret"></span>--%>
                   </a>                  
                   <locale:selector/>                  
                 </li> 
@@ -124,7 +110,10 @@
                     <%--Voci per admin--%>
                     <sec:access expression="hasRole('ROLE_ADMIN')">
                         <li class="dropdown">
-	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></a>
+	                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                           <span class="glyphicon glyphicon-cog"></span><br/>
+	                           Impostazioni
+                          </a>
 	                      <ul class="dropdown-menu">
                           <li><a href="<g:createLink controller="prodotto" action="listino" />" >Gestione listino</a></li>
 	                        <li><a href="<g:createLink controller="prodotto" action="list" />" >Gestione prodotti</a></li>
@@ -141,13 +130,12 @@
                     <%--Cambio pwd e logout (solo per loggati)--%>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <div style="text-align: center;"><span class="glyphicon glyphicon-user" aria-hidden="true"/></div>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br/>
                         <sec:username/>
                       </a>
                       <ul class="dropdown-menu">
                         <li><a href="<g:createLink controller="user" action="cambioPassword" />" ><g:message code="menu.cambiaPassword.label" default="Cambia password"/></a></li>
                         <li><a href="<g:createLink controller="logout" />"><g:message code="menu.logout.label" default="Logout"/></a></li>
-                        <%--<li><a href="<g:createLink uri="" />/j_spring_security_logout"><g:message code="menu.logout.label" default="Logout"/></a></li>--%>
                       </ul>
                     </li>
                 </sec:ifLoggedIn>
