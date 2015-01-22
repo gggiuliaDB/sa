@@ -1,5 +1,3 @@
-<%@ page import="it.ggg.sa.carrello.Carrello" %>
-<%@ page import="it.ggg.sa.ordine.Ordine" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,8 +26,7 @@
             </g:if>
             <g:else>        
                             
-	            <g:render template="carrelloTable" 
-	               model="[mostraCostoSpedizione: true, controller: 'confezioneCarrello', carrelloInstance: carrelloInstance, confezioniCarrello: Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)]">
+	            <g:render template="carrelloTable"  model="[mostraCostoSpedizione: true]">
 	            </g:render>
 	            
 	            <div class="row">

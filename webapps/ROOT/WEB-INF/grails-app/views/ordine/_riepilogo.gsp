@@ -6,7 +6,7 @@ Riepilogo ordine:<br/>
 <table class="table table-responsive table-condensed " name="tabella">
   <thead>        
     <tr  >
-       <th style="text-align: right;"><g:message code="carrello.prodotto.label" /></th>
+       <th style="text-align: left;"><g:message code="carrello.prodotto.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.quantita.label" /></th>
        <th style="text-align: right;"><g:message code="carrello.prezzoTotale.label" /></th>

@@ -72,3 +72,23 @@ utilityApp.directive('ngConfirmClick', [
          }
      };
  }]);
+
+function isNumber(n) {
+    'use strict';
+    //n = n.replace(/\./g, '').replace(',', '.');
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}   
+
+//deve prenderli da una tabella con una chiamata ajax al server!!!
+var calcolaCostoSpedizione = function(totale){
+    if(totale==0){
+        return 0;
+    }
+    if(totale <= 50 ){
+        return 8;
+    }
+    else if(totale <= 100 ){
+        return 5;
+    }
+    return 0;
+}

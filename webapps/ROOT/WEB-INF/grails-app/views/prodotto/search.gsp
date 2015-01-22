@@ -25,15 +25,21 @@
                     <g:render template="tipi" ></g:render>
                 </div>
                 <div class="col-md-9" >
+                    
+                    <g:render template="paginazione"/>
+
                     <g:render template="tipoVisualizzazione" model="[action: 'search', q: q, max: max, offset:offset]"/>                    
                     
-					<g:if test="${prodottoInstanceCount}">
-					    <div class="row">
-					        <div class="pagination" id="paginazione">
-					            <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"/>
-					        </div>
-					    </div>
-					</g:if>
+                    <g:render template="paginazione"/>
+
+                    <%--
+                    <g:if test="${prodottoInstanceCount}">
+                        <div class="row">
+                            <div class="pagination" id="paginazione">
+                                <g:paginate total="${prodottoInstanceCount ?: 0}" params="[visualizzazione: visualizzazione, max: max, offset: offset, q: q, linea: linea, tipoProdotto: tipoProdotto]"/>
+                            </div>
+                        </div>
+                    </g:if>--%>
                 </div>
             </div>
         </div>

@@ -1,4 +1,3 @@
-<%@page import="it.ggg.sa.ordine.Ordine"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,10 +13,9 @@
                     ${flash.error}
                 </div>                       
             </g:if>
-            <g:else>
-            
-                <g:render template="/carrello/carrelloTable" 
-                    model="[controller: 'confezioneOrdine', carrelloInstance: ordine, confezioniCarrello: Ordine.confezioniOrdineToJSON(ordine?.confezioniOrdine, lang)]"></g:render>
+            <g:else> 
+           
+                <g:render template="/ordine/ordineTable"  model="[mostraCostoSpedizione: false, solaLettura:false, cancellazione:false]"></g:render>
                 
 				<g:link class="btn btn-success" controller="ordine" action="esitoMerceDisponibile" params="[taskId: taskId, disponibile: 1]">
 				    <g:message code="ordine.merceDisponibile.button" />

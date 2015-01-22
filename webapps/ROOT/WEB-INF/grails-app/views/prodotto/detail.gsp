@@ -18,27 +18,28 @@
       <div class="container">
         <div id="show-prodotto" class="content scaffold-show" role="main">
             
-            <ul class="breadcrumb">
-			  <li><g:link controller="prodotto" >Home</g:link></li>
-			  <li><g:link controller="prodotto" action="search" ><g:message code="visualizzaTutti.label"/></g:link></li>
-			  <li>
-			     <g:link controller="prodotto" action="search" params="[linea: prodottoInstance.linea.id]">
-                    ${prodottoInstance.linea.getNome(lang.toString())}
-                 </g:link>
-              </li>
-			  <li class="active">${internazionalizzazione.nome.toLowerCase().capitalize()}</li>
-			</ul>
+          <ul class="breadcrumb">
+            <li><g:link controller="prodotto" >Home</g:link></li>
+            <li><g:link controller="prodotto" action="search" ><g:message code="visualizzaTutti.label"/></g:link></li>
+            <li>
+               <g:link controller="prodotto" action="search" params="[linea: prodottoInstance.linea.id]">
+                        ${prodottoInstance.linea.getNome(lang.toString())}
+                     </g:link>
+                  </li>
+            <li class="active">${internazionalizzazione.nome.toLowerCase().capitalize()}</li>
+          </ul>
             
-            <div class="page-header">
-			  <h1>${internazionalizzazione.nome.toLowerCase().capitalize()}<br><small>${internazionalizzazione.note}</small></h1>
-			</div>
-			
-			
-            <g:if test="${flash.message}">
-                <div class="message" role="status">${flash.message}</div>
-            </g:if>
+          <div class="page-header">
+            <h2>${internazionalizzazione.nome.toLowerCase().capitalize()}</h2><br>
+            <p style="font-size: initial">${internazionalizzazione.note}</p>
+          </div>
+      
+      
+          <g:if test="${flash.message}">
+              <div class="message" role="status">${flash.message}</div>
+          </g:if>
 
-            <div >
+          <div >
                 <div class="row">
                     <div class="col-sm-5">
                         <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;" class="img-rounded"/>
@@ -50,20 +51,20 @@
                                
                                <li class="list-group-item list-group-item-info">
                                    <sec:access expression="hasRole('ROLE_USER')">
-	                                   <span>
-	                                       <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
-	                                           <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-	                                           <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
-	                                       </a>
-	                                   </span>
+                                     <span>
+                                         <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
+                                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                             <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
+                                         </a>
+                                     </span>
                                    </sec:access>
                                    <p style="min-height:30px;">
                                        ${confezione.descrizione}
                                    </p>
                                    
                                    <div >
-                                       <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura?.toString(lang?.toString())}</strong>
-	                                   <g:if test="${confezione.sconto!=null}">
+                                     <strong>&euro; <g:formatNumber number="${confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura?.toString(lang?.toString())}</strong>
+                                     <g:if test="${confezione.sconto!=null}">
                                             <s>&euro; <g:formatNumber number="${confezione.prezzoNS}" type="currency" currencyCode="EUR" currencySymbol=""/> ${confezione.unitaMisura?.toString(lang?.toString())}</s>
                                             <span class="label label-info">-${confezione.sconto*100}%</span>
                                        </g:if>               
@@ -86,15 +87,14 @@
             </div>
         </div>
 
-		<script> 
-		  var url = "${createLink(controller:'carrello',action:'add')}";
-		  var carrelloId=${carrelloInstance?.id};
-		  var lang="${lang}"		  
-	    </script>	    
+        <script> 
+          var url = "${createLink(controller:'carrello',action:'add')}";
+          var carrelloId=${carrelloInstance?.id};
+          var lang="${lang}"      
+        </script>     
         
-		<!-- Modal -->
-		<g:render template="/carrello/modalCarrello"></g:render>
-                
+        <!-- Modal -->
+        <g:render template="/carrello/modalCarrello"></g:render>                
         
       </div>
     </body>
