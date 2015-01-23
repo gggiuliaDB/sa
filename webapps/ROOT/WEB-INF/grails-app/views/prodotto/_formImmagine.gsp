@@ -6,6 +6,6 @@
     </div>
     <div class="col-sm-5">
       <img src="${createLink(controller:'prodotto', action:'viewImage', id: prodottoInstance.id)}"  style="width:100px" class="img-rounded"/>
-      <input type="file" name="myFile" />
+      <input type="file" name="myFile" style="color: white;"/>
     </div>
 </div>

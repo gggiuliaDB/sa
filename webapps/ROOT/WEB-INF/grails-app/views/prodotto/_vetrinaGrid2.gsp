@@ -4,6 +4,7 @@
         <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
 
         <div class="col-sm-6 col-lg-6 col-md-6">           
+          <g:link  action="detail" id="${prodottoInstance.id}" style="text-decoration: none;">   
             <div class="thumbnail thumbnail2">
                 <img  src="${createLink(controller:'prodotto', action:'viewImage', id: prodottoInstance.id)}"  class="img-rounded"/>
                 
@@ -14,13 +15,14 @@
 	                        <g:if test="${sconto!=0}">
 	                            <div class="pull-right"><span class="label label-info">-${sconto*100}%</span></div>
 	                        </g:if>
-	                        <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione?.nome?.toLowerCase()?.capitalize()}</g:link>
+	                        ${internazionalizzazione?.nome?.toLowerCase()?.capitalize()}
 	                    </h5>
-	                    ${internazionalizzazione?.note?.toLowerCase()?.capitalize()}
+	                    <p style="color: white;">${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</p>
 	                </div>
                 <g:mediaRatings id="${prodottoInstance.id}"/>
                 </div>                
             </div>
+          </g:link>
         </div>
     </g:each>
 </div>
