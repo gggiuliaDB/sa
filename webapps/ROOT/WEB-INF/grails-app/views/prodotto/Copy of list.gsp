@@ -1,3 +1,4 @@
+
 <%@ page import="it.ggg.sa.prodotto.Prodotto" %>
 <!DOCTYPE html>
 <html>
@@ -8,42 +9,13 @@
 	</head>
 	<body>
 	  <div class="container" >
-        <div class="nav" role="navigation">
-            <ul class="nav nav-pills">
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
         
-        <%--<div role="tabpanel">
-		  <!-- Nav tabs -->
-		  <ul class="nav nav-tabs" role="tablist">
-		    <li role="presentation" class="active"><a href="#prodotto" aria-controls="prodotto" role="tab" data-toggle="tab">Prodotto</a></li>
-		    <li role="presentation"><a href="#immagine" aria-controls="immagine" role="tab" data-toggle="tab"><g:message code="prodotto.immagine.label" default="Immagine" /></a></li>
-		    <li role="presentation"><a href="#confezioni" aria-controls="confezioni" role="tab" data-toggle="tab"><g:message code="prodotto.confezioni.label" default="Confezioni" /></a></li>
-		    <li role="presentation"><a href="#lingue" aria-controls="lingue" role="tab" data-toggle="tab"><g:message code="prodotto.internazionalizzazioni.label" default="Internazionalizzazioni" /></a></li>
-		  </ul>
+		<div class="nav" role="navigation">
+			<ul class="nav nav-pills">
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+			</ul>
+		</div>
 		
-		  <!-- Tab panes -->
-		  <div class="tab-content" style="height:200px; border: 1px solid red;">
-		    <div role="tabpanel" class="tab-pane active" id="prodotto">
-		        <g:render template="formProdotto"/>                     
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="immagine">
-                <g:render template="formImmagine"/>
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="confezioni">
-		        <g:render template="formConfezioni"/>                            
-		    </div>
-		    <div role="tabpanel" class="tab-pane" id="lingue">
-		        <g:render template="formIntern"/>                            
-		    </div>
-		  </div>
-		</div>--%>
-		
-		
-
-
-		<br/>
 		<div id="list-prodotto" class="content scaffold-list" role="main">
 			<h2><g:message code="default.list.label" args="[entityName]" /></h2>
 			<g:if test="${flash.message}">
