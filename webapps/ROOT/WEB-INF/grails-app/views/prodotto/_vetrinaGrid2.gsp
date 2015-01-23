@@ -19,7 +19,7 @@
 	                    </h5>
 	                    <p style="color: white;">${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</p>
 	                </div>
-                <g:mediaRatings id="${prodottoInstance.id}"/>
+                    <g:mediaRatings id="${prodottoInstance.id}"/>
                 </div>                
             </div>
           </g:link>

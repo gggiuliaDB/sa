@@ -25,17 +25,17 @@
 			<table class="table table-hover table-condensed">
                 <thead>
 					<tr>
-						<g:sortableColumn property="id" title="${message(code: 'prodotto.id.label', default: 'ID')}" />
+						<%--<g:sortableColumn property="id" title="${message(code: 'prodotto.id.label', default: 'ID')}" />--%>
                         <th>${message(code: 'prodotto.nome.label', default: 'Nome')}</th>
-                        <g:sortableColumn property="linea" title="${message(code: 'prodotto.durata.label', default: 'Linea')}" />
-                        <g:sortableColumn property="tipoProdotto" title="${message(code: 'prodotto.durata.label', default: 'Tipo')}" />
+                        <th>${message(code: 'prodotto.linea.label', default: 'Linea')}</th>
+                        <th>${message(code: 'prodotto.tipo.label', default: 'Tipo')}</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 				    <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-							<td>${fieldValue(bean: prodottoInstance, field: "id")}</td>
+							<%--<td>${fieldValue(bean: prodottoInstance, field: "id")}</td>--%>
 	                        <td>${prodottoInstance}</td>
                             <td>${prodottoInstance.linea}</td>
                             <td>${prodottoInstance.tipoProdotto}</td>
