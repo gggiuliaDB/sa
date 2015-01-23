@@ -14,7 +14,7 @@
         <div class="container" > 
 
         
-            <h1><g:message code="cambioPassword.label" default="Cambio password"/></h1>
+            <h2><g:message code="cambioPassword.label" default="Cambio password"/></h2>
             <g:if test="${flash.message}">
                 <div class="alert alert-info">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>

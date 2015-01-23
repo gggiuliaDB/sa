@@ -15,7 +15,7 @@
 			</ul>
 		</div>--%>
 		<div id="edit-confezione" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /> ${confezioneInstance}</h1>
+			<h2><g:message code="default.edit.label" args="[entityName]" /> ${confezioneInstance}</h2>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

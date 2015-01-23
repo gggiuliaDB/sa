@@ -24,14 +24,10 @@
                 <div class="col-md-3">
                     <g:render template="tipi" ></g:render>
                 </div>
-                <div class="col-md-9" >
-                    
-                    <g:render template="paginazione"/>
+                <div class="col-md-9" >                   
 
                     <g:render template="tipoVisualizzazione" model="[action: 'search', q: q, max: max, offset:offset]"/>                    
                     
-                    <g:render template="paginazione"/>
-
                     <%--
                     <g:if test="${prodottoInstanceCount}">
                         <div class="row">

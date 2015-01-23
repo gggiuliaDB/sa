@@ -16,8 +16,7 @@
 			</ul>
 		</div>
 		<div id="show-prodotto" class="content scaffold-show" role="main">
-			<h1><%--<g:message code="default.show.label" args="[entityName]" />--%> 
-			Prodotto ${prodottoInstance}</h1>
+			<h2>Prodotto ${prodottoInstance}</h2>
 			<g:if test="${flash.message}">
 			     <div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>

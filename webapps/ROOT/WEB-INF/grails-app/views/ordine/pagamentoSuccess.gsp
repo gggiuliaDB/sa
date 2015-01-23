@@ -7,7 +7,7 @@
     <body id="body">
         <div class="container">
     
-	        <h1><g:message code="pagamento.transazione.completa.title"/></h1>
+	        <h2><g:message code="pagamento.transazione.completa.title"/></h2>
 	    
 	        <g:message code="pagamento.transazione.completa.message"/>
 	        

@@ -19,9 +19,12 @@ tipoProdotto: ${tipoProdotto }<br>
 </div>
 <br>
 
+<g:render template="paginazione"/>
+
 <g:if test="${!prodottoInstanceList }">
     <div class="alert alert-warning" role="alert"><g:message code="nessun.prodotto.trovato"/></div>                        
 </g:if>
+
 <g:if test="${visualizzazione=='grid2'}">
     <g:render template="vetrinaGrid2"></g:render>
 </g:if>
@@ -31,3 +34,5 @@ tipoProdotto: ${tipoProdotto }<br>
 <g:else>
     <g:render template="vetrinaList"></g:render>
 </g:else>
+
+<g:render template="paginazione"/>

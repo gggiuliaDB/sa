@@ -15,7 +15,7 @@
 			</ul>
 		</div>--%>
 		<div id="edit-internazionalizzazioneProdotto" class="content scaffold-edit" role="main">
-			<h1>Modifica Descrizioni prodotto ${internazionalizzazioneProdottoInstance.prodotto} per lingua: ${internazionalizzazioneProdottoInstance.locale}</h1>
+			<h2>Modifica Descrizioni prodotto ${internazionalizzazioneProdottoInstance.prodotto} per lingua: ${internazionalizzazioneProdottoInstance.locale}</h2>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

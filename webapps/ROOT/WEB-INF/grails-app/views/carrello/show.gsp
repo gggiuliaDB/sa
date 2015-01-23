@@ -13,7 +13,7 @@
         </g:if>
         
         <div class="container">
-            <h1><g:message code="carrello.label" /><%--<g:message code="default.show.label" args="[entityName]" /> --%></h1>
+            <h2><g:message code="carrello.label" /></h2>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>

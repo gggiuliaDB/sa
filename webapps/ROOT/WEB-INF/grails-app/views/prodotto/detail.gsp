@@ -42,7 +42,7 @@
           <div >
                 <div class="row">
                     <div class="col-sm-5">
-                        <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}"  style="width: 100%;" class="img-rounded"/>
+                        <img  src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" class="img-rounded" style="width: 100%; margin-bottom: 12px;" />
                     </div>
                     <div class="col-sm-7">
                       

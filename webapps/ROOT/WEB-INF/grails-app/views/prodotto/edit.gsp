@@ -15,7 +15,7 @@
 			</ul>
 		</div>
 		<div id="edit-prodotto" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /> ${prodottoInstance}</h1>
+			<h2><g:message code="default.edit.label" args="[entityName]" /> ${prodottoInstance}</h2>
 			<g:if test="${flash.message}">
                  <div class="alert alert-success" role="status">${flash.message}</div>
 			</g:if>

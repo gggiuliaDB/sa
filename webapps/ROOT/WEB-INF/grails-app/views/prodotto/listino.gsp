@@ -11,16 +11,38 @@
       <div class="container" >
         
         <div id="list-confezione" class="content scaffold-list" role="main">
-            <h1><g:message code="listino.gestione.title" default="Gestione listino"/></h1>
+            <h2><g:message code="listino.gestione.title" default="Gestione listino"/></h2>
           
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
          
-           <div id="listinoApp" >
+            <%--Cerca--%>
+            <div class="row">
+            <div class="col-md-3">
+	            <g:form class="form" role="search" controller="prodotto" action="listino" >
+	                <div class="form-group">
+	                  <div class="input-group input-group-md">
+	                      <input type="text" 
+	                        class="form-control" 
+	                        placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" 
+	                        aria-describedby="basic-addon3"  
+	                        name="q" 
+	                        value="${q}">                   
+	                      
+	                      <span class="input-group-btn">
+	                        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+	                      </span>                     
+	                  </div>                   
+	                </div>
+	            </g:form>
+            </div>
+            </div>
+         
+            <div id="listinoApp" >
               <div id="listinoController" 
                 ng-controller="listinoController" 
-                ng-init="init('<g:createLink  uri=""/>',${confezioneInstanceList})">
+                ng-init="init('<g:createLink  uri=""/>',${Confezione.confezioniToJSON(confezioni)})">
          
                 <div  ng-show="error_message" class="alert alert-warning">{{error_message}}</div>
 		       
@@ -81,36 +103,9 @@
 		            </tr>
 		          </tbody>
 		        </table>        
-        
-                <%--  
-	            <table class="table table-hover table-condensed">
-	            <thead>
-	                    <tr>
-	                        <th>Prodotto</th>
-	                        <th>Confezione</th>
-	                        <th style="text-align: center;" colspan="2">Peso</th>
-	                        <th style="text-align: right;">Prezzo</th>
-	                        <th style="text-align: right;">Sconto</th>
-	                        <th></th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                <g:each in="${confezioneInstanceList}" status="i" var="confezioneInstance">
-	                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-	                        <td>${confezioneInstance.prodotto}</td>
-	                        <td>${confezioneInstance}</td>
-	                        <td style="text-align: right;">${fieldValue(bean: confezioneInstance, field: "peso")}</td>
-	                        <td>${fieldValue(bean: confezioneInstance, field: "unitaMisura")}</td>
-	                        <td style="text-align: right;">&euro; <g:formatNumber number="${confezioneInstance.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/></td>
-	                        <td style="text-align: right;">${fieldValue(bean: confezioneInstance, field: "sconto")}</td>
-	                        <td><g:link >Modifica</g:link></td>
-	                    </tr>
-	                </g:each>
-	                </tbody>
-	            </table>
-	             --%> 
-	            <div class="pagination" id="paginazione">
-	                <g:paginate total="${confezioneInstanceCount ?: 0}" />
+         
+	            <div class="pagination" id="paginazione" >
+	                <g:paginate total="${confezioneInstanceCount ?: 0}" params="[q:q]"/>
 	            </div>
 	                 
             </div>

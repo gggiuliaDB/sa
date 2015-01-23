@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="container">
-            <h1><g:message code="tasks.label"/></h1>
+            <h2><g:message code="tasks.label"/></h2>
             
             <g:if test="${tasks}" > 
               <table class="table">

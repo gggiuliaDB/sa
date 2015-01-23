@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1><g:message code="ordine.esitoPagamento.title"/></h1>
+            <h2><g:message code="ordine.esitoPagamento.title"/></h2>
             
 
 			 <g:if test="${flash.error}">

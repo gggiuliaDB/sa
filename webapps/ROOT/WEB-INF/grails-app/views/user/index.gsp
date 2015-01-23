@@ -15,7 +15,7 @@
 			</ul>
 		</div>--%>
 		<div id="list-user" class="content scaffold-list" role="main">
-			<h1><g:message code="elenco.utente" default="Elenco utenti"/></h1>
+			<h2><g:message code="elenco.utente" default="Elenco utenti"/></h2>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
