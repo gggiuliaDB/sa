@@ -96,6 +96,7 @@
     <resource>it.ggg.sa.carrello.CarrelloService</resource>
     <resource>it.ggg.sa.mail.SaMailService</resource>
     <resource>it.ggg.sa.ordine.OrdineService</resource>
+    <resource>it.ggg.sa.prodotto.ConfezioneService</resource>
     <resource>it.ggg.sa.prodotto.ProdottoService</resource>
     <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
     <resource>it.ggg.sa.commento.CommentoTagLib</resource>

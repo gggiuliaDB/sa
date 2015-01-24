@@ -1,7 +1,7 @@
 <%@ page import="it.ggg.sa.prodotto.Confezione" %>
-<r:require module="prodotto"/>
-<div id="prodottoApp" >
-    <div id="prodottoController" >
+<r:require module="confezione"/>
+<div id="confezioneApp" >
+    <div id="confezioneController" >
 
 		<div class="form-group fieldcontain ${hasErrors(bean: confezioneInstance, field: 'prodotto', 'error')} required">
 		    <div class="col-sm-3">

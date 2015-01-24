@@ -1,64 +1,191 @@
 'use strict';
-var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
 
-/*
-prodottoApp.directive('onlyNum', function() {
-    return function(scope, element, attrs) {
-
-        var keyCode = [46,8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110];
-        element.bind("keydown", function(event) {
-            //console.log($.inArray(event.which,keyCode));
-            if($.inArray(event.which,keyCode) == -1) {
-                scope.$apply(function(){
-                    scope.$eval(attrs.onlyNum);
-                    event.preventDefault();
-                });
-                event.preventDefault();
+$( "#createProdotto" ).click(function() {
+    $.ajax({
+            url: urlCreate,
+            data:{},
+            success: function(data) {
+                angular.element(document.getElementById('prodottoController')).scope().aggiornaProdotto(data, true);
+                $('#collapseProdotto').collapse('show');
+            },
+            error: function(request, status, error) {
+                alert(error)
             }
-        });
-    };
+    }); 
 });
-prodottoApp.directive('onlyDecimal', function() {
-    return function(scope, element, attrs) {
-
-        var keyCode = [46,8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,188,190];
-        element.bind("keydown", function(event) {
-            //console.log($.inArray(event.which, keyCode));
-            if($.inArray(event.which, keyCode) == -1) {
-                scope.$apply(function(){
-                    scope.$eval(attrs.onlyDecimal);
-                    event.preventDefault();
-                });
-                event.preventDefault();
+$( ".editProdotto" ).click(function() {
+    var id = this.id;    
+    $.ajax({
+            url: urlEdit,
+            data:{id: id},
+            success: function(data) {
+                angular.element(document.getElementById('prodottoController')).scope().aggiornaProdotto(data, false);
+                $('#collapseProdotto').collapse('show');
+            },
+            error: function(request, status, error) {
+                alert(error)
             }
-        });
-    };
+    }); 
+});
+$( "#annulla" ).click(function() {
+    $('#collapseProdotto').collapse('hide');
 });
 
-prodottoApp.directive("comaDotConverter",function(){
-	   return {
-	            require: 'ngModel',
-	            link: function (scope, element, attrs, modelCtrl) {
-	              
-	                modelCtrl.$parsers.push(function(inputValue) {
-	                    
-	                    if (typeof (inputValue) == "undefined") return '';
-	                    var transformedInput = inputValue.replace(/,/g,'.');
-	                    
-	                    if (transformedInput != inputValue) {
-	                        modelCtrl.$setViewValue(transformedInput);
-	                        modelCtrl.$render();
-	                    }
 
-	                    return transformedInput;
-	                });
-	            }
-	        };	  
-	});
-*/
+var prodottoApp = angular.module('prodottoApp', ['utilityApp', 'angularFileUpload']);
+
 prodottoApp.controller('prodottoController', function($scope, $rootScope, $http, $location) {
-  
-});
 	
+    $scope.init = function(url){
+        $scope.url = url;
+
+        $scope.linee = [
+            { label: 'Linea Sarda affumicati', value: 'SA'},
+            { label: 'Linea Delizie di Sardegna', value: 'DS'}
+        ];
+        $scope.tipiProdotto = [
+            { label: 'Prodotti di mare', value: 'M'},
+            { label: 'Prodotti di terra', value: 'T'}
+        ];
+        $scope.tipiUnitaMisura = [
+            { label: 'Prezzo al chilo', value: 'KG'},
+            { label: 'Prezzo a confezione', value: 'UNITA'}
+        ];
+    };
+    
+    $scope.aggiornaProdotto = function(prodotto, nuovo){      
+
+        $scope.prodotto = prodotto;
+        $scope.prodotto.linea = $scope.trovaLinea($scope.prodotto.linea);
+        $scope.prodotto.tipoProdotto = $scope.trovaTipoProdotto($scope.prodotto.tipoProdotto);
+
+        for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+	        $scope.prodotto.confezioni[i].unitaMisura = $scope.trovaTipoUnitaMisura($scope.prodotto.confezioni[i].unitaMisura);
+	    }
+        $scope.nuovo=nuovo;
+        $scope.titolo="Modifica prodotto"; 
+        if(nuovo){
+            $scope.titolo="Nuovo prodotto"; 
+            for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+                $scope.prodotto.internazionalizzazioni[i].editing=true;    
+            }           
+            for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+                $scope.prodotto.confezioni[i].editing=true;    
+            }
+        }
+        $scope.$apply();
+    };
+
+    $scope.editI18 = function(i18){
+        $scope.i18 = i18;
+        for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+        	$scope.prodotto.internazionalizzazioni[i].editing=false;
+        }
+        $scope.i18.editing = true;
+    };
+  
+    $scope.updateI18 = function(){
+        $http({
+            method: 'PUT',
+            url: $scope.url+'/internazionalizzazioneProdotto/aggiornaI18/'+$scope.i18.id,
+            params: {
+            	id: $scope.i18.id, 
+            	nome: $scope.i18.nome, 
+            	note: $scope.i18.note, 
+                ingredienti: $scope.i18.ingredienti, 
+                comeGustarlo: $scope.i18.comeGustarlo, 
+                conservazione: $scope.i18.conservazione},
+            headers: {'Content-Type': 'application/json'}
+        })
+        .success(function(response, status, headers, config){
+        	$scope.error_message="";
+            $scope.i18 = response;
+            $scope.i18.editing = false;
+            for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+            	$scope.prodotto.internazionalizzazioni[i].editing=false;
+            }
+        })
+        .error(function(response, status, headers, config){
+            $scope.error_message = response;  
+        });
+    };
+
+    $scope.cancelI18 = function(){ 
+        $scope.i18.editing = false;  
+    };  
+
+
+
+    $scope.editConfezione = function(confezione){
+        $scope.confezione = confezione;
+        for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+        	$scope.prodotto.confezioni[i].editing=false;
+        }
+        $scope.confezione.editing = true;
+    };
+  
+    $scope.updateConfezione = function(){
+        $http({
+            method: 'PUT',
+            url: $scope.url+'/confezione/aggiornaConfezione/'+$scope.confezione.id,
+            params: {
+            	id: $scope.confezione.id, 
+            	descrizione: $scope.confezione.descrizione, 
+            	peso: $scope.confezione.peso, 
+                prezzo: $scope.confezione.prezzo, 
+                sconto: $scope.confezione.sconto, 
+                unitaMisura: $scope.confezione.unitaMisura},
+            headers: {'Content-Type': 'application/json'}
+        })
+        .success(function(response, status, headers, config){
+        	$scope.error_message="";
+            $scope.confezione = response;
+            $scope.confezione.editing = false;
+            for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+            	$scope.prodotto.confezioni[i].editing=false;
+            }
+        })
+        .error(function(response, status, headers, config){
+            $scope.error_message = response;  
+        });
+    };
+
+    $scope.cancelConfezione = function(){ 
+        $scope.confezione.editing = false;  
+    };  
+    $scope.trovaLinea = function(lineaId){
+        for (var i=0; i<$scope.linee.length; i++) {
+            if($scope.linee[i].value==lineaId)
+                return $scope.linee[i];
+        }
+        return null;
+    };
+
+    $scope.trovaTipoProdotto = function(tipoId){
+        for (var i=0; i<$scope.tipiProdotto.length; i++) {
+            if($scope.tipiProdotto[i].value==tipoId)
+                return $scope.tipiProdotto[i];
+        }
+        return null;
+    };
+    $scope.trovaTipoUnitaMisura = function(unitaMisura){
+        for (var i=0; i<$scope.tipiUnitaMisura.length; i++) {
+            if($scope.tipiUnitaMisura[i].value==unitaMisura)
+                return $scope.tipiUnitaMisura[i];
+        }
+        return null;
+    };
+
+
+    $scope.add = function(){
+      	var f = document.getElementById('file').files[0];
+      	r = new FileReader();
+		r.onloadend = function(e){
+        	$scope.data = e.target.result;
+      	}
+      	r.readAsBinaryString(f);
+    }
+});
+
 angular.bootstrap(document.getElementById("prodottoApp"),['prodottoApp']);
 
