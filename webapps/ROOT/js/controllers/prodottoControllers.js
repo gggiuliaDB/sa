@@ -32,6 +32,33 @@ $( "#annulla" ).click(function() {
 });
 
 
+$( ".addI18" ).click(function() {
+    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
+    $.ajax({
+            url: urlAddI18,
+            data:{idProdotto: idProdotto},
+            success: function(data) {
+                angular.element(document.getElementById('prodottoController')).scope().aggiornaI18(data);
+            },
+            error: function(request, status, error) {
+                alert(error)
+            }
+    }); 
+});
+$( ".addConfezione" ).click(function() {
+    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
+    $.ajax({
+            url: urlAddConfezione,
+            data:{idProdotto: idProdotto},
+            success: function(data) {
+                angular.element(document.getElementById('prodottoController')).scope().aggiornaConfezioni(data);
+            },
+            error: function(request, status, error) {
+                alert(error)
+            }
+    }); 
+});
+
 var prodottoApp = angular.module('prodottoApp', ['utilityApp', 'angularFileUpload']);
 
 prodottoApp.controller('prodottoController', function($scope, $rootScope, $http, $location) {
@@ -48,8 +75,8 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
             { label: 'Prodotti di terra', value: 'T'}
         ];
         $scope.tipiUnitaMisura = [
-            { label: 'Prezzo al chilo', value: 'KG'},
-            { label: 'Prezzo a confezione', value: 'UNITA'}
+            { label: 'Prezzo al chilo', value: 'KG', label1:'/ kg'},
+            { label: 'Prezzo a confezione', value: 'UNITA', label1:'cad.'}
         ];
     };
     
@@ -75,6 +102,27 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         }
         $scope.$apply();
     };
+
+    $scope.aggiornaI18 = function(internazionalizzazione){      
+    	$scope.prodotto.internazionalizzazioni.push(internazionalizzazione);
+    	for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+            if($scope.prodotto.internazionalizzazioni[i].id == internazionalizzazione.id)
+            	$scope.prodotto.internazionalizzazioni[i].editing=true;    
+        }		
+        $scope.i18 = internazionalizzazione;
+    	$scope.$apply();
+	};
+	$scope.aggiornaConfezioni = function(confezione){      
+		$scope.prodotto.confezioni.push(confezione);
+		for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+            if($scope.prodotto.confezioni[i].id == confezione.id)
+            	$scope.prodotto.confezioni[i].editing=true;    
+        }
+		confezione.unitaMisura = $scope.trovaTipoUnitaMisura(confezione.unitaMisura);
+
+        $scope.confezione = confezione;
+		$scope.$apply();
+	};
 
     $scope.editI18 = function(i18){
         $scope.i18 = i18;
@@ -130,11 +178,11 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
             url: $scope.url+'/confezione/aggiornaConfezione/'+$scope.confezione.id,
             params: {
             	id: $scope.confezione.id, 
-            	descrizione: $scope.confezione.descrizione, 
+            	nome: $scope.confezione.nome, 
             	peso: $scope.confezione.peso, 
                 prezzo: $scope.confezione.prezzo, 
                 sconto: $scope.confezione.sconto, 
-                unitaMisura: $scope.confezione.unitaMisura},
+                unitaMisura: $scope.confezione.unitaMisura.value},
             headers: {'Content-Type': 'application/json'}
         })
         .success(function(response, status, headers, config){

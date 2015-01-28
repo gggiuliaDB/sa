@@ -7,57 +7,76 @@
   <div class="col-sm-12">
     <table class="table table-condensed table-bordered table-responsive">
         <thead>
-            <th>Nome</th>
-            <th>Peso</th>
-            <th>Tipo prezzo</th>
-            <th>Prezzo</th>
-            <th>Sconto</th>
-            <th ng-if="nuovo==false"></th>
+            <th style="width: 20%">Nome</th>
+            <th style="width: 15%">Peso</th>
+            <th style="width: 20%">Tipo prezzo</th>
+            <th style="width: 15%">Prezzo</th>
+            <th style="width: 15%">Sconto</th>
+            <th style="width: 10%" ng-if="nuovo==false"></th>
         </thead>
         <tr ng-repeat="confezione in prodotto.confezioni">
-                
+            <input type="hidden"  name="confezioni.id" value="{{confezione.id}}"/>    
             <td>
                 <div ng-hide="confezione.editing">{{confezione.nome}}</div>
                 <div ng-show="confezione.editing" class="input-group input-group-sm">
-                    <input  type="text"
-                        value="{{confezione.nome}}"  
-                        ng-model="confezione.nome">                              
+                    <textarea ng-maxlength="1024" rows="3"
+                        name="confezioni.nome"
+                        ng-model="confezione.nome"
+                        style="border-radius: 3px;">{{confezione.nome}}</textarea>
                 </div>
             </td>
             <td>
-                <div ng-hide="confezione.editing">{{confezione.peso}}</div>
-                <div ng-show="confezione.editing" class="input-group input-group-sm">
-                    <g:field only-decimal class="form-control input-sm"
-                        coma-dot-converter="coma-dot-converter"  
-                        type="text" name="peso"
-                        ng-model="confezione.peso"/>                             
+                <div ng-hide="confezione.editing">
+                    {{confezione.peso}}
+                    <div style="display: inline;">Kg</div>
                 </div>
+                <div ng-show="confezione.editing" class="input-group input-group-sm">
+                  <input class="form-control" style="text-align: right; font-size: small;" type="text"
+                        aria-describedby="basic-addon-perc"  
+                        name="confezioni.peso"
+                        value="{{confezione.peso}}"  
+                        ng-model="confezione.peso" 
+                        only-decimal 
+                        coma-dot-converter="coma-dot-converter" >
+                  <span class="input-group-addon" id="basic-addon-perc">Kg</span>                                    
+                </div>
+
             </td>
             
             <td>
                 <div ng-hide="confezione.editing">{{confezione.unitaMisura.label}}</div>
                 <div ng-show="confezione.editing" class="input-group input-group-sm">
-		            <select class="form-control input-sm" id="linea" name="linea.id" 
+		            <select class="form-control input-sm" id="unitaMisura" 
+		                name="confezioni.unitaMisura" 
 				        ng-model="confezione.unitaMisura"
-				        ng-options="unitaMisura as unitaMisura.label for unitaMisura in tipiUnitaMisura" ></select>
+				        ng-options="unitaMisura.label for unitaMisura in tipiUnitaMisura track by unitaMisura.value" 
+				        style="border-radius: 3px;"></select>
                 </div>
             </td>
             <td>
-                <div ng-hide="confezione.editing">{{confezione.prezzo}}</div>
+                <div ng-hide="confezione.editing">{{confezione.prezzo | currency:"€"}} {{confezione.unitaMisura.label1}}</div>
                 <div ng-show="confezione.editing" class="input-group input-group-sm">
-                    <g:field only-decimal class="form-control input-sm"
-                        coma-dot-converter="coma-dot-converter"  
-                        type="text" name="prezzo"
-                        ng-model="confezione.prezzo"/>                             
+                  <input class="form-control" style="text-align: right; font-size: small;" type="text"
+                        aria-describedby="basic-addon-euro"  
+                        name="confezioni.prezzo"
+                        value="{{confezione.prezzo}}"  
+                        ng-model="confezione.prezzo"
+                        only-decimal 
+                        coma-dot-converter="coma-dot-converter" >
+                  <span class="input-group-addon" id="basic-addon-euro">&euro;</span>                              
                 </div>
             </td>
             <td>
-                <div ng-hide="confezione.editing">{{confezione.sconto}}</div>
+                <div ng-hide="confezione.editing">{{confezione.sconto}}<div style="display: inline;" ng-show="confezione.sconto">%</div></div>
                 <div ng-show="confezione.editing" class="input-group input-group-sm">
-                    <g:field only-decimal class="form-control input-sm"
-                        coma-dot-converter="coma-dot-converter"
-                        type="text" name="sconto"
-                        ng-model="confezione.sconto"/>                             
+                  <input class="form-control" style="text-align: right; font-size: small;" type="text"
+                        aria-describedby="basic-addon-perc"  
+                        name="confezioni.sconto"
+                        value="{{confezione.sconto}}"  
+                        ng-model="confezione.sconto" 
+                        only-decimal 
+                        coma-dot-converter="coma-dot-converter" >
+                  <span class="input-group-addon" id="basic-addon-perc">%</span>                                    
                 </div>
             </td>
             
@@ -72,6 +91,11 @@
             </td>
         </tr>
      </table>    
+    
+    
+    <a id="${prodottoInstance?.id}" class="addConfezione" href="#">         
+        Aggiungi confezione        
+    </a>
     
     
     <%--

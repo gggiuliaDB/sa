@@ -34,12 +34,11 @@
 					    <h2>{{titolo}}</h2>
 					    <g:uploadForm url="[resource:prodottoInstance, action:'update']"  class="form-horizontal">
 	   				        <g:hiddenField name="prodottoId" value="{{prodotto.id}}"/>
-    prodotto.id: {{prodotto.id}}
 			                <fieldset class="form">
 			                    <g:render template="formProdotto"/>                     
 								<g:render template="formImmagine"/>
-								<g:render template="formI18"/>
-								<g:render template="formConfezioni"/>                           
+                                <g:render template="formConfezioni"/>                           
+								<%--<g:render template="formI18"/>--%>
 			                </fieldset>
 			                <fieldset class="buttons">
 			                    <g:submitButton id="salvaProdotto" name="save" class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />
@@ -56,6 +55,29 @@
 		<div id="list-prodotto" class="content scaffold-list" role="main">
 			<h2><g:message code="default.list.label" args="[entityName]" /></h2>
 			
+			<%--Cerca--%>
+            <div class="row">
+                <div class="col-md-3">
+                    <g:form class="form" role="search" controller="prodotto" action="list" >
+                        <div class="form-group">
+                          <div class="input-group input-group-md">
+                              <input type="text" 
+                                class="form-control" 
+                                placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" 
+                                aria-describedby="basic-addon3"  
+                                name="qList" 
+                                value="${qList}">                   
+                              
+                              <span class="input-group-btn">
+                                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                              </span>                     
+                          </div>                   
+                        </div>
+                    </g:form>
+                </div>
+            </div>
+			
+			
 			<table class="table table-condensed">
                 <thead>
 					<tr>
@@ -66,22 +88,22 @@
 				</thead>
 				<tbody>
 				    <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
-							<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-		                        <td>${prodottoInstance}</td>
-	                            <td>${prodottoInstance.linea}</td>
-	                            <td>${prodottoInstance.tipoProdotto}</td>
-	                            <td>
-	                               <a class="editProdotto" id="${prodottoInstance.id}" href="#">
-                                        Edit
-                                    </a>
-                                </td>
-							</tr>
+						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+	                        <td>${prodottoInstance}</td>
+	                           <td>${prodottoInstance.linea}</td>
+	                           <td>${prodottoInstance.tipoProdotto}</td>
+	                           <td>
+	                              <a class="editProdotto" id="${prodottoInstance.id}" href="#">
+	                               Modifica
+                                  </a>
+                              </td>
+						</tr>
 					</g:each>
 				</tbody>
 			</table>
 		
 			<div class="pagination" id="paginazione">
-				<g:paginate total="${prodottoInstanceCount ?: 0}" />
+				<g:paginate total="${prodottoInstanceCount ?: 0}" params="[qList:qList]"/>
 			</div>
 		</div>
 	  </div>
@@ -89,6 +111,8 @@
 	  <script> 
           var urlCreate = "${createLink(controller:'prodotto',action:'create')}";
           var urlEdit = "${createLink(controller:'prodotto',action:'edit')}";
+          var urlAddI18 = "${createLink(controller:'prodotto',action:'addI18')}";
+          var urlAddConfezione = "${createLink(controller:'prodotto',action:'addConfezione')}";
       </script>     
 	  
 	</body>

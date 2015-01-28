@@ -19,24 +19,24 @@
          
             <%--Cerca--%>
             <div class="row">
-            <div class="col-md-3">
-	            <g:form class="form" role="search" controller="prodotto" action="listino" >
-	                <div class="form-group">
-	                  <div class="input-group input-group-md">
-	                      <input type="text" 
-	                        class="form-control" 
-	                        placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" 
-	                        aria-describedby="basic-addon3"  
-	                        name="q" 
-	                        value="${q}">                   
-	                      
-	                      <span class="input-group-btn">
-	                        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-	                      </span>                     
-	                  </div>                   
-	                </div>
-	            </g:form>
-            </div>
+	            <div class="col-md-3">
+		            <g:form class="form" role="search" controller="prodotto" action="listino" >
+		                <div class="form-group">
+		                  <div class="input-group input-group-md">
+		                      <input type="text" 
+		                        class="form-control" 
+		                        placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" 
+		                        aria-describedby="basic-addon3"  
+		                        name="qList" 
+		                        value="${qList}">                   
+		                      
+		                      <span class="input-group-btn">
+		                        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+		                      </span>                     
+		                  </div>                   
+		                </div>
+		            </g:form>
+	            </div>
             </div>
          
             <div id="listinoApp" >
@@ -62,9 +62,7 @@
 		            
 		                <td>{{confezione.prodotto}}</td>
 		                <td>{{confezione.nome}}</td>
-		                <%--<td style="text-align: right;">{{confezione.peso}}</td>
-		                <td>{{confezione.unitaMisura}}</td>
-		                --%>
+		                
 		                <td style="text-align: right;" >
 		                    <div ng-hide="confezione.editing">{{confezione.prezzo | currency:"€"}} {{confezione.unitaMisura}}</div>
 		                    <div ng-show="confezione.editing" class="input-group input-group-sm">
@@ -79,7 +77,6 @@
 		                </td>
 		                <td style="text-align: right;">
 		                    <div ng-hide="confezione.editing">{{confezione.sconto}}<div style="display: inline;" ng-show="confezione.sconto">%</div></div>
-		                    
 		                    <div ng-show="confezione.editing" class="input-group input-group-sm">
 		                      <input class="form-control" style="text-align: right; font-size: small;" type="text"
                                     aria-describedby="basic-addon-perc"  
@@ -105,7 +102,7 @@
 		        </table>        
          
 	            <div class="pagination" id="paginazione" >
-	                <g:paginate total="${confezioneInstanceCount ?: 0}" params="[q:q]"/>
+	                <g:paginate total="${confezioneInstanceCount ?: 0}" params="[qList:qList]"/>
 	            </div>
 	                 
             </div>
