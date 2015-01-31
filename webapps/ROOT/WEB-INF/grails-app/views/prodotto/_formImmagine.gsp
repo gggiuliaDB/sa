@@ -1,6 +1,6 @@
 
 <div class="form-group fieldcontain ${hasErrors(bean: prodottoInstance, field: 'immagine', 'error')} ">
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <label for="immagine"> 
         <g:message code="prodotto.immagine.label" default="Immagine" />
     </label>

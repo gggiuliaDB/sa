@@ -59,7 +59,7 @@ $( ".addConfezione" ).click(function() {
     }); 
 });
 
-var prodottoApp = angular.module('prodottoApp', ['utilityApp', 'angularFileUpload']);
+var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
 
 prodottoApp.controller('prodottoController', function($scope, $rootScope, $http, $location) {
 	
@@ -81,7 +81,6 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
     };
     
     $scope.aggiornaProdotto = function(prodotto, nuovo){      
-
         $scope.prodotto = prodotto;
         $scope.prodotto.linea = $scope.trovaLinea($scope.prodotto.linea);
         $scope.prodotto.tipoProdotto = $scope.trovaTipoProdotto($scope.prodotto.tipoProdotto);
@@ -112,6 +111,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         $scope.i18 = internazionalizzazione;
     	$scope.$apply();
 	};
+
 	$scope.aggiornaConfezioni = function(confezione){      
 		$scope.prodotto.confezioni.push(confezione);
 		for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
@@ -161,8 +161,6 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
     $scope.cancelI18 = function(){ 
         $scope.i18.editing = false;  
     };  
-
-
 
     $scope.editConfezione = function(confezione){
         $scope.confezione = confezione;
@@ -216,6 +214,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         }
         return null;
     };
+
     $scope.trovaTipoUnitaMisura = function(unitaMisura){
         for (var i=0; i<$scope.tipiUnitaMisura.length; i++) {
             if($scope.tipiUnitaMisura[i].value==unitaMisura)
@@ -224,15 +223,36 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         return null;
     };
 
-
-    $scope.add = function(){
+    /*$scope.add = function(){
       	var f = document.getElementById('file').files[0];
       	r = new FileReader();
 		r.onloadend = function(e){
         	$scope.data = e.target.result;
       	}
       	r.readAsBinaryString(f);
-    }
+    }*/
+
+    $scope.eliminaConfezione = function(confezione){
+        $http({
+            method: 'PUT',
+            url: $scope.url+'/confezione/eliminaConfezione/'+confezione.id,
+            params: {id: confezione.id},
+            headers: {'Content-Type': 'application/json'}
+        })
+        .success(function(response, status, headers, config){
+        	$scope.error_message="";
+            $scope.prodotto.confezioni = response;
+            if($scope.nuovo){
+	            for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
+	                $scope.prodotto.confezioni[i].editing=true;    
+	            }
+	        }
+        })
+        .error(function(response, status, headers, config){
+            $scope.error_message = response;  
+        });
+    };
+
 });
 
 angular.bootstrap(document.getElementById("prodottoApp"),['prodottoApp']);

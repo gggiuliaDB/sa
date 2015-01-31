@@ -25,7 +25,7 @@
 		 
                 <div  ng-show="error_message" class="alert alert-warning">{{error_message}}</div>
         
-        	        <a id="createProdotto" class="btn btn-primary" >
+        	        <a id="createProdotto" class="btn btn-info" >
 			             <g:message code="default.new.label" args="[entityName]" />        
 			        </a>
 			        <div class="collapse" id="collapseProdotto">
@@ -46,6 +46,7 @@
 			                </fieldset>
 			            </g:uploadForm>
 				    </div>
+				    <hr>
 				</div>					
 			</div>
         </div>	

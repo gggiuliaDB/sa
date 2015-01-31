@@ -13,6 +13,8 @@
             <th style="width: 15%">Prezzo</th>
             <th style="width: 15%">Sconto</th>
             <th style="width: 10%" ng-if="nuovo==false"></th>
+            <th style="width: 10%"></th>
+            
         </thead>
         <tr ng-repeat="confezione in prodotto.confezioni">
             <input type="hidden"  name="confezioni.id" value="{{confezione.id}}"/>    
@@ -88,6 +90,9 @@
                     <a href="#" ng-click="updateConfezione()">Salva</a> |
                     <a href="#" ng-click="cancelConfezione()">Annulla</a>
                 </div>                
+            </td>
+            <td>        
+                <a href="#" ng-click="eliminaConfezione(confezione)">Elimina</a>
             </td>
         </tr>
      </table>    
