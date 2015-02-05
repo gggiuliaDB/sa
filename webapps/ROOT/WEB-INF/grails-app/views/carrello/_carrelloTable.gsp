@@ -97,6 +97,19 @@
                 <td></td>
             </tr>
             
+            <%--IVA--%> 
+            <g:if test="${mostraCostoSpedizione}">           
+	            <tr style="border-top: 1px solid gray;">
+	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/></h4></td>
+	                <td></td>
+	                <td></td>
+	                <td style="vertical-align: middle; text-align: right;">
+	                    {{iva | currency:"€"}}
+	                </td>
+	                <td></td>
+	            </tr>
+            </g:if>
+            
             <%--COSTO SPEDIZIONE --%>             
             <g:if test="${mostraCostoSpedizione}">
               <tr style="border-top: 1px solid gray;">

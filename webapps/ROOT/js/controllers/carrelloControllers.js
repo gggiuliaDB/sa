@@ -32,6 +32,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
         	$scope.totale += value.quantita * value.prezzo;
     	});        
         $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
+        $scope.iva=calcolaIva($scope.totale);        
     };
     
     $scope.aggiornaConfezioni = function(confezioniCarrello){
@@ -54,6 +55,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	    $('#carrelloSize').html(totaleQuantita);
 	    $scope.totale = totalePrezzo;   
         $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
+        $scope.iva=calcolaIva($scope.totale);   
     }
     
     var save = function(){
@@ -115,6 +117,12 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
         //n = n.replace(/\./g, '').replace(',', '.');
         return !isNaN(parseFloat(n)) && isFinite(n);
     } */ 
+    
+    var calcolaIva = function(totale){
+        
+    	
+        return (totale - (totale / 1.22) );
+    }
 });
 	
 

@@ -39,6 +39,7 @@
 								<g:render template="formImmagine"/>
                                 <g:render template="formConfezioni"/>                           
 								<%--<g:render template="formI18"/>--%>
+								
 			                </fieldset>
 			                <fieldset class="buttons">
 			                    <g:submitButton id="salvaProdotto" name="save" class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />

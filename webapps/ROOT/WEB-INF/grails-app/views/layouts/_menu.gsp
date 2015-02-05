@@ -24,6 +24,21 @@
           <sec:ifLoggedIn>
             <ul class="nav navbar-nav">
                 
+
+                <%--
+                <li>
+                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
+                        <span class="glyphicon" aria-hidden="true"><img src="/SA/static/images/image2993.png" ></span><br/>
+                        aaaaa
+                    </g:link>
+                </li>  
+                <li>
+                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
+                        <span class="glyphicon" aria-hidden="true"><img src="/SA/static/images/glyphicons-255-fishes.png" ></span><br/>
+                        bbb
+                    </g:link>
+                </li>     
+                --%>
                 <%--L'azienda--%>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">                  

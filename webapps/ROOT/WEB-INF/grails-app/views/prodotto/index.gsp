@@ -16,7 +16,7 @@
 			</g:if>
 					
         <div class="container">
-					
+			<g:render template="carousel"></g:render>
             <div class="row">
 					
                 <div class="col-md-2">
@@ -28,7 +28,7 @@
                     <g:if test="${flash.message}">
                         <div class="alert alert-success" role="status">${flash.message}</div>
                     </g:if>
-                    <g:render template="carousel"></g:render>
+                    
                     <g:render template="topProducts" model="[prodottoInstanceList: topProducts]"></g:render>
                 </div>
 			</div>

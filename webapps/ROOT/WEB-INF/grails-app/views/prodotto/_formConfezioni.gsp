@@ -25,6 +25,7 @@
                         name="confezioni.nome"
                         ng-model="confezione.nome"
                         style="border-radius: 3px;">{{confezione.nome}}</textarea>
+                    <locale:translator name="traduzione_confezione_{{confezione.id}}" id="{{confezione.id}}"/>
                 </div>
             </td>
             <td>
