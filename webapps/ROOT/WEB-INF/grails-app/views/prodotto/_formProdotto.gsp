@@ -7,7 +7,7 @@
   </div>
   <div class="col-sm-5">
     <g:textField class="form-control input-sm" name="nome" required="" value="{{prodotto.nome}}"/>
-    <locale:translator name="traduzione_nome" id="{{prodotto.id}}"/>
+    <locale:translator name="nome" id="{{prodotto.id}}"  />
   </div>
 </div>
 

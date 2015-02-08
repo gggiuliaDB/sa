@@ -1,7 +1,8 @@
-<a data-toggle="collapse" href="#collapseExample${name}" aria-expanded="false" aria-controls="collapseExample${name}">
-  Gestione traduzioni
+<%--<a data-toggle="collapse" href="#collapseExample${name}" aria-expanded="false" aria-controls="collapseExample${name}">--%>
+<a href="#" class="traduciBtn" id="traduci_${name}">
+    Traduzioni
 </a>
-<div class="collapse" id="collapseExample${name}">
+<div class="collapse" id="traduci_${name}">
   <div >
         <table class="table table-bordered">
           <tr>

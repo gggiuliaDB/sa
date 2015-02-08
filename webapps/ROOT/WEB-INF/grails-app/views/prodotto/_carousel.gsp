@@ -24,9 +24,9 @@ $('.carousel').carousel({
 		                    <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
 		                    <div class="item ${i==0 ? 'active' : ''}">
 	                            <div class="col-md-6">      
-	                                <h1 style="font-family: sans-serif;font-size: x-large;">
+	                                <h3 style="font-family: sans-serif;font-size: x-large;">
 	                                   <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
-                                    </h1>
+                                    </h3>
                                     <p>${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</p>
 	                            </div>
 	                            <div class="col-md-6">      

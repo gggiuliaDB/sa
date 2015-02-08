@@ -115,6 +115,8 @@
           var urlEdit = "${createLink(controller:'prodotto',action:'edit')}";
           var urlAddI18 = "${createLink(controller:'prodotto',action:'addI18')}";
           var urlAddConfezione = "${createLink(controller:'prodotto',action:'addConfezione')}";
+          var urlTranslate = "${createLink(controller:'prodotto',action:'editI18')}";
+          
       </script>     
 	  
 	</body>
