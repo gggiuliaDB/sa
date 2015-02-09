@@ -87,8 +87,8 @@
             </tr>
             
             <%--TOTALE PRODOTTI--%>            
-            <tr style="border-top: 1px solid gray;">
-                <td colspan="2"><h4><g:message code="carrello.totaleProdotti.label"/></h4></td>
+            <tr style="border-top: 3px solid gray;">
+                <td colspan="2"><h3><g:message code="carrello.totaleProdotti.label"/></h3></td>
                 <td></td>
                 <td></td>
                 <td style="vertical-align: middle; text-align: right;">
@@ -98,9 +98,20 @@
             </tr>
             
             <%--IVA--%> 
-            <g:if test="${mostraCostoSpedizione}">           
+            <g:if test="${mostraCostoSpedizione}">
+            
+                <tr style="border-top: 1px solid gray;">
+                    <td colspan="2"><h4><g:message code="carrello.totaleImponibile.label" /></h4></td>
+                    <td></td>
+                    <td></td>
+                    <td style="vertical-align: middle; text-align: right;">
+                        {{(totale - iva) | currency:"€"}}
+                    </td>
+                    <td></td>
+                </tr>
+                       
 	            <tr style="border-top: 1px solid gray;">
-	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/></h4></td>
+	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/> (22%)</h4></td>
 	                <td></td>
 	                <td></td>
 	                <td style="vertical-align: middle; text-align: right;">
@@ -123,8 +134,8 @@
               </tr>
               
               <%--TOTALE --%>            
-              <tr style="border-top: 1px solid gray;">
-                  <td colspan="2"><h3><g:message code="carrello.totale.label"/></h3></td>
+              <tr style="border-top: 3px solid gray;">
+                  <td colspan="2"><h3><g:message code="carrello.totaleOrdine.label"/></h3></td>
                   <td></td>
                   <td></td>
                   <td style="vertical-align: middle; text-align: right;">
