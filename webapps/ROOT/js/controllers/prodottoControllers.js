@@ -31,7 +31,7 @@ $( "#annulla" ).click(function() {
     $('#collapseProdotto').collapse('hide');
 });
 
-
+/*
 $( ".addI18" ).click(function() {
     var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
     $.ajax({
@@ -44,7 +44,8 @@ $( ".addI18" ).click(function() {
                 alert(error)
             }
     }); 
-});
+});*/
+
 $( ".addConfezione" ).click(function() {
     var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
     $.ajax({
@@ -58,6 +59,14 @@ $( ".addConfezione" ).click(function() {
             }
     }); 
 });
+
+/*$( ".traduciBtn" ).click(function() {
+    var id = this.id;    
+    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;
+    $('#collapse_'+id).collapse('toggle');
+    
+});*/
+
 
 var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
 
@@ -92,9 +101,9 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         $scope.titolo="Modifica prodotto"; 
         if(nuovo){
             $scope.titolo="Nuovo prodotto"; 
-            for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+            /*for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
                 $scope.prodotto.internazionalizzazioni[i].editing=true;    
-            }           
+            } */          
             for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
                 $scope.prodotto.confezioni[i].editing=true;    
             }
@@ -102,7 +111,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         $scope.$apply();
     };
 
-    $scope.aggiornaI18 = function(internazionalizzazione){      
+    /*$scope.aggiornaI18 = function(internazionalizzazione){      
     	$scope.prodotto.internazionalizzazioni.push(internazionalizzazione);
     	for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
             if($scope.prodotto.internazionalizzazioni[i].id == internazionalizzazione.id)
@@ -110,7 +119,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         }		
         $scope.i18 = internazionalizzazione;
     	$scope.$apply();
-	};
+	};*/
 
 	$scope.aggiornaConfezioni = function(confezione){      
 		$scope.prodotto.confezioni.push(confezione);
@@ -124,15 +133,15 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
 		$scope.$apply();
 	};
 
-    $scope.editI18 = function(i18){
+    /*$scope.editI18 = function(i18){
         $scope.i18 = i18;
         for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
         	$scope.prodotto.internazionalizzazioni[i].editing=false;
         }
         $scope.i18.editing = true;
-    };
+    };*/
   
-    $scope.updateI18 = function(){
+    /*$scope.updateI18 = function(){
         $http({
             method: 'PUT',
             url: $scope.url+'/internazionalizzazioneProdotto/aggiornaI18/'+$scope.i18.id,
@@ -156,7 +165,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         .error(function(response, status, headers, config){
             $scope.error_message = response;  
         });
-    };
+    };*/
 
     $scope.cancelI18 = function(){ 
         $scope.i18.editing = false;  
@@ -253,6 +262,9 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         });
     };
 
+    /*$scope.cercaInternazionalizzazione = function(locale, nome){
+    	
+    };*/
 });
 
 angular.bootstrap(document.getElementById("prodottoApp"),['prodottoApp']);

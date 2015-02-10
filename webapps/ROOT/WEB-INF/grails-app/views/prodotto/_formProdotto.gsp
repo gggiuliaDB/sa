@@ -7,7 +7,7 @@
   </div>
   <div class="col-sm-5">
     <g:textField class="form-control input-sm" name="nome" required="" value="{{prodotto.nome}}"/>
-    <locale:translator name="nome" id="{{prodotto.id}}"  />
+    <%--<locale:translator name="nome" id="{{prodotto.id}}" />--%>
   </div>
 </div>
 
@@ -51,7 +51,7 @@
     <textarea ng-maxlength="1024" rows="2" class="form-control input-sm" 
        name="note"
        style="border-radius: 3px;">{{prodotto.note}}</textarea>                              
-    <locale:translator name="traduzione_note" id="{{prodotto.id}}"/>
+    <%--<locale:translator name="note" id="{{prodotto.id}}"/>--%>
   </div>
 </div>
 
@@ -65,7 +65,7 @@
     <textarea ng-maxlength="1024" rows="2" class="form-control input-sm" 
        name="ingredienti"
        style="border-radius: 3px;">{{prodotto.ingredienti}}</textarea>                              
-    <locale:translator name="traduzione_ingredienti" id="{{prodotto.id}}"/>
+    <%--<locale:translator name="ingredienti" id="{{prodotto.id}}"/>--%>
   </div>
 </div>
 
@@ -79,7 +79,7 @@
     <textarea ng-maxlength="1024" rows="2" class="form-control input-sm" 
        name="comeGustarlo"
        style="border-radius: 3px;">{{prodotto.comeGustarlo}}</textarea>                              
-    <locale:translator name="traduzione_comeGustarlo" id="{{prodotto.id}}"/>
+    <%--<locale:translator name="comeGustarlo" id="{{prodotto.id}}"/>--%>
   </div>
 </div>
 
@@ -93,6 +93,6 @@
     <textarea ng-maxlength="1024" rows="2" class="form-control input-sm"
        name="conservazione"
        style="border-radius: 3px;">{{prodotto.conservazione}}</textarea>                              
-    <locale:translator name="traduzione_conservazione" id="{{prodotto.id}}"/>
+    <%--<locale:translator name="conservazione" id="{{prodotto.id}}"/>--%>
   </div>
 </div>

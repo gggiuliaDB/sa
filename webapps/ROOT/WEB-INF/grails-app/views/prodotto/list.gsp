@@ -42,10 +42,14 @@
 								
 			                </fieldset>
 			                <fieldset class="buttons">
+			                    <g:link class="btn btn-default" controller="internazionalizzazioneProdotto" action="listForProdotto" id="{{prodotto.id}}">
+                                     Gestione traduzioni
+                                </g:link><br/><br/>
 			                    <g:submitButton id="salvaProdotto" name="save" class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />
-			                    <a id="annulla" class="btn btn-warning" href="#">Annulla</a>			                
+			                    <a id="annulla" class="btn btn-warning" href="#">Annulla</a>			                    			                
 			                </fieldset>
 			            </g:uploadForm>
+			            
 				    </div>
 				    <hr>
 				</div>					
@@ -115,7 +119,7 @@
           var urlEdit = "${createLink(controller:'prodotto',action:'edit')}";
           var urlAddI18 = "${createLink(controller:'prodotto',action:'addI18')}";
           var urlAddConfezione = "${createLink(controller:'prodotto',action:'addConfezione')}";
-          var urlTranslate = "${createLink(controller:'prodotto',action:'editI18')}";
+          var urlTranslate = "${createLink(controller:'prodotto',action:'getI18')}";
           
       </script>     
 	  

@@ -5,6 +5,10 @@
       </label>
   </div>
   <div class="col-sm-12">
+    <a id="${prodottoInstance?.id}" class="addConfezione" href="#">         
+        Aggiungi confezione        
+    </a>
+    
     <table class="table table-condensed table-bordered table-responsive">
         <thead>
             <th style="width: 20%">Nome</th>
@@ -25,7 +29,7 @@
                         name="confezioni.nome"
                         ng-model="confezione.nome"
                         style="border-radius: 3px;">{{confezione.nome}}</textarea>
-                    <locale:translator name="traduzione_confezione_{{confezione.id}}" id="{{confezione.id}}"/>
+                    <%--<locale:translator name="confezione_{{confezione.id}}" id="{{confezione.id}}"/>--%>
                 </div>
             </td>
             <td>
@@ -99,9 +103,7 @@
      </table>    
     
     
-    <a id="${prodottoInstance?.id}" class="addConfezione" href="#">         
-        Aggiungi confezione        
-    </a>
+    
     
     
     <%--

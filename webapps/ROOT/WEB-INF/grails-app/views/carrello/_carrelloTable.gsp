@@ -86,21 +86,11 @@
                 </td>
             </tr>
             
-            <%--TOTALE PRODOTTI--%>            
-            <tr style="border-top: 3px solid gray;">
-                <td colspan="2"><h3><g:message code="carrello.totaleProdotti.label"/></h3></td>
-                <td></td>
-                <td></td>
-                <td style="vertical-align: middle; text-align: right;">
-                    {{totale | currency:"€"}}
-                </td>
-                <td></td>
-            </tr>
-            
             <%--IVA--%> 
             <g:if test="${mostraCostoSpedizione}">
             
-                <tr style="border-top: 1px solid gray;">
+              <%--Imponibile--%> 
+              <tr style="border-top: 1px solid gray;">
                     <td colspan="2"><h4><g:message code="carrello.totaleImponibile.label" /></h4></td>
                     <td></td>
                     <td></td>
@@ -108,9 +98,10 @@
                         {{(totale - iva) | currency:"€"}}
                     </td>
                     <td></td>
-                </tr>
+              </tr>
                        
-	            <tr style="border-top: 1px solid gray;">
+	          <%--IVA--%> 
+              <tr style="border-top: 1px solid gray;">
 	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/> (22%)</h4></td>
 	                <td></td>
 	                <td></td>
@@ -121,9 +112,21 @@
 	            </tr>
             </g:if>
             
+            <%--TOTALE PRODOTTI--%>            
+            <tr style="border-top: 3px solid gray;">
+                <td colspan="2"><h4><g:message code="carrello.totaleProdotti.label"/></h4></td>
+                <td></td>
+                <td></td>
+                <td style="vertical-align: middle; text-align: right;">
+                    {{totale | currency:"€"}}
+                </td>
+                <td></td>
+            </tr>
+            
+            
             <%--COSTO SPEDIZIONE --%>             
             <g:if test="${mostraCostoSpedizione}">
-              <tr style="border-top: 1px solid gray;">
+              <tr style="border-top: 3px solid gray;">
                   <td colspan="2"><h4><g:message code="carrello.costoSpedizione.label" default="Costo spedizione"/></h4></td>
                   <td></td>
                   <td></td>
