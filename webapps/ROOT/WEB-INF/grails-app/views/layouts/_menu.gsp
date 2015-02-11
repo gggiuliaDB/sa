@@ -138,7 +138,7 @@
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                <span class="glyphicon glyphicon-cog"></span><br/>
-                               Impostazioni
+                               <g:message code="impostazioni.label"/>
                           </a>
                           <ul class="dropdown-menu">
                           <li><a href="<g:createLink controller="prodotto" action="listino" />" >Gestione listino</a></li>
