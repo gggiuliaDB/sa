@@ -114,17 +114,17 @@
                         <g:if test='${hasCookie}'>checked='checked'</g:if> /> 
                     <label for='remember_me'><g:message code="springSecurity.login.remember.me.label" /></label>
                 </p>
-                <p>
-                    <a href="<g:createLink controller="register" action="forgotPassword" />">
-                       <g:message code="menu.forgotPassword.label" default="Password dimenticata?" />
-                    </a>
-                </p>
-                <div style="text-align: -webkit-center;">
+                <div style="text-align: center;">
+                    <a href="<g:createLink controller="register" action="forgotPassword" />"><g:message code="menu.forgotPassword.label" default="Password dimenticata?" /></a>                    
+                    <br/>
+                    <br/>    
                     <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}' class="btn btn-success"/>
                     <g:link controller="register" class="btn btn-info">
                         <g:message code='menu.register.label'></g:message>
                     </g:link>
                 </div>
+                
+                
             </form>
 		</div>
 	</div>

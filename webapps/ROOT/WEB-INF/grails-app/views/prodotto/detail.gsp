@@ -50,14 +50,14 @@
                            <g:each in="${ confezioni }" var="confezione" >
                                
                                <li class="list-group-item list-group-item-info">
-                                   <sec:access expression="hasRole('ROLE_USER')">
+                                   <sec:access expression="hasRole('ROLE_USER')"> 
                                      <span>
                                          <a href="#" id="${confezione.id}" class="btn btn-success pull-right addToChart ">
                                              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                              <g:message code="prodotto.addToChart.label" default="Aggiungi al carrello" />                                           
                                          </a>
                                      </span>
-                                   </sec:access>
+                                   </sec:access> 
                                    <p style="min-height:30px;">
                                        ${confezione.descrizione}
                                    </p>
@@ -87,14 +87,17 @@
             </div>
         </div>
 
-        <script> 
-          var url = "${createLink(controller:'carrello',action:'add')}";
-          var carrelloId=${carrelloInstance?.id};
-          var lang="${lang}"      
-        </script>     
-        
-        <!-- Modal -->
-        <g:render template="/carrello/modalCarrello"></g:render>                
+        <sec:access expression="hasRole('ROLE_USER')">
+	        <script> 
+	          var url = "${createLink(controller:'carrello',action:'add')}";
+	          var carrelloId=${carrelloInstance?.id};
+	          var lang="${lang}"      
+	        </script>     
+	        
+	        <!-- Modal -->
+            <g:render template="/carrello/modalCarrello"></g:render>            
+        </sec:access>
+            
         
       </div>
     </body>

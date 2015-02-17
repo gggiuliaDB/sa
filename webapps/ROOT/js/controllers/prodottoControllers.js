@@ -31,20 +31,6 @@ $( "#annulla" ).click(function() {
     $('#collapseProdotto').collapse('hide');
 });
 
-/*
-$( ".addI18" ).click(function() {
-    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
-    $.ajax({
-            url: urlAddI18,
-            data:{idProdotto: idProdotto},
-            success: function(data) {
-                angular.element(document.getElementById('prodottoController')).scope().aggiornaI18(data);
-            },
-            error: function(request, status, error) {
-                alert(error)
-            }
-    }); 
-});*/
 
 $( ".addConfezione" ).click(function() {
     var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
@@ -59,13 +45,6 @@ $( ".addConfezione" ).click(function() {
             }
     }); 
 });
-
-/*$( ".traduciBtn" ).click(function() {
-    var id = this.id;    
-    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;
-    $('#collapse_'+id).collapse('toggle');
-    
-});*/
 
 
 var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
@@ -101,25 +80,12 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         $scope.titolo="Modifica prodotto"; 
         if(nuovo){
             $scope.titolo="Nuovo prodotto"; 
-            /*for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
-                $scope.prodotto.internazionalizzazioni[i].editing=true;    
-            } */          
             for (var i=0; i<$scope.prodotto.confezioni.length; i++) {
                 $scope.prodotto.confezioni[i].editing=true;    
             }
         }
         $scope.$apply();
     };
-
-    /*$scope.aggiornaI18 = function(internazionalizzazione){      
-    	$scope.prodotto.internazionalizzazioni.push(internazionalizzazione);
-    	for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
-            if($scope.prodotto.internazionalizzazioni[i].id == internazionalizzazione.id)
-            	$scope.prodotto.internazionalizzazioni[i].editing=true;    
-        }		
-        $scope.i18 = internazionalizzazione;
-    	$scope.$apply();
-	};*/
 
 	$scope.aggiornaConfezioni = function(confezione){      
 		$scope.prodotto.confezioni.push(confezione);
@@ -132,44 +98,6 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
         $scope.confezione = confezione;
 		$scope.$apply();
 	};
-
-    /*$scope.editI18 = function(i18){
-        $scope.i18 = i18;
-        for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
-        	$scope.prodotto.internazionalizzazioni[i].editing=false;
-        }
-        $scope.i18.editing = true;
-    };*/
-  
-    /*$scope.updateI18 = function(){
-        $http({
-            method: 'PUT',
-            url: $scope.url+'/internazionalizzazioneProdotto/aggiornaI18/'+$scope.i18.id,
-            params: {
-            	id: $scope.i18.id, 
-            	nome: $scope.i18.nome, 
-            	note: $scope.i18.note, 
-                ingredienti: $scope.i18.ingredienti, 
-                comeGustarlo: $scope.i18.comeGustarlo, 
-                conservazione: $scope.i18.conservazione},
-            headers: {'Content-Type': 'application/json'}
-        })
-        .success(function(response, status, headers, config){
-        	$scope.error_message="";
-            $scope.i18 = response;
-            $scope.i18.editing = false;
-            for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
-            	$scope.prodotto.internazionalizzazioni[i].editing=false;
-            }
-        })
-        .error(function(response, status, headers, config){
-            $scope.error_message = response;  
-        });
-    };*/
-
-    $scope.cancelI18 = function(){ 
-        $scope.i18.editing = false;  
-    };  
 
     $scope.editConfezione = function(confezione){
         $scope.confezione = confezione;
@@ -230,16 +158,7 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
                 return $scope.tipiUnitaMisura[i];
         }
         return null;
-    };
-
-    /*$scope.add = function(){
-      	var f = document.getElementById('file').files[0];
-      	r = new FileReader();
-		r.onloadend = function(e){
-        	$scope.data = e.target.result;
-      	}
-      	r.readAsBinaryString(f);
-    }*/
+    };  
 
     $scope.eliminaConfezione = function(confezione){
         $http({
@@ -261,11 +180,86 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
             $scope.error_message = response;  
         });
     };
-
-    /*$scope.cercaInternazionalizzazione = function(locale, nome){
-    	
-    };*/
+    
 });
 
 angular.bootstrap(document.getElementById("prodottoApp"),['prodottoApp']);
 
+/*
+$( ".addI18" ).click(function() {
+    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;    
+    $.ajax({
+            url: urlAddI18,
+            data:{idProdotto: idProdotto},
+            success: function(data) {
+                angular.element(document.getElementById('prodottoController')).scope().aggiornaI18(data);
+            },
+            error: function(request, status, error) {
+                alert(error)
+            }
+    }); 
+});
+
+$( ".traduciBtn" ).click(function() {
+    var id = this.id;    
+    var idProdotto = angular.element(document.getElementById('prodottoController')).scope().prodotto.id;
+    $('#collapse_'+id).collapse('toggle');
+    
+});
+
+$scope.editI18 = function(i18){
+        $scope.i18 = i18;
+        for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+            $scope.prodotto.internazionalizzazioni[i].editing=false;
+        }
+        $scope.i18.editing = true;
+    };
+
+    $scope.updateI18 = function(){
+        $http({
+            method: 'PUT',
+            url: $scope.url+'/internazionalizzazioneProdotto/aggiornaI18/'+$scope.i18.id,
+            params: {
+                id: $scope.i18.id, 
+                nome: $scope.i18.nome, 
+                note: $scope.i18.note, 
+                ingredienti: $scope.i18.ingredienti, 
+                comeGustarlo: $scope.i18.comeGustarlo, 
+                conservazione: $scope.i18.conservazione},
+            headers: {'Content-Type': 'application/json'}
+        })
+        .success(function(response, status, headers, config){
+            $scope.error_message="";
+            $scope.i18 = response;
+            $scope.i18.editing = false;
+            for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+                $scope.prodotto.internazionalizzazioni[i].editing=false;
+            }
+        })
+        .error(function(response, status, headers, config){
+            $scope.error_message = response;  
+        });
+    };
+
+    $scope.add = function(){
+        var f = document.getElementById('file').files[0];
+        r = new FileReader();
+        r.onloadend = function(e){
+            $scope.data = e.target.result;
+        }
+        r.readAsBinaryString(f);
+    }
+
+    $scope.aggiornaI18 = function(internazionalizzazione){      
+        $scope.prodotto.internazionalizzazioni.push(internazionalizzazione);
+        for (var i=0; i<$scope.prodotto.internazionalizzazioni.length; i++) {
+            if($scope.prodotto.internazionalizzazioni[i].id == internazionalizzazione.id)
+                $scope.prodotto.internazionalizzazioni[i].editing=true;    
+        }       
+        $scope.i18 = internazionalizzazione;
+        $scope.$apply();
+    };
+
+    $scope.cancelI18 = function(){ 
+        $scope.i18.editing = false;  
+    };*/  

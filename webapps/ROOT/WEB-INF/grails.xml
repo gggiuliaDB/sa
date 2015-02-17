@@ -100,6 +100,7 @@
     <resource>it.ggg.sa.carrello.CarrelloTagLib</resource>
     <resource>it.ggg.sa.commento.CommentoTagLib</resource>
     <resource>it.ggg.sa.localization.LocaleTagLib</resource>
+    <resource>it.ggg.sa.security.SaSecurityTagLib</resource>
     <resource>it.ggg.sa.task.TaskTagLib</resource>
   </resources>
   <plugins>

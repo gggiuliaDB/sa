@@ -1,5 +1,3 @@
-<%@ page import="it.ggg.sa.prodotto.Linea"%>
-
 <!-- Navigation navbar-fixed-top-->
 <nav class="navbar navbar-inverse " role="navigation" style="text-align: center;">
 
@@ -12,107 +10,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <sec:ifLoggedIn>
+                        
+            <g:seProductionMode>                
                 <g:link class="navbar-brand" controller="prodotto" >
                     <g:img file="saLogo.jpg" class="img-rounded" style="height: 43px;"/>
                 </g:link>
-            </sec:ifLoggedIn>
+            </g:seProductionMode>
+            
+            <g:seTestMode>
+                <sec:ifLoggedIn>
+                    <g:link class="navbar-brand" controller="prodotto" >
+                    <g:img file="saLogo.jpg" class="img-rounded" style="height: 43px;"/>
+                </g:link>
+                </sec:ifLoggedIn>
+            </g:seTestMode>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <sec:ifLoggedIn>
-            <ul class="nav navbar-nav">
-                
-
-                <%--
-                <li>
-                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
-                        <span class="glyphicon" aria-hidden="true"><img src="/SA/static/images/image2993.png" ></span><br/>
-                        aaaaa
-                    </g:link>
-                </li>  
-                <li>
-                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
-                        <span class="glyphicon" aria-hidden="true"><img src="/SA/static/images/glyphicons-255-fishes.png" ></span><br/>
-                        bbb
-                    </g:link>
-                </li>     
-                --%>
-                <%--L'azienda--%>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">                  
-                      <span class="glyphicon glyphicon-home" aria-hidden="true"></span><br/>
-                      <g:message code="menu.azienda.label" default="L'azienda"/> 
-                  </a> 
-                  <ul class="dropdown-menu" >
-                     <li>
-                        <%--Chi siamo--%>
-                        <g:link controller="profilo" action="chiSiamo">
-                            <g:message code="menu.chisiamo.label"/>
-                        </g:link>
-                     </li>
-                     <li>
-                        <%--Contatti--%>
-                        <g:link controller="profilo" action="contatti">
-                            <g:message code="menu.contatti.label"/>
-                        </g:link>
-                     </li>                 
-                  </ul>
-                </li>
-                
-                <%--Prodotti--%>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true" ></span><br/>
-                    <g:message code="menu.prodotti.label" default="Prodotti"/> 
-                  </a>
-                  <ul class="dropdown-menu" >
-                    <g:each in="${Linea.list()}" var="l">
-                        <li>
-                            <g:link controller="prodotto" action="search" params="[linea: l.id, visualizzazione: visualizzazione]">
-                                ${l.getNome(lang.toString())}
-                            </g:link>
-                        </li>
-                    </g:each>
-                    <li><g:link controller="prodotto" action="search" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaTutti.label"/></g:link></li>                  
-                    <%--<li><g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]"><g:message code="visualizzaOfferte.label"/></g:link></li>--%><%--<span class="glyphicon glyphicon-tags"></span>--%>
-                  </ul>
-                </li>  
-                
-                <%--Offerte--%>              
-                <li>
-                    <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
-                        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br/>
-                        <g:message code="visualizzaOfferte.label"/>
-                    </g:link>
-                </li>        
-                
-                <%--Task--%>
-                <li>
-                    <g:link controller="ordine" action="tasks" >
-                        <g:numeroTaskUtente />
-                    </g:link>
-                </li>
-                
-                <li>
-                    <%--Cerca--%>
-		            <g:form class="navbar-form navbar-right" role="search" controller="prodotto" action="search" >
-		                <div class="form-group">
-		                  <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
-		                  <g:hiddenField name="lang" value="${lang}"/>
-		                  <div class="input-group input-group-md">
-		                      <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}" style="width: 150px;">                   
-		                      
-		                      <span class="input-group-btn">
-		                        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-		                      </span>                     
-		                  </div>                   
-		                </div>
-		            </g:form>
-                </li>        
-            </ul>
-          </sec:ifLoggedIn>
+          <g:seProductionMode>
+                <g:render template="/layouts/publicMenu"></g:render>                
+          </g:seProductionMode>
+          <g:seTestMode>
+                <sec:ifLoggedIn>
+                    <g:render template="/layouts/publicMenu"></g:render>                
+                </sec:ifLoggedIn>
+          </g:seTestMode>
           
           <ul class="nav navbar-nav navbar-right">
                 

@@ -38,7 +38,6 @@
 			                    <g:render template="formProdotto"/>                     
 								<g:render template="formImmagine"/>
                                 <g:render template="formConfezioni"/>                           
-								<%--<g:render template="formI18"/>--%>
 								
 			                </fieldset>
 			                <fieldset class="buttons">
@@ -119,8 +118,7 @@
           var urlEdit = "${createLink(controller:'prodotto',action:'edit')}";
           var urlAddI18 = "${createLink(controller:'prodotto',action:'addI18')}";
           var urlAddConfezione = "${createLink(controller:'prodotto',action:'addConfezione')}";
-          var urlTranslate = "${createLink(controller:'prodotto',action:'getI18')}";
-          
+          <%--var urlTranslate = "${createLink(controller:'prodotto',action:'getI18')}";--%>          
       </script>     
 	  
 	</body>
