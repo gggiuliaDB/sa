@@ -25,7 +25,7 @@
     </li>
     
     <%--Prodotti--%>
-    <li class="dropdown">
+    <li class="dropdown ">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <span class="glyphicon glyphicon-cutlery" aria-hidden="true" ></span><br/>
         <g:message code="menu.prodotti.label" default="Prodotti"/> 
@@ -43,22 +43,14 @@
     </li>  
     
     <%--Offerte--%>              
-    <li>
+    <li >
         <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
             <span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br/>
             <g:message code="visualizzaOfferte.label"/>
         </g:link>
-    </li>        
+    </li>    
     
-    <%--Task--%>
-    <sec:ifLoggedIn>
-        <li>
-            <g:link controller="ordine" action="tasks" >
-                <g:numeroTaskUtente />
-            </g:link>
-        </li>
-    </sec:ifLoggedIn>
-    <li>
+    <li class="hidden-sm">
         <%--Cerca--%>
         <g:form class="navbar-form navbar-right" role="search" controller="prodotto" action="search" >
             <div class="form-group">
@@ -73,5 +65,14 @@
               </div>                   
             </div>
         </g:form>
-    </li>        
+    </li>
+        
+    <%--Task--%>
+    <sec:ifLoggedIn>
+        <li>
+            <g:link controller="ordine" action="tasks" >
+                <g:numeroTaskUtente />
+            </g:link>
+        </li>
+    </sec:ifLoggedIn>        
 </ul>
