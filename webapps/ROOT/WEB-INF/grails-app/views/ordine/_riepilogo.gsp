@@ -1,9 +1,7 @@
-Riepilogo ordine:<br/>
-
 <g:set var="totale" value="${ordine.calcolaTotale()}"></g:set>
 <g:set var="costoSpedizione" value="${ordine.costoSpedizione(totale)}"></g:set>
 
-<table class="table table-responsive table-condensed " name="tabella">
+<table class="table table-responsive table-condensed " name="tabella" style="background-color: inherit;">
   <thead>        
     <tr  >
        <th style="text-align: left;"><g:message code="carrello.prodotto.label" /></th>
@@ -23,7 +21,7 @@ Riepilogo ordine:<br/>
 	        </td>
 	        
 	        <td style="vertical-align: middle; text-align: right;">
-	            &euro; <g:formatNumber number="${confezioneOrdine.confezione.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/>	            
+	            &euro;<g:formatNumber number="${confezioneOrdine.prezzo}" type="currency" currencyCode="EUR" currencySymbol=""/>	            
 	        </td>                
 	        
 	        <td style="vertical-align: middle; width: 120px; min-width: 100px; text-align: right;" >
@@ -31,7 +29,7 @@ Riepilogo ordine:<br/>
 	        </td>
 	        
 	        <td style="vertical-align: middle; text-align: right;"> 
-                &euro; <g:formatNumber number="${confezioneOrdine.confezione.prezzo * confezioneOrdine.quantita}" type="currency" currencyCode="EUR" currencySymbol=""/>	            
+                &euro;<g:formatNumber number="${confezioneOrdine.prezzo * confezioneOrdine.quantita}" type="currency" currencyCode="EUR" currencySymbol=""/>	            
 	        </td>   
         </tr>
     </g:each>
@@ -42,7 +40,7 @@ Riepilogo ordine:<br/>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">
-            &euro; <g:formatNumber number="${totale}" type="currency" currencyCode="EUR" currencySymbol=""/>               
+            &euro;<g:formatNumber number="${totale}" type="currency" currencyCode="EUR" currencySymbol=""/>               
         </td>
     </tr>
     
@@ -52,7 +50,7 @@ Riepilogo ordine:<br/>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">
-            &euro; <g:formatNumber number="${costoSpedizione}" type="currency" currencyCode="EUR" currencySymbol=""/>               
+            &euro;<g:formatNumber number="${costoSpedizione}" type="currency" currencyCode="EUR" currencySymbol=""/>               
         </td>
         <td></td>
     </tr>
@@ -63,7 +61,7 @@ Riepilogo ordine:<br/>
         <td></td>
         <td></td>
         <td style="vertical-align: middle; text-align: right;">
-            &euro; <g:formatNumber number="${totale + costoSpedizione}" type="currency" currencyCode="EUR" currencySymbol=""/>               
+            &euro;<g:formatNumber number="${totale + costoSpedizione}" type="currency" currencyCode="EUR" currencySymbol=""/>               
         </td>
         <td></td>
     </tr>
