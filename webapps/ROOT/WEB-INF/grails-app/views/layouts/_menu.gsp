@@ -11,12 +11,12 @@
                 <span class="icon-bar"></span>
             </button>
                         
+            <%--LOGO SA --%>
             <g:seProductionMode>                
                 <g:link class="navbar-brand" controller="prodotto" >
                     <g:img file="saLogo.jpg" class="img-rounded" style="height: 43px;"/>
                 </g:link>
             </g:seProductionMode>
-            
             <g:seTestMode>
                 <sec:ifLoggedIn>
                     <g:link class="navbar-brand" controller="prodotto" >
@@ -29,6 +29,9 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+          
+          <%--MENU PARTE PUBBLICA--%>
           <g:seProductionMode>
                 <g:render template="/layouts/publicMenu"></g:render>                
           </g:seProductionMode>
@@ -69,8 +72,28 @@
 	                        <li><a href="<g:createLink controller="prodotto" action="list" />" >Gestione prodotti</a></li>
 	                        <li><a href="<g:createLink controller="user"  />">Gestione utenti</a></li>
 	                      </ul>
-	                    </li>                              
+	                    </li>
+	                    
+	                    <%--Storico ordini--%>
+                        <li>
+                            <g:link controller='ordine' action='listForAdmin'>
+                                <span class="glyphicon glyphicon-list-alt"></span><br/>
+                                <g:message code="ordini.listForAdmin.label" />
+                            </g:link>
+                        </li>	                                                  
                     </sec:access>
+                
+                    <%--Voci per utente normale--%>
+                    <sec:access expression="hasRole('ROLE_USER')">
+                        <%--Storico ordini--%>
+                        <li>
+                            <g:link controller='ordine' action='listForUser'>
+                                <span class="glyphicon glyphicon-list-alt"></span><br/>
+                                <g:message code="ordini.listForUser.label" />
+                            </g:link>
+                        </li>    
+                    </sec:access>
+                    
                 
                     <%--Carrello--%>
                     <li>

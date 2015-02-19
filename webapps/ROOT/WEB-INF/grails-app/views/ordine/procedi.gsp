@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'ordine.label', default: 'Ordine')}" />
 		<title><g:message code="ordine.richiestaDisponibilita.title" /></title>
 	</head>
 	<body>
@@ -16,8 +15,7 @@
             <g:elseif test="${flash.message }">
                 <div class="alert alert-info" role="alert">
                     ${flash.message}
-                </div>                       
-            
+                </div>   
             </g:elseif>
             <g:else>
                 <div class="alert alert-success" role="alert"><g:message code="ordine.avvioProcesso.message"/></div>

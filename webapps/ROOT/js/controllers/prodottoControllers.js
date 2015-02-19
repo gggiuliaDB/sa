@@ -47,11 +47,27 @@ $( ".addConfezione" ).click(function() {
 });
 
 
+/*$( ".i18Btn" ).click(function() {
+    var prodottoId = this.id;    
+	$.ajax({
+			url: urlI18,
+            data:{'prodottoId': prodottoId, 'carrelloId': carrelloId, 'lang': lang},
+			success: function(data) {
+		        angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
+			    $('#myModal').modal();
+		    },
+		    error: function(request, status, error) {
+		        alert(error)
+		    }
+	});	
+});*/
+
+
 var prodottoApp = angular.module('prodottoApp', ['utilityApp']);
 
 prodottoApp.controller('prodottoController', function($scope, $rootScope, $http, $location) {
 	
-    $scope.init = function(url){
+    $scope.init = function(url, idProdotto){
         $scope.url = url;
 
         $scope.linee = [
@@ -66,6 +82,20 @@ prodottoApp.controller('prodottoController', function($scope, $rootScope, $http,
             { label: 'Prezzo al chilo', value: 'KG', label1:'/ kg'},
             { label: 'Prezzo a confezione', value: 'UNITA', label1:'cad.'}
         ];
+        
+        if(idProdotto){
+            $.ajax({
+                    url: urlEdit,
+                    data:{id: idProdotto},
+                    success: function(data) {
+                    	$scope.aggiornaProdotto(data, false);
+                        $('#collapseProdotto').collapse('show');
+                    },
+                    error: function(request, status, error) {
+                        alert(error);
+                    }
+            }); 
+        }
     };
     
     $scope.aggiornaProdotto = function(prodotto, nuovo){      

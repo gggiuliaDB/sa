@@ -14,22 +14,11 @@ class OrdineCompletatoFilters {
                 if(payment && payment.status == org.grails.paypal.Payment.COMPLETE) {
                     println("Stato del pagamento COMPLETE")
                     Ordine ordine = Ordine.findByPayment(payment)
+                    ordine.totalePagato = ordine.calcolaTotale()
                     ordine.statoPagamento = StatoPagamento.PAGATO
-                 
+                    ordine.save(flush:true)
                     //Chiudo il task
                     try{
-                        /*
-                        def tasks = taskService.
-                            createTaskQuery().
-                            taskAssignee(ordine.utente.username).
-                            list()
-                        tasks.each {
-                            println("TASK ${it.id}")  
-                            it.properties.each {k, v->
-                                println("  ${k}: ${v}")
-                            }
-                        }*/
-                        
                         taskService.complete(ordine.taskId.toString(), [azione: "conferma"]) 
                         println("TTTTTTTTTTTTTTTtask completato con id ${ordine.taskId}")
                     }

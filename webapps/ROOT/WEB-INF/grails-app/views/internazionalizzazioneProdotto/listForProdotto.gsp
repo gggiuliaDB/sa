@@ -77,7 +77,7 @@
 	                </tbody>
 	            </table>
 	            <g:submitButton  name="save" class="btn btn-success" value="${message(code: 'default.button.save.label', default: 'Salva')}" />
-	            <g:link controller="prodotto" action="list" class="btn btn-warning" href="#">Annulla</g:link>                                                            
+	            <g:link controller="prodotto" action="list" params="[idProdotto: prodotto.id]" class="btn btn-warning" href="#">Annulla</g:link>                                                            
             </g:form>
         </div>
       </div>
