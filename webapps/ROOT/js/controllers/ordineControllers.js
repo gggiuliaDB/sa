@@ -38,7 +38,7 @@ ordineApp.controller('ordineController', function($scope, $rootScope, $http, $lo
         }
         //$('#carrelloSize').html(totaleQuantita);
         $scope.totale = totalePrezzo;   
-        $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
+        $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale); 
     }       
     
     var save = function(){

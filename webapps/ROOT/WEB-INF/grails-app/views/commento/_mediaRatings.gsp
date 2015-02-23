@@ -1,5 +1,5 @@
 <p>
-  <div class="ratings">
+  <div class="ratings pull-bottom">
     <p class="pull-right">
         <g:if test="${numeroCommenti==1}">
             ${numeroCommenti} <g:message code="commento.commento.label" />
@@ -8,7 +8,7 @@
             ${numeroCommenti} <g:message code="commento.commenti.label" />
         </g:else>
     </p>
-    <p>
+    <p >
         <g:render template="/commento/stars" model="[value: mediaRatings]"></g:render>
     </p>
   </div>

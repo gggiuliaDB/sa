@@ -1,11 +1,19 @@
+<%@page import="java.lang.Double"%>
+<%@page import="it.ggg.sa.parametro.Parametro"%>
 <%@page import="it.ggg.sa.carrello.Carrello"%>
 <%@page import="grails.converters.JSON"%>
 
 <r:require module="carrello"/>
+
+<g:set var="iva" value="${Parametro.findByNome("IVA").valore}" />
+
 <div id="carrelloApp" >
     <div id="carrelloController" 
         ng-controller="carrelloController" 
-        ng-init="init('<g:createLink  uri=""/>', ${carrelloInstance?.id}, ${Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)})">
+        ng-init="init('<g:createLink  uri=""/>', 
+            ${carrelloInstance?.id}, 
+            ${Carrello.confezioniCarrelloToJSON(carrelloInstance?.confezioniCarrello, lang)},
+            ${iva})">
         
         <table class="table table-responsive table-condensed " name="tabella">
           <thead>        
@@ -87,7 +95,7 @@
             </tr>
             
             <%--IVA--%> 
-            <g:if test="${mostraCostoSpedizione}">
+            <g:if test="${mostraCostoSpedizione}"> 
             
               <%--Imponibile--%> 
               <tr style="border-top: 1px solid gray;">
@@ -102,7 +110,7 @@
                        
 	          <%--IVA--%> 
               <tr style="border-top: 1px solid gray;">
-	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/> (22%)</h4></td>
+	                <td colspan="2"><h4><g:message code="carrello.iva.label" default="IVA"/> (${iva}%)</h4></td>
 	                <td></td>
 	                <td></td>
 	                <td style="vertical-align: middle; text-align: right;">

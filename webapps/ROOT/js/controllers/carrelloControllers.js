@@ -2,7 +2,7 @@ $( ".addToChart" ).click(function() {
     var id = this.id;    
 	$.ajax({
 			url: url,
-            data:{'id': id, 'carrelloId': carrelloId, 'lang': lang},
+            data:{'id': id, 'carrelloId': carrelloId, 'lang': lang}, 
 			success: function(data) {
 		        angular.element(document.getElementById('carrelloController')).scope().aggiornaConfezioni(data);
 			    $('#myModal').modal();
@@ -21,7 +21,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	
 	$scope.predicate = 'descrizione';
 	
-    $scope.init = function(url, id, confezioniCarrello){
+    $scope.init = function(url, id, confezioniCarrello, parametroIVA){
     	
     	$scope.url=url;
     	$scope.id=id;
@@ -32,7 +32,9 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
         	$scope.totale += value.quantita * value.prezzo;
     	});        
         $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
-        $scope.iva=calcolaIva($scope.totale);        
+        
+        $scope.parametroIVA = parametroIVA;
+        $scope.iva=calcolaIva($scope.totale, $scope.parametroIVA);        
     };
     
     $scope.aggiornaConfezioni = function(confezioniCarrello){
@@ -55,7 +57,7 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
 	    $('#carrelloSize').html(totaleQuantita);
 	    $scope.totale = totalePrezzo;   
         $scope.costoSpedizione=calcolaCostoSpedizione($scope.totale);
-        $scope.iva=calcolaIva($scope.totale);   
+        $scope.iva=calcolaIva($scope.totale, $scope.parametroIVA);   
     }
     
     var save = function(){
@@ -118,10 +120,10 @@ carrelloApp.controller('carrelloController', function($scope, $rootScope, $http,
         return !isNaN(parseFloat(n)) && isFinite(n);
     } */ 
     
-    var calcolaIva = function(totale){
-        
+    var calcolaIva = function(totale, parametroIVA){
     	
-        return (totale - (totale / 1.22) );
+    	return (totale - (totale / (1 + (parametroIVA / 100))) );
+        //return (totale - (totale / 1.22) );
     }
 });
 	

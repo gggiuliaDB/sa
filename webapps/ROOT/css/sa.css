@@ -109,7 +109,8 @@ div.item{
     max-width: 300px; 
 }
 .thumbnail2 {
-	height:  480px;
+	/* height:  450px;
+	overflow: hidden; */
 }
 .thumbnail2 > img{
 	width: 100%;
@@ -220,31 +221,12 @@ code {
 	margin-top: 20px;
 }
 
+.pull-bottom{
+	/* position: relative;
+	bottom: -50px; */
+}
 
-
-
-
-
-
-
-/* .carousel { */
-/*     height: 400px; */
-/*     overflow: hidden; */
-/* } */
-/* .carousel .item { */
-/*     -webkit-transition: opacity 1s; */
-/*     -moz-transition: opacity 1s; */
-/*     -ms-transition: opacity 1s; */
-/*     -o-transition: opacity 1s; */
-/*     transition: opacity 1s; */
-/* } */
-/* .carousel .active.left, .carousel .active.right { */
-/*     left:0; */
-/*     opacity:0; */
-/*     z-index:2; */
-/* } */
-/* .carousel .next, .carousel .prev { */
-/*     left:0; */
-/*     opacity:1; */
-/*     z-index:1; */
-/* } */
+.your-class{
+    background-color: white;	
+    border-radius: 10px 10px 10px 10px;
+}

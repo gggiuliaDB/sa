@@ -7,22 +7,47 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'prodotto.label', default: 'Prodotto')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
-        
+            
 	</head>
 	<body>
+        <r:require module="slick"/>
+        
         <g:set var="lang" value="${session.'org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE'}"/>
         <g:if test="${!lang}">
             <g:set var="lang" value="it"/>
-			</g:if>
+	    </g:if>
 					
         <div class="container">
-			<g:render template="carousel"></g:render>
-            <div class="row">
-					
+			<%--<g:render template="carousel"></g:render> --%>
+			
+			<div class="your-class">
+			  <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
+                   <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
+                   <div class="item ${i==0 ? 'active' : ''}">
+                       <div class="col-md-6">      
+                           <h3 style="font-family: sans-serif;font-size: x-large;">
+                              <g:link action="detail" id="${prodottoInstance.id}">${internazionalizzazione.nome?.toLowerCase()?.capitalize()}</g:link>
+                           </h3>
+                           <p>${internazionalizzazione?.note?.toLowerCase()?.capitalize()}</p>
+                       </div>
+                       <div class="col-md-6">      
+                          <img class="img-responsive" src="${createLink(controller:'prodotto', action:'viewImage', id:prodottoInstance.id)}" />
+                       </div>
+                   </div>
+              </g:each>    
+			</div>
+		
+		    <%--<br>  
+            <hr>		     	
+			<h3 style="text-align: center;">
+                I più venduti
+            </h3>
+            --%>
+            
+            <div class="row">					
                 <div class="col-md-2">
                     <g:render template="tipi" ></g:render>
-                    <hr>
-                    <locale:selector />
+                                        
                 </div>
                 <div class="col-md-10">
                     <g:if test="${flash.message}">

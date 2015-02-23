@@ -43,21 +43,21 @@
     </li>  
     
     <%--Offerte--%>              
-    <li >
+    <li class="hidden-sm">
         <g:link controller="prodotto" action="offerte" params="[visualizzazione: visualizzazione]">                    
             <span class="glyphicon glyphicon-tags" aria-hidden="true"></span><br/>
             <g:message code="visualizzaOfferte.label"/>
         </g:link>
     </li>    
     
+    <%--Cerca--%>
     <li class="hidden-sm">
-        <%--Cerca--%>
         <g:form class="navbar-form navbar-right" role="search" controller="prodotto" action="search" >
-            <div class="form-group">
+            <div class="form-group" style="width: 200px;">
               <g:hiddenField name="visualizzazione" value="${visualizzazione}"/>
               <g:hiddenField name="lang" value="${lang}"/>
               <div class="input-group input-group-md">
-                  <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}" style="width: 150px;">                   
+                  <input type="text" class="form-control" placeholder="<g:message code='menu.cerca.placeholher.label' default='Cerca'/>" name="q" value="${q}" >                   
                   
                   <span class="input-group-btn">
                     <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-search"></span></button>

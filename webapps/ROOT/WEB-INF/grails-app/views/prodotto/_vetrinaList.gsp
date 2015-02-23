@@ -1,7 +1,7 @@
 <div class="list-group">
     <g:each in="${prodottoInstanceList}" status="i" var="prodottoInstance">
         <g:set var="internazionalizzazione" value="${prodottoInstance.getInternazionalizzazione(lang.toString())}" />
-        <g:link class="list-group-item list-group-item-active"  action="detail" id="${prodottoInstance.id}" style="text-decoration: none;">
+        <g:link class="list-group-item"  action="detail" id="${prodottoInstance.id}" style="text-decoration: none; background-color:inherit;">
             <div class="row">            
                 <div class="col-sm-3">
                     <%--Immagine--%>
@@ -29,7 +29,7 @@
         </g:link>        
     </g:each>
 </div>
-<%--<div class="row">--%>
+<%--<div class="row">    list-group-item list-group-item-active--%>
 <%--    <div class="pagination " id="paginazione">--%>
 <%--        <g:paginate total="${prodottoInstanceCount ?: 0}" />--%>
 <%--    </div>--%>

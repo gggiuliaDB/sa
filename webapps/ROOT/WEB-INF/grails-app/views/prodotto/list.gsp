@@ -16,9 +16,7 @@
 	        <g:if test="${flash.error}">
 	            <div class="alert alert-warning" >${flash.error}</div>
 	        </g:if>
-	        
-	        idProdotto: ${idProdotto }
-	        
+
 	        <%--Creazione e modifica di un prodotto (angular.js)--%>
 	        <div id="prodottoApp" >
 	            <div id="prodottoController" ng-controller="prodottoController" ng-init="init('<g:createLink  uri=""/>', ${idProdotto})">

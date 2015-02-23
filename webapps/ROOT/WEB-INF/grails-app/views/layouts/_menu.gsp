@@ -46,7 +46,8 @@
                 <%--Cambia lingua--%>
                 <li class="dropdown hidden-sm">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <locale:flag/> 
+                    <locale:flag/> <br/>
+                    <g:message code="lingua.label"/>
                   </a>                  
                   <locale:selector/>                  
                 </li> 

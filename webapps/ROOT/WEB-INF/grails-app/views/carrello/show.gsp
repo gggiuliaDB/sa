@@ -26,8 +26,7 @@
             </g:if>
             <g:else>        
                             
-	            <g:render template="carrelloTable"  model="[mostraCostoSpedizione: true]">
-	            </g:render>
+	            <g:render template="carrelloTable"  model="[mostraCostoSpedizione: true]"></g:render>
 	            
 	            <div class="row">
 	                <div class="col-md-12">
@@ -52,7 +51,7 @@
 	                    <div class="panel panel-success">
 	                        <div class="panel-body panel-detail" >
 	                           <h3 style="margin-top: 0px;">Quanto costa la spedizione?</h3>
-	                           <hr>
+	                           <hr> 
 	                           <strong>8,00&euro;</strong> <small>per acquisti fino a 50&euro;</small><br/>
 	                           <strong>5,00&euro;</strong> <small>per acquisti tra 50&euro; e 100&euro;</small><br/>
 	                           <strong>GRATIS</strong> <small>per acquisti superiori a 100&euro;</small><br/>
