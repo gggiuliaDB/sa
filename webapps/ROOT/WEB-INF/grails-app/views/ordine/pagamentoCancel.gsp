@@ -12,7 +12,7 @@
 	        <g:message code="pagamento.transazione.annullata.message"/>
 	
 	        <div id="transactionSummary" class="transactionSummary">
-	            <g:render template="txsummary" model="[payment:payment]"/>
+	            <g:render template="txsummary" model="[payment:payment]"/> 
 	        </div>
 	    </div>
     </body>

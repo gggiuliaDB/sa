@@ -1,3 +1,5 @@
+TXTSUMMARY
+
 <g:each var="paymentItem" in="${payment.paymentItems}">
 	<div class="transSummaryItem">
 		<span class="transSummaryItemName">Item Name:</span>

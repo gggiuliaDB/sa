@@ -19,7 +19,7 @@
                 
                 <g:if test="${totale != '0'}">
                     <paypal:button
-                       itemName="Acquisto prodotti"
+                       itemName="Acquisto prodotti (id ordine: ${ordineInstance.id})"
                        itemNumber="${ordineInstance.id}"
                        discountAmount="0"
                        amount="${totale}"
@@ -27,10 +27,8 @@
                        currency="EUR"
                        buttonSrc="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" 
                        buttonAlt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare."
-                       returnController="ordine"
-                       returnAction="pagamentoSuccess"
-                       cancelController="ordine"
-                       cancelAction="pagamentoCancel"/>
+                       returnController="ordine" returnAction="pagamentoSuccess"
+                       cancelController="ordine" cancelAction="pagamentoCancel"/>
                 </g:if>
                 
            </g:else>

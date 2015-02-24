@@ -1,4 +1,3 @@
-
 <div class="form-group fieldcontain ${hasErrors(bean: prodottoInstance, field: 'immagine', 'error')} ">
   <div class="col-sm-2">
     <label for="immagine"> 

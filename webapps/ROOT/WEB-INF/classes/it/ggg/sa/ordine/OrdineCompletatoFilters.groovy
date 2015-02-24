@@ -16,6 +16,7 @@ class OrdineCompletatoFilters {
                     Ordine ordine = Ordine.findByPayment(payment)
                     ordine.totalePagato = ordine.calcolaTotale()
                     ordine.statoPagamento = StatoPagamento.PAGATO
+                    ordine.statoOrdine = StatoOrdine.DA_SPEDIRE
                     ordine.save(flush:true)
                     //Chiudo il task
                     try{

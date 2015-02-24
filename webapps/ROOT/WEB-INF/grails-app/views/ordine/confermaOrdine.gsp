@@ -14,6 +14,10 @@
                 </div>                       
             </g:if>
             <g:else>
+                
+                <div class="alert alert-info" role="alert">
+                    <g:message code="ordine.merceDisponibile.label"/>
+                </div> 
                            
                 <g:render template="/ordine/ordineTable" model="[mostraCostoSpedizione: true, solaLettura:true, cancellazione:true]"></g:render>
                 

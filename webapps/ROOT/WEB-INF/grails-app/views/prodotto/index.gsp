@@ -36,8 +36,6 @@
                    </div>
               </g:each>    
 			</div>
-		 
-		    
 		    
             <h3 style="text-align: center;">
                <span>Prodotti consigliati</span>

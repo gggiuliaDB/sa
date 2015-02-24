@@ -1,13 +1,14 @@
 <%@page import="org.springframework.web.servlet.i18n.SessionLocaleResolver"%>
 
-                
+               
 <g:if test="${ordini}" > 
   <table class="table ">
     <thead>       
         <tr>
-           <g:sortableColumn property="id" title="${message(code: 'ordine.id.column', default: 'id')}" style="text-align: right;"/>
+           <g:sortableColumn property="id" title="${message(code: 'ordine.id.column', default: 'id')}" style="text-align: left;"/>
            <g:sortableColumn property="dateCreated" title="${message(code: 'ordine.data_creazione.column', default: 'data_creazione')}" />
            <g:sortableColumn property="statoPagamento" title="${message(code: 'ordine.statoPagamento.column', default: 'statoPagamento')}" />
+           <g:sortableColumn property="statoOrdine" title="${message(code: 'ordine.statoOrdine.column', default: 'statoOrdine')}" />
            <th style="text-align: left;" ><g:message code="ordine.utente.column"/></th>
            <th style="text-align: right;"><g:message code="ordine.totale.column"/></th>
            <th></th>
@@ -16,9 +17,10 @@
     <tbody>
         <g:each in="${ordini}" var="ordine" >
             <tr>
-                <td style="text-align: right;">${ordine.id}</td>
+                <td style="text-align: left;">${ordine.id}</td>
                 <td style="text-align: left;" ><g:formatDate date="${ordine.dateCreated}" format="dd/MM/yyyy"/></td>
                 <td style="text-align: left;" >${ordine.statoPagamento.toString(lang)}</td>
+                <td style="text-align: left;" >${ordine.statoOrdine.toString(lang)}</td>
                 <td style="text-align: left;" >${ordine.utente.username}</td>
                 <td style="text-align: right;">
                     &euro; <g:formatNumber number="${ordine.calcolaTotale()}" type="currency" currencyCode="EUR" currencySymbol=""/>                

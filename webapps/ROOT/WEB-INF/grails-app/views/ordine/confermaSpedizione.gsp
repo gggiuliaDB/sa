@@ -3,11 +3,11 @@
     <head>
         <meta name="layout" content="main">
         <g:set var="entityName" value="${message(code: 'ordine.label', default: 'Ordine')}" />
-        <title><g:message code="ordine.confermaOrdine.title"/></title>
+        <title><g:message code="ordine.confermaSpedizione.title"/></title>
     </head>
     <body>
         <div class="container">
-            <h2><g:message code="ordine.confermaOrdine.title"/></h2>
+            <h2><g:message code="ordine.confermaSpedizione.title"/></h2>
             <g:if test="${flash.error}">
                 <div class="alert alert-danger" role="alert">
                     ${flash.error}

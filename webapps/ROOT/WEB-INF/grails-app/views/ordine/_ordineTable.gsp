@@ -10,7 +10,7 @@
         <table class="table table-responsive table-condensed " name="tabella">
           <thead>        
             <tr  >
-               <th colspan="2"></th>
+               <th colspan="2"><g:message code="carrello.prodotto.label" /></th>
                <th style="text-align: right;"><g:message code="carrello.prezzo.label" /></th>
                <th style="text-align: right;"><g:message code="carrello.quantitaRichiesta.label"  default="Quantità richiesta"/></th>
                <th style="text-align: right;"><g:message code="carrello.quantitaDisponibile.label" default="Quantità disponibile"/></th>

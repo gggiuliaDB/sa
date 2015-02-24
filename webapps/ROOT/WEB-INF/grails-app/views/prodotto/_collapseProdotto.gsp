@@ -10,9 +10,6 @@
                    <g:render template="formConfezioni"/>    
             </fieldset>
             <fieldset class="buttons">
-                 
-                <%--<g:render template="i18"></g:render>--%>      
-            
                 <g:link class="btn btn-default" controller="internazionalizzazioneProdotto" action="listForProdotto" id="{{prodotto.id}}">
                         Gestione traduzioni
                    </g:link><br/><br/>

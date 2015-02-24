@@ -79,6 +79,7 @@
     <resource>it.ggg.sa.ordine.ConfezioneOrdine</resource>
     <resource>it.ggg.sa.ordine.CostoSpedizione</resource>
     <resource>it.ggg.sa.ordine.Ordine</resource>
+    <resource>it.ggg.sa.ordine.StatoOrdine</resource>
     <resource>it.ggg.sa.ordine.StatoPagamento</resource>
     <resource>it.ggg.sa.parametro.Parametro</resource>
     <resource>it.ggg.sa.prodotto.Confezione</resource>
