@@ -75,6 +75,7 @@
                     </div>
                 </div>
                 
+                <p><g:message code="iva.inclusa.detail.message"/></p> 
                 <br>
                 <%--Ingredienti, come consumarlo e conservazione --%>
                 <g:render template="details"></g:render> 

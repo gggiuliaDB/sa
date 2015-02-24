@@ -7,7 +7,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'prodotto.label', default: 'Prodotto')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
-            
+          
 	</head>
 	<body>
         <r:require module="slick"/>
@@ -36,24 +36,21 @@
                    </div>
               </g:each>    
 			</div>
-		
-		    <%--<br>  
-            <hr>		     	
-			<h3 style="text-align: center;">
-                I più venduti
+		 
+		    
+		    
+            <h3 style="text-align: center;">
+               <span>Prodotti consigliati</span>
             </h3>
-            --%>
             
             <div class="row">					
                 <div class="col-md-2">
-                    <g:render template="tipi" ></g:render>
-                                        
+                    <g:render template="tipi" ></g:render>                                        
                 </div>
                 <div class="col-md-10">
                     <g:if test="${flash.message}">
                         <div class="alert alert-success" role="status">${flash.message}</div>
-                    </g:if>
-                    
+                    </g:if>                    
                     <g:render template="topProducts" model="[prodottoInstanceList: topProducts]"></g:render>
                 </div>
 			</div>

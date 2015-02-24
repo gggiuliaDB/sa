@@ -5,8 +5,8 @@ $(document).ready(function(){
 	  autoplay: true,
 	  //dots:true,
 	  focusOnSelect:true,
-	  swipeToSlide:true
-	 	  
+	  swipeToSlide:true,
+	  autoplaySpeed:5000 	  
 	
   });
 });

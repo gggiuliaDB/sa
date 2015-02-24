@@ -94,6 +94,7 @@
     <resource>it.ggg.sa.security.Role</resource>
     <resource>it.ggg.sa.security.User</resource>
     <resource>it.ggg.sa.security.UserRole</resource>
+    <resource>it.ggg.sa.statistiche.ProdottoVisitato</resource>
     <resource>it.ggg.sa.carrello.CarrelloService</resource>
     <resource>it.ggg.sa.mail.SaMailService</resource>
     <resource>it.ggg.sa.ordine.OrdineService</resource>
